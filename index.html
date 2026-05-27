@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="favicon-512.png">
+<title>SOAR — Uplift Your Humanity</title>
+<meta name="description" content="Soar is an AI studio building personalized, uplifting, responsible, ethical AI — across work, family, community, learning, and beyond. From the co-founder of Ancestry.com.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SOAR — Uplift Your Humanity">
+<meta property="og:description" content="AI tools for the way you actually work, learn, and live. From the co-founder of Ancestry.com.">
+<meta property="og:url" content="https://soar.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════
+   DESIGN TOKENS — Matched to institute.soar.com
+   ══════════════════════════════════════ */
+:root {
+  --coral: #EE785A;
+  --coral-dark: #d56b50;
+  --coral-light: #f9ded6;
+  --coral-tint: #fef6f4;
+  --purple: #8A51A2;
+  --purple-soft: #7F5FAA;
+  --purple-tint: #f7f1ff;
+  --navy: #06091e;
+  --navy-mid: #0f1330;
+  --white: #ffffff;
+  --off-white: #fafaf8;
+  --fg: #1a1917;
+  --fg-body: #545454;
+  --fg-muted: #7a7a7a;
+  --fg-subtle: #9a9a9a;
+  --fg-on-dark: #ffffff;
+  --fg-on-dark-muted: rgba(255,255,255,0.85);
+  --border: rgba(26,25,23,0.1);
+  --border-dark: rgba(255,255,255,0.1);
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-pill: 100px;
+  --shadow-card: 0 1px 4px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04);
+  --shadow-hover: 0 8px 30px rgba(138,81,162,0.12), 0 0 0 1px rgba(138,81,162,0.1);
+  --shadow-coral: 0 4px 20px rgba(238,120,90,0.3);
+  --tab-work:      #8A51A2;
+  --tab-voice:     #1A9E7A;
+  --tab-family:    #EE785A;
+  --tab-community: #4A8BC4;
+  --tab-learning:  #D4A843;
+  --tab-practice:  #CF6B87;
+}
+
+/* ══════════════════════════════════════
+   RESET & BASE
+   ══════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--fg-body);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  text-wrap: pretty;
+}
+h1,h2,h3,h4,h5 {
+  font-family: 'Urbanist', sans-serif;
+  color: var(--fg);
+  line-height: 1.12;
+  text-wrap: balance;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+.section { padding: 112px 0; }
+.eyebrow {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--coral);
+}
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+/* ══════════════════════════════════════
+   BUTTONS
+   ══════════════════════════════════════ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--coral);
+  color: #fff;
+  font-size: 16px;
+  padding: 16px 32px;
+  border-radius: var(--r-pill);
+}
+.btn-primary:hover {
+  background: var(--coral-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-coral);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--fg-muted);
+  font-size: 15px;
+  padding: 12px 24px;
+  border-radius: var(--r-pill);
+  border: 1.5px solid var(--border);
+}
+.btn-ghost:hover {
+  color: var(--fg);
+  border-color: var(--fg-muted);
+}
+
+/* ══════════════════════════════════════
+   FADE-UP
+   ══════════════════════════════════════ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ══════════════════════════════════════
+   NAV
+   ══════════════════════════════════════ */
+.nav {
+  position: sticky;
+  top: 0; z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(16px) saturate(1.2);
+  border-bottom: 1px solid var(--border);
+  height: 64px; padding: 0 48px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-logo svg { height: 28px; width: auto; }
+.nav-logo-text {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 15px; font-weight: 700;
+  color: var(--fg);
+  letter-spacing: 0.08em;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px; color: var(--fg-muted);
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--fg); }
+.nav-cta {
+  background: var(--coral);
+  color: #fff !important;
+  font-family: 'Urbanist', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  padding: 10px 22px;
+  border-radius: var(--r-pill);
+  transition: background 0.15s, transform 0.15s;
+}
+.nav-cta:hover {
+  background: var(--coral-dark);
+  transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════
+   HERO
+   ══════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  background: #d0e4f0;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  z-index: 0;
+}
+.hero-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 140px 0 80px;
+}
+.hero-credibility {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.7);
+  margin-bottom: 28px;
+}
+.hero h1 {
+  font-size: clamp(52px, 7.5vw, 96px);
+  font-weight: 900;
+  color: var(--fg);
+  line-height: 1.02;
+  max-width: 700px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--coral);
+}
+.hero-sub {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(17px, 2vw, 21px);
+  font-weight: 400;
+  color: var(--fg-body);
+  max-width: 440px;
+  margin: 28px 0 40px;
+  line-height: 1.6;
+  text-wrap: balance;
+}
+.hero-cta-row {
+  display: flex; gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hero-cta-row .btn-primary {
+  background: var(--coral);
+}
+.hero-cta-row .btn-primary:hover {
+  background: var(--coral-dark);
+  box-shadow: var(--shadow-coral);
+}
+
+/* ── Category Ticker ── */
+.hero-ticker-area {
+  position: relative; z-index: 2;
+  padding: 0 0 48px;
+  overflow: hidden;
+}
+.hero-ticker-row {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  animation: tickerScroll 35s linear infinite;
+}
+.hero-ticker-row.reverse {
+  animation: tickerScrollReverse 40s linear infinite;
+}
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes tickerScrollReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.ticker-pill {
+  flex-shrink: 0;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 22px;
+  border-radius: var(--r-pill);
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(4px);
+  color: rgba(0,0,0,0.55);
+  white-space: nowrap;
+  user-select: none;
+}
+
+@media (max-width: 700px) {
+  .hero { min-height: 85vh; }
+  .hero-content { padding: 100px 0 60px; }
+  .hero h1 { max-width: 100%; }
+  .hero-sub { max-width: 100%; }
+  .ticker-pill { font-size: 13px; padding: 8px 18px; }
+}
+
+/* ══════════════════════════════════════
+   THESIS / PURE AI
+   ══════════════════════════════════════ */
+.thesis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.thesis-left {
+}
+.pure-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 56px;
+}
+.pure-card {
+  background: rgba(255,255,255,0.95);
+  border-radius: var(--r-lg);
+  padding: 28px 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.pure-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+  font-size: 22px;
+}
+.pure-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.pure-card p {
+  font-size: 14px;
+  color: var(--fg-muted);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════
+   PRODUCT EXPLORER
+   ══════════════════════════════════════ */
+.products-section { background: var(--white); }
+.products-head { text-align: center; margin-bottom: 48px; }
+.products-head h2 { font-size: clamp(32px,4vw,48px); font-weight: 800; margin-top: 20px; }
+.product-explorer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.explorer-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.explorer-card {
+  border-radius: var(--r-lg);
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+.explorer-card-label {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding-top: 6px;
+  line-height: 1.3;
+}
+.explorer-card-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-left: 1px solid rgba(0,0,0,0.08);
+  padding-left: 16px;
+}
+.explorer-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: background 0.15s;
+  position: relative;
+  min-height: 38px;
+}
+.explorer-item:hover { background: rgba(255,255,255,0.5); }
+.explorer-item.active { background: rgba(255,255,255,0.6); }
+.explorer-item.active::before {
+  content: '';
+  position: absolute;
+  left: -17px; top: 8px; bottom: 8px;
+  width: 3px;
+  border-radius: 2px;
+  background: currentColor;
+}
+.explorer-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.explorer-item.featured .explorer-dot {
+  width: 10px; height: 10px;
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
+}
+.explorer-name {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--fg);
+}
+.explorer-item.featured .explorer-name {
+  font-weight: 700;
+  font-size: 15px;
+}
+.explorer-badge {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--coral);
+  background: rgba(255,255,255,0.7);
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.explorer-item.coming-soon { opacity: 0.45; }
+.explorer-detail {
+  align-self: stretch;
+  display: flex;
+}
+.explorer-detail-inner {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  transition: border-color 0.3s;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.explorer-detail-hero {
+  flex: 0.65;
+  min-height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--off-white);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+.explorer-detail-hero .material-symbols-outlined {
+  font-size: 72px;
+  opacity: 0.2;
+  transition: color 0.3s;
+}
+.explorer-detail-body {
+  flex: 1;
+  padding: 32px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.explorer-detail-cat {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 8px;
+  transition: color 0.3s;
+}
+.explorer-detail-name {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.explorer-detail-desc {
+  font-size: 15px;
+  color: var(--fg-muted);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.explorer-detail-link {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--coral);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.15s;
+}
+.explorer-detail-link:hover { gap: 10px; }
+.explorer-progress {
+  margin: 24px 36px 28px;
+  height: 3px;
+  background: rgba(0,0,0,0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.explorer-progress-bar {
+  height: 100%;
+  background: var(--coral);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+/* Category card colors */
+.explorer-card[data-cat="work"] { background: rgba(138,81,162,0.12); }
+.explorer-card[data-cat="work"] .explorer-card-label { color: var(--tab-work); }
+.explorer-card[data-cat="work"] .explorer-item.active::before { color: var(--tab-work); }
+.explorer-card[data-cat="words"] { background: rgba(26,158,122,0.12); }
+.explorer-card[data-cat="words"] .explorer-card-label { color: var(--tab-voice); }
+.explorer-card[data-cat="words"] .explorer-item.active::before { color: var(--tab-voice); }
+.explorer-card[data-cat="family"] { background: rgba(238,120,90,0.12); }
+.explorer-card[data-cat="family"] .explorer-card-label { color: var(--tab-family); }
+.explorer-card[data-cat="family"] .explorer-item.active::before { color: var(--tab-family); }
+.explorer-card[data-cat="community"] { background: rgba(74,139,196,0.12); }
+.explorer-card[data-cat="community"] .explorer-card-label { color: var(--tab-community); }
+.explorer-card[data-cat="community"] .explorer-item.active::before { color: var(--tab-community); }
+.explorer-card[data-cat="learning"] { background: rgba(212,168,67,0.12); }
+.explorer-card[data-cat="learning"] .explorer-card-label { color: var(--tab-learning); }
+.explorer-card[data-cat="learning"] .explorer-item.active::before { color: var(--tab-learning); }
+
+/* ══════════════════════════════════════
+   TRUST LOGO TICKER
+   ══════════════════════════════════════ */
+.trust-bar {
+  padding: 48px 0;
+  overflow: hidden;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.trust-track {
+  display: flex;
+  gap: 64px;
+  align-items: center;
+  animation: ticker 30s linear infinite;
+  width: max-content;
+}
+.trust-track:hover { animation-play-state: paused; }
+.trust-track img {
+  height: auto;
+  max-height: 36px;
+  max-width: 120px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.5;
+  transition: filter 0.3s, opacity 0.3s;
+}
+.trust-track img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ══════════════════════════════════════
+   FOUNDER
+   ══════════════════════════════════════ */
+.founder-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.founder-video {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--navy-mid);
+}
+.founder-content-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.content-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  position: relative;
+}
+.content-card:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+}
+.content-card-img {
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+}
+.content-card-badge {
+  position: absolute;
+  top: 12px; left: 12px;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  background: rgba(238,120,90,0.15);
+  color: var(--coral);
+}
+.content-card-body {
+  padding: 20px;
+}
+.content-card-body h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.content-card-body p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.content-card-link {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--coral);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.content-card:hover .content-card-link { gap: 8px; }
+
+/* ══════════════════════════════════════
+   CONTACT
+   ══════════════════════════════════════ */
+
+/* ── FAQ ── */
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-item:first-child {
+  border-top: 1px solid var(--border);
+}
+.faq-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 24px 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--fg);
+}
+.faq-trigger::-webkit-details-marker { display: none; }
+.faq-icon {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--off-white);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.faq-icon .material-symbols-outlined {
+  font-size: 18px;
+  color: var(--fg-muted);
+  transition: color 0.2s;
+}
+details[open] .faq-icon {
+  background: var(--coral);
+  transform: rotate(45deg);
+}
+details[open] .faq-icon .material-symbols-outlined {
+  color: #fff;
+}
+.faq-body {
+  padding: 0 0 24px;
+}
+.faq-body-inner {
+  font-size: 15px;
+  color: var(--fg-muted);
+  line-height: 1.7;
+  max-width: 640px;
+}
+.faq-body-inner a {
+  text-decoration: none;
+}
+.faq-body-inner a:hover {
+  text-decoration: underline;
+}
+
+/* ══════════════════════════════════════
+   CONTACT
+   ══════════════════════════════════════ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contact-form input,
+.contact-form textarea {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  padding: 14px 18px;
+  border: 1.5px solid rgba(0,0,0,0.12);
+  border-radius: var(--r-md);
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  color: var(--fg);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  width: 100%;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--coral);
+  box-shadow: 0 0 0 3px rgba(238,120,90,0.12);
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--fg-subtle);
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.contact-form .btn-primary {
+  align-self: flex-start;
+}
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+.contact-card:hover {
+  border-color: rgba(0,0,0,0.15);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.contact-card div { flex: 1; }
+.contact-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.contact-card p {
+  font-size: 13px;
+  color: var(--fg-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════ */
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 24px 0;
+}
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+.footer-links a {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  transition: color 0.15s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+/* ══════════════════════════════════════
+   MOBILE
+   ══════════════════════════════════════ */
+@media (max-width: 700px) {
+  .container { padding: 0 20px; }
+  .section { padding: 72px 0; }
+  .nav { padding: 0 16px; }
+  .nav-links { display: none; }
+  .hero { padding: 88px 0 72px; }
+  .hero h1 { font-size: clamp(36px, 10vw, 56px); }
+  .hero-you { font-size: clamp(48px, 14vw, 80px); }
+  .thesis-grid { grid-template-columns: 1fr; gap: 40px; }
+  .thesis-left { position: static; }
+  .pure-grid { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 40px; }
+  .product-explorer { grid-template-columns: 1fr; }
+  .explorer-detail { position: static; }
+  .trust-track { gap: 40px; }
+  .trust-track img { max-height: 28px; max-width: 100px; }
+  .founder-grid { grid-template-columns: 1fr; gap: 40px; }
+  .founder-content-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .contact-form .btn-primary { align-self: stretch; }
+  .case-study-grid { grid-template-columns: 1fr !important; }
+  .footer-top, .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════ NAV ═══════ -->
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 98.2 142.65" aria-label="SOAR"><defs><style>.sb{fill:#e57e61;}</style></defs><g><path class="sb" d="M73.35,78.48c4.3,21.62,3.91,36.66-13.2,51.9-7.5,6.68-16.42,11.12-26.43,12.13-12.86,1.3-24.08-6.68-26.62-19.28-2.89-14.38,25.95-17.09,39.56-19.59l20.66-3.8c1.69-15.89-12.99-49.53-2.41-55.74,12.18-7.15,40.38,26.51,31.65,47.27-2.56,6.1-9.03,11.17-15.36,12.21-2.32.38-2.95-2.98-2.84-4.35.15-2,1.5-3.67,3.65-4.63,5.97-2.68,9.31-8.55,7.81-15.25-2.55-11.39-9.83-21.91-20.39-28.29-.4,9.77,2.14,18.39,3.93,27.41ZM32.43,134.29c14.71-1.63,27.39-11.55,33.21-25.3l-32.75,5.36c-4.91.8-9.36,2.05-13.81,4.21-1.28.77-3.77,2.18-3.38,4.12,1.48,7.35,8.52,12.52,16.74,11.6Z"/><path class="sb" d="M.66,65.76c-2.52-11.16,2.32-20.79,12.1-25.34,1.63-.76,3.54-2.35,5.6-.98,2.31,1.54,2.15,6.7-.75,7.86-6.74,2.7-10.78,8.85-8.97,16.38,2.69,11.16,9.73,21.23,20.17,27.87.79-8.37-1.33-15.99-3.05-23.7-4.02-17.99-5.91-34.97,6.3-49.33C40.32,8.81,50.97,1.85,63.69.22c13.61-1.74,26.24,6.78,27.68,20.67.43,4.13-3.22,7.83-6.68,9.73-13.86,7.63-36.96,7.51-53.71,12.28-1.41,16.22,13.87,51.89,1.53,56.01-4.35,1.45-8.85-.32-12.43-3.17-9.46-7.52-16.68-17.86-19.42-29.99ZM82.63,20.06c-1.26-7.65-8.82-12.69-16.85-11.8-14.5,1.61-27.3,11.73-33.16,25.44l23.63-3.81c8.81-1.42,27.27-4.48,26.38-9.83Z"/></g></svg>
+    <span class="nav-logo-text">SOAR</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="https://substack.com/@paulallenai" target="_blank" rel="noopener">News</a></li>
+    <li><a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3cRrOdW84suJFRQXJg4JaJJRBRug9NzXz_3lP9KURE8N9Cdr7P_XK5z0icf5r9t2cDDu8lcW16" target="_blank" rel="noopener" class="nav-cta">Get Involved</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════════════ HERO ═══════ -->
+<section class="hero">
+  <div class="hero-bg">
+    <!-- Replace src with your sky/clouds image -->
+    <img src="sky-hero.jpg" alt="">
+  </div>
+  <div class="hero-content">
+    <div class="container">
+      <p class="hero-credibility">From the creators of Ancestry.com</p>
+      <h1>Uplift your<br><em>humanity.</em></h1>
+      <p class="hero-sub">Soar with AI tools built for <strong>your life</strong>.</p>
+      <div class="hero-cta-row">
+        <a href="#products" class="btn btn-primary">
+          See What We Build
+          <span class="material-symbols-outlined" style="font-size:18px;">arrow_downward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Category ticker -->
+  <div class="hero-ticker-area">
+    <div class="hero-ticker-row" id="tickerRow1">
+      <span class="ticker-pill">Meeting Intelligence</span>
+      <span class="ticker-pill">Family Stories</span>
+      <span class="ticker-pill">Legal Research</span>
+      <span class="ticker-pill">Course Creation</span>
+      <span class="ticker-pill">Public Records</span>
+      <span class="ticker-pill">Podcast Production</span>
+      <span class="ticker-pill">Pitch Decks</span>
+      <span class="ticker-pill">Government Transparency</span>
+      <span class="ticker-pill">Voice Capture</span>
+      <span class="ticker-pill">Sales Coaching</span>
+      <span class="ticker-pill">Site Building</span>
+      <span class="ticker-pill">Academic Writing</span>
+      <!-- duplicate set for seamless loop -->
+      <span class="ticker-pill">Meeting Intelligence</span>
+      <span class="ticker-pill">Family Stories</span>
+      <span class="ticker-pill">Legal Research</span>
+      <span class="ticker-pill">Course Creation</span>
+      <span class="ticker-pill">Public Records</span>
+      <span class="ticker-pill">Podcast Production</span>
+      <span class="ticker-pill">Pitch Decks</span>
+      <span class="ticker-pill">Government Transparency</span>
+      <span class="ticker-pill">Voice Capture</span>
+      <span class="ticker-pill">Sales Coaching</span>
+      <span class="ticker-pill">Site Building</span>
+      <span class="ticker-pill">Academic Writing</span>
+    </div>
+    <div class="hero-ticker-row reverse" style="margin-top:12px;" id="tickerRow2">
+      <span class="ticker-pill">Team Performance</span>
+      <span class="ticker-pill">Genealogy</span>
+      <span class="ticker-pill">Investor Outreach</span>
+      <span class="ticker-pill">Email Summaries</span>
+      <span class="ticker-pill">School Board Minutes</span>
+      <span class="ticker-pill">Author Tools</span>
+      <span class="ticker-pill">Client Proposals</span>
+      <span class="ticker-pill">Community Engagement</span>
+      <span class="ticker-pill">Exam Prep</span>
+      <span class="ticker-pill">Content Strategy</span>
+      <span class="ticker-pill">Health & Wellness</span>
+      <span class="ticker-pill">Professional Development</span>
+      <!-- duplicate set for seamless loop -->
+      <span class="ticker-pill">Team Performance</span>
+      <span class="ticker-pill">Genealogy</span>
+      <span class="ticker-pill">Investor Outreach</span>
+      <span class="ticker-pill">Email Summaries</span>
+      <span class="ticker-pill">School Board Minutes</span>
+      <span class="ticker-pill">Author Tools</span>
+      <span class="ticker-pill">Client Proposals</span>
+      <span class="ticker-pill">Community Engagement</span>
+      <span class="ticker-pill">Exam Prep</span>
+      <span class="ticker-pill">Content Strategy</span>
+      <span class="ticker-pill">Health & Wellness</span>
+      <span class="ticker-pill">Professional Development</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ THESIS ═══════ -->
+<section style="background:#5b3578; padding:96px 0 0;">
+  <div class="container">
+    <div class="thesis-grid fade-up">
+      <div class="thesis-left">
+        <span class="eyebrow" style="color:var(--coral);">What is SOAR?</span>
+        <h2 style="margin-top:20px; font-size:clamp(32px,4vw,48px); font-weight:800; color:#fff;">
+          An AI studio built on one belief:<br>
+          <span style="color:var(--coral);">technology should make you more human, not less.</span>
+        </h2>
+      </div>
+      <div class="thesis-right">
+        <p style="font-size:17px; line-height:1.75; color:rgba(255,255,255,0.85); font-weight:400;">
+          Soar is an AI studio building across every part of life — work, family, community, learning. One platform. Many products. All yours.
+        </p>
+        <div style="margin-top:28px; padding:24px; background:rgba(255,255,255,0.08); border-radius:var(--r-md); border:1px solid rgba(255,255,255,0.1);">
+          <h4 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:8px;">Bring Your Own Agents</h4>
+          <p style="font-size:15px; line-height:1.65; color:rgba(255,255,255,0.75);">
+            Every Soar product comes with a fleet of AI agents that learn how you work, write, and think. They're yours — trained on your voice, your data, your goals.
+          </p>
+          <a href="https://lighthearted-cupcake-70d020.netlify.app/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; margin-top:14px; font-family:'Urbanist',sans-serif; font-size:14px; font-weight:600; color:var(--coral); text-decoration:none;">
+            Read the vision <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- PURE AI banner strip -->
+  <div style="margin-top:64px; padding:32px 0; background:rgba(255,255,255,0.06); border-top:1px solid rgba(255,255,255,0.1);">
+    <div class="container">
+      <div class="fade-up" style="display:flex; justify-content:center; align-items:center; gap:48px; flex-wrap:wrap;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="material-symbols-outlined" style="font-size:22px; color:var(--coral);">person</span>
+          <span style="font-family:'Urbanist',sans-serif; font-size:15px; font-weight:600; color:#fff;">Personalized</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="material-symbols-outlined" style="font-size:22px; color:var(--coral);">trending_up</span>
+          <span style="font-family:'Urbanist',sans-serif; font-size:15px; font-weight:600; color:#fff;">Uplifting</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="material-symbols-outlined" style="font-size:22px; color:var(--coral);">shield</span>
+          <span style="font-family:'Urbanist',sans-serif; font-size:15px; font-weight:600; color:#fff;">Responsible</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="material-symbols-outlined" style="font-size:22px; color:var(--coral);">balance</span>
+          <span style="font-family:'Urbanist',sans-serif; font-size:15px; font-weight:600; color:#fff;">Ethical</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ PRODUCTS ═══════ -->
+<section class="section products-section" id="products">
+  <div class="container">
+    <div class="products-head fade-up">
+      <span class="eyebrow">Products</span>
+      <h2>What we're building.</h2>
+    </div>
+
+    <div class="product-explorer fade-up">
+      <!-- Left: category cards -->
+      <div class="explorer-cards">
+
+        <div class="explorer-card" data-cat="work">
+          <div class="explorer-card-label">Your Work</div>
+          <div class="explorer-card-items">
+            <div class="explorer-item featured active" data-color="var(--tab-work)" data-name="Workplace AI" data-cat-label="Your Work" data-desc="Turn every meeting into structured knowledge, tracked actions, and measurable performance. Our flagship product for teams that want to stop losing decisions to bad notes." data-url="https://workplace-ai.com" data-icon="groups" data-img="https://workplace-ai.com/assets/JWmZL2ePmAxEEB4sHm72PhAW5M8.webp">
+              <div class="explorer-dot" style="background:var(--tab-work);"></div>
+              <span class="explorer-name">Workplace AI</span>
+              <span class="explorer-badge">Featured</span>
+            </div>
+            <div class="explorer-item" data-color="var(--tab-work)" data-name="EAScribe" data-cat-label="Your Work" data-desc="AI operating system for executive assistants and chiefs of staff supporting C-suite leaders." data-url="https://eascribe.soar.com" data-icon="assistant">
+              <div class="explorer-dot" style="background:var(--tab-work);"></div>
+              <span class="explorer-name">EAScribe</span>
+            </div>
+            <div class="explorer-item" data-color="var(--tab-work)" data-name="Soar Sales AI" data-cat-label="Your Work" data-desc="Turn sales conversations into actionable insights that drive smarter decisions." data-url="https://soarsales.ai" data-icon="trending_up">
+              <div class="explorer-dot" style="background:var(--tab-work);"></div>
+              <span class="explorer-name">Soar Sales AI</span>
+            </div>
+            <div class="explorer-item" data-color="var(--tab-work)" data-name="PitchPerfect" data-cat-label="Your Work" data-desc="AI pitch coach that scores your pitch like a real VC — so you walk in prepared." data-url="https://pitchperfect.soar.com" data-icon="campaign">
+              <div class="explorer-dot" style="background:var(--tab-work);"></div>
+              <span class="explorer-name">PitchPerfect</span>
+            </div>
+            <div class="explorer-item" data-color="var(--tab-work)" data-name="LegalScribe" data-cat-label="Your Work" data-desc="AI-powered meeting intelligence for legal professionals. Every detail, every case." data-url="https://legalscribe.soar.com" data-icon="gavel">
+              <div class="explorer-dot" style="background:var(--tab-work);"></div>
+              <span class="explorer-name">LegalScribe</span>
+            </div>
+            <div class="explorer-item" data-color="var(--tab-work)" data-name="TradeScribe" data-cat-label="Your Work" data-desc="Narrate on-site, get professional reports and estimates — no more midnight paperwork." data-url="https://tradescribe.soar.com" data-icon="construction">
+              <div class="explorer-dot" style="background:var(--tab-work);"></div>
+              <span class="explorer-name">TradeScribe</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="explorer-card" data-cat="words">
+          <div class="explorer-card-label">Your Words</div>
+          <div class="explorer-card-items">
+            <div class="explorer-item" data-color="var(--tab-voice)" data-name="AuthorFlow" data-cat-label="Your Words" data-desc="Turn expert interviews and voice notes into chapter-ready first drafts." data-url="https://authorflow.soar.com" data-icon="edit_note">
+              <div class="explorer-dot" style="background:var(--tab-voice);"></div>
+              <span class="explorer-name">AuthorFlow</span>
+            </div>
+            <div class="explorer-item" data-color="var(--tab-voice)" data-name="PodScribe" data-cat-label="Your Words" data-desc="Turn your podcast library into a searchable, queryable knowledge base." data-url="https://podscribe.soar.com" data-icon="podcasts">
+              <div class="explorer-dot" style="background:var(--tab-voice);"></div>
+              <span class="explorer-name">PodScribe</span>
+            </div>
+            <div class="explorer-item" data-color="var(--tab-voice)" data-name="VoxMea" data-cat-label="Your Words" data-desc="Learn languages from your actual work meetings — not textbook phrases." data-url="https://voxmea.soar.com" data-icon="translate">
+              <div class="explorer-dot" style="background:var(--tab-voice);"></div>
+              <span class="explorer-name">VoxMea</span>
+            </div>
+            <div class="explorer-item" data-color="var(--tab-voice)" data-name="CourseScribe" data-cat-label="Your Words" data-desc="Turn classroom recordings into structured course content — built from your best teaching." data-url="https://coursescribe.soar.com" data-icon="school">
+              <div class="explorer-dot" style="background:var(--tab-voice);"></div>
+              <span class="explorer-name">CourseScribe</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="explorer-card" data-cat="family">
+          <div class="explorer-card-label">Your Family</div>
+          <div class="explorer-card-items">
+            <div class="explorer-item featured" data-color="var(--tab-family)" data-name="FamilyScribe" data-cat-label="Your Family" data-desc="Preserve family stories, voices, and history before they're gone. Searchable and organized forever. Built by the co-founder of Ancestry.com." data-url="https://familyscribe.soar.com" data-icon="family_restroom">
+              <div class="explorer-dot" style="background:var(--tab-family);"></div>
+              <span class="explorer-name">FamilyScribe</span>
+              <span class="explorer-badge">Featured</span>
+            </div>
+            <div class="explorer-item" data-color="var(--tab-family)" data-name="Faith Scribe" data-cat-label="Your Family" data-desc="Specialized feedback modules that enhance your worship and faith journey." data-url="https://try.soar.com/faith/" data-icon="church">
+              <div class="explorer-dot" style="background:var(--tab-family);"></div>
+              <span class="explorer-name">Faith Scribe</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="explorer-card" data-cat="community">
+          <div class="explorer-card-label">Your Community</div>
+          <div class="explorer-card-items">
+            <div class="explorer-item featured" data-color="var(--tab-community)" data-name="Citizen Portal" data-cat-label="Your Community" data-desc="Stay informed on everything happening in local, state, and federal government. Over 1 million hours of public meetings — searchable, accessible, and transparent." data-url="https://citizenportal.ai" data-icon="account_balance">
+              <div class="explorer-dot" style="background:var(--tab-community);"></div>
+              <span class="explorer-name">Citizen Portal</span>
+              <span class="explorer-badge">Featured</span>
+            </div>
+            <div class="explorer-item" data-color="var(--tab-community)" data-name="PublicMinutes" data-cat-label="Your Community" data-desc="Search and explore over 1 million hours of public meetings — made accessible by AI." data-url="https://minutes.citizenportal.ai" data-icon="record_voice_over">
+              <div class="explorer-dot" style="background:var(--tab-community);"></div>
+              <span class="explorer-name">PublicMinutes</span>
+            </div>
+            <div class="explorer-item" data-color="var(--tab-community)" data-name="News Scribe" data-cat-label="Your Community" data-desc="AI-assisted transcription, story-building, and voice recognition for journalists and newsrooms." data-url="https://newsscribe.ai" data-icon="newspaper">
+              <div class="explorer-dot" style="background:var(--tab-community);"></div>
+              <span class="explorer-name">News Scribe</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="explorer-card" data-cat="learning">
+          <div class="explorer-card-label">Your Learning</div>
+          <div class="explorer-card-items">
+            <div class="explorer-item featured" data-color="var(--tab-learning)" data-name="SOAR AI Institute" data-cat-label="Your Learning" data-desc="Two-day hands-on workshop. Build a working AI tool on your real business data. Leave with something running. Taught by Paul Allen." data-url="https://institute.soar.com" data-icon="workspace_premium" data-img="https://institute.soar.com/heroillustration.png">
+              <div class="explorer-dot" style="background:var(--tab-learning);"></div>
+              <span class="explorer-name">SOAR AI Institute</span>
+              <span class="explorer-badge">Featured</span>
+            </div>
+            <div class="explorer-item" data-color="var(--tab-learning)" data-name="AceIt" data-cat-label="Your Learning" data-desc="AI interview coach — records real interviews and shows where you shine and stumble." data-url="https://aceit.soar.com" data-icon="mic">
+              <div class="explorer-dot" style="background:var(--tab-learning);"></div>
+              <span class="explorer-name">AceIt</span>
+            </div>
+            <div class="explorer-item coming-soon" data-color="var(--tab-learning)" data-name="Health Portal" data-cat-label="Your Learning" data-desc="AI-powered transcription and analysis of doctor-patient interactions. Coming soon." data-url="#" data-icon="health_and_safety">
+              <div class="explorer-dot" style="background:var(--tab-learning);"></div>
+              <span class="explorer-name">Health Portal</span>
+              <span style="font-size:11px; color:var(--fg-subtle); margin-left:auto;">Soon</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: detail card -->
+      <div class="explorer-detail">
+        <div class="explorer-detail-inner" id="explorerDetail">
+          <div class="explorer-detail-hero" id="explorerHero">
+            <span class="material-symbols-outlined" id="explorerIconSpan">groups</span>
+            <img id="explorerImg" src="" alt="" style="display:none; max-width:100%; max-height:100%; object-fit:contain; padding:24px;">
+          </div>
+          <div class="explorer-detail-body">
+            <div class="explorer-detail-cat" id="explorerCat">Your Work</div>
+            <h3 class="explorer-detail-name" id="explorerName">Workplace AI</h3>
+            <p class="explorer-detail-desc" id="explorerDesc">Turn every meeting into structured knowledge, tracked actions, and measurable performance. Our flagship product for teams that want to stop losing decisions to bad notes.</p>
+            <a href="https://workplace-ai.com" target="_blank" rel="noopener" class="explorer-detail-link" id="explorerLink">
+              Visit site <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+            </a>
+          </div>
+          <div class="explorer-progress" id="explorerProgress">
+            <div class="explorer-progress-bar" id="explorerBar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="fade-up" style="text-align:center; margin-top:40px; font-size:14px; color:var(--fg-subtle);">Plus more in development across real estate, fitness, culinary, weddings, and beyond.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ CTA BAND ═══════ -->
+<section style="background:#5b3578; padding:72px 0;">
+  <div class="container fade-up" style="text-align:center;">
+    <h2 style="font-size:clamp(28px,4vw,42px); font-weight:800; color:#fff; margin-bottom:16px; text-wrap:balance;">Ready to see what AI can do for you?</h2>
+    <p style="font-size:17px; color:rgba(255,255,255,0.75); margin-bottom:36px; max-width:480px; margin-left:auto; margin-right:auto;">Whether you're exploring a partnership, investing, or just curious — we'd love to talk.</p>
+    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3cRrOdW84suJFRQXJg4JaJJRBRug9NzXz_3lP9KURE8N9Cdr7P_XK5z0icf5r9t2cDDu8lcW16" target="_blank" rel="noopener" class="btn" style="background:var(--coral); color:#fff; font-size:16px; padding:16px 36px; border-radius:var(--r-pill); transition:all 0.2s;">
+      Get Involved
+      <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ TRUST LOGOS ═══════ -->
+<section class="trust-bar">
+  <div class="trust-track">
+    <img src="https://unicorn-images.b-cdn.net/63186be6-1282-4543-82eb-c00fe93f2032?optimizer=gif" alt="Peter Drucker Society">
+    <img src="https://unicorn-images.b-cdn.net/016e870f-6985-4d80-8ca5-d94c20c96c3d?optimizer=gif" alt="SHRM">
+    <img src="https://unicorn-images.b-cdn.net/4a69c8a6-4979-4538-9eb6-b2f477a630bf?optimizer=gif" alt="High Focus AI">
+    <img src="https://unicorn-images.b-cdn.net/4ee0f6ad-9a5f-4206-a0df-82539223b147?optimizer=gif" alt="BYU">
+    <img src="https://unicorn-images.b-cdn.net/18742ebf-545d-4c7c-9ea8-a61de59a0f31?optimizer=gif" alt="Sandler Training">
+    <img src="https://unicorn-images.b-cdn.net/4b499b6d-f003-4828-9e1c-df90939802e1?optimizer=gif" alt="Partner">
+    <img src="https://unicorn-images.b-cdn.net/a767e52e-9a3c-430e-8f75-f0dd1b519306?optimizer=gif" alt="Partner">
+    <img src="https://unicorn-images.b-cdn.net/27472eec-3fd5-4ba6-becc-a65b2cc89629?optimizer=gif" alt="Partner">
+    <img src="https://unicorn-images.b-cdn.net/65615f12-5949-4226-855e-2886b2e35d93?optimizer=gif" alt="Partner">
+    <img src="https://unicorn-images.b-cdn.net/af88290a-84c9-4c25-833b-5b60643d059d?optimizer=gif" alt="Partner">
+    <!-- Duplicate for seamless loop -->
+    <img src="https://unicorn-images.b-cdn.net/63186be6-1282-4543-82eb-c00fe93f2032?optimizer=gif" alt="" aria-hidden="true">
+    <img src="https://unicorn-images.b-cdn.net/016e870f-6985-4d80-8ca5-d94c20c96c3d?optimizer=gif" alt="" aria-hidden="true">
+    <img src="https://unicorn-images.b-cdn.net/4a69c8a6-4979-4538-9eb6-b2f477a630bf?optimizer=gif" alt="" aria-hidden="true">
+    <img src="https://unicorn-images.b-cdn.net/4ee0f6ad-9a5f-4206-a0df-82539223b147?optimizer=gif" alt="" aria-hidden="true">
+    <img src="https://unicorn-images.b-cdn.net/18742ebf-545d-4c7c-9ea8-a61de59a0f31?optimizer=gif" alt="" aria-hidden="true">
+    <img src="https://unicorn-images.b-cdn.net/4b499b6d-f003-4828-9e1c-df90939802e1?optimizer=gif" alt="" aria-hidden="true">
+    <img src="https://unicorn-images.b-cdn.net/a767e52e-9a3c-430e-8f75-f0dd1b519306?optimizer=gif" alt="" aria-hidden="true">
+    <img src="https://unicorn-images.b-cdn.net/27472eec-3fd5-4ba6-becc-a65b2cc89629?optimizer=gif" alt="" aria-hidden="true">
+    <img src="https://unicorn-images.b-cdn.net/65615f12-5949-4226-855e-2886b2e35d93?optimizer=gif" alt="" aria-hidden="true">
+    <img src="https://unicorn-images.b-cdn.net/af88290a-84c9-4c25-833b-5b60643d059d?optimizer=gif" alt="" aria-hidden="true">
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ CASE STUDIES ═══════ -->
+<section class="section" style="background:var(--off-white);">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:48px;" class="fade-up">
+      <span class="eyebrow">Impact</span>
+      <h2 style="font-size:clamp(28px,3.5vw,42px); font-weight:800; margin-top:20px;">
+        See how organizations use Soar.
+      </h2>
+    </div>
+    <div class="case-study-grid fade-up" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+      <a href="https://try.soar.com/drucker" target="_blank" rel="noopener" style="background:#fff; border:1px solid var(--border); border-radius:var(--r-xl); overflow:hidden; text-decoration:none; color:inherit; transition:box-shadow 0.2s, transform 0.15s;">
+        <div style="height:160px; background:linear-gradient(135deg, #f7f1ff 0%, #ede9f9 100%); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
+          <img src="https://unicorn-images.b-cdn.net/63186be6-1282-4543-82eb-c00fe93f2032?optimizer=gif" alt="Peter Drucker Society" style="max-height:120px; filter:none; opacity:1;">
+        </div>
+        <div style="padding:24px;">
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">Global Peter Drucker Forum</h3>
+          <p style="font-size:14px; color:var(--fg-muted); line-height:1.6; margin-bottom:16px;">AI-enabled learning for leaders at one of the world's most respected management conferences.</p>
+          <span style="font-family:'Urbanist',sans-serif; font-size:14px; font-weight:600; color:var(--coral); display:inline-flex; align-items:center; gap:4px;">Read the case study <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></span>
+        </div>
+      </a>
+      <a href="https://try.soar.com/shrm" target="_blank" rel="noopener" style="background:#fff; border:1px solid var(--border); border-radius:var(--r-xl); overflow:hidden; text-decoration:none; color:inherit; transition:box-shadow 0.2s, transform 0.15s;">
+        <div style="height:160px; background:linear-gradient(135deg, #eef5fb 0%, #dce9f4 100%); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
+          <img src="https://unicorn-images.b-cdn.net/016e870f-6985-4d80-8ca5-d94c20c96c3d?optimizer=gif" alt="SHRM" style="max-height:120px; filter:none; opacity:1;">
+        </div>
+        <div style="padding:24px;">
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">SHRM</h3>
+          <p style="font-size:14px; color:var(--fg-muted); line-height:1.6; margin-bottom:16px;">Turning content into a growth flywheel for the global leader in human resources.</p>
+          <span style="font-family:'Urbanist',sans-serif; font-size:14px; font-weight:600; color:var(--coral); display:inline-flex; align-items:center; gap:4px;">Read the case study <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></span>
+        </div>
+      </a>
+      <a href="https://try.soar.com/highfocus" target="_blank" rel="noopener" style="background:#fff; border:1px solid var(--border); border-radius:var(--r-xl); overflow:hidden; text-decoration:none; color:inherit; transition:box-shadow 0.2s, transform 0.15s;">
+        <div style="height:160px; background:linear-gradient(135deg, #e8f5f0 0%, #dbfff5 100%); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
+          <img src="https://unicorn-images.b-cdn.net/4a69c8a6-4979-4538-9eb6-b2f477a630bf?optimizer=gif" alt="High Focus AI" style="max-height:120px; filter:none; opacity:1;">
+        </div>
+        <div style="padding:24px;">
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">HighFocus Sales AI</h3>
+          <p style="font-size:14px; color:var(--fg-muted); line-height:1.6; margin-bottom:16px;">Instant AI feedback on email and video calls to boost sales communication.</p>
+          <span style="font-family:'Urbanist',sans-serif; font-size:14px; font-weight:600; color:var(--coral); display:inline-flex; align-items:center; gap:4px;">Read the case study <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ FAQ ═══════ -->
+<section class="section" style="background:var(--white);">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:56px;" class="fade-up">
+      <span class="eyebrow">FAQ</span>
+      <h2 style="font-size:clamp(28px,3.5vw,42px); font-weight:800; margin-top:20px;">Common questions.</h2>
+    </div>
+    <div class="fade-up" style="max-width:720px; margin:0 auto;">
+
+      <details class="faq-item">
+        <summary class="faq-trigger">
+          <span>What does Soar actually do?</span>
+          <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
+        </summary>
+        <div class="faq-body"><div class="faq-body-inner">
+          Soar is an AI studio that builds products across work, family, community, and learning. Our flagship product, Workplace AI, turns meetings into structured knowledge and action items. But we also build tools for authors, lawyers, tradespeople, podcasters, families, educators, and public institutions — all powered by the same underlying AI platform.
+        </div></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-trigger">
+          <span>Who founded Soar?</span>
+          <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
+        </summary>
+        <div class="faq-body"><div class="faq-body-inner">
+          Paul Allen, co-founder of Ancestry.com. He spent thirty years building technology that makes complex, deeply human things accessible to everyone. With Soar, he's applying that same philosophy to AI — building what he calls PURE AI: Personalized, Uplifting, Responsible, and Ethical.
+        </div></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-trigger">
+          <span>What is "Bring Your Own Agents"?</span>
+          <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
+        </summary>
+        <div class="faq-body"><div class="faq-body-inner">
+          BYOA is our belief that every person should have access to their own AI agents — not just the company they work for. Your agents learn how you work, write, and think. They travel with you. They're yours. <a href="https://lighthearted-cupcake-70d020.netlify.app/" target="_blank" rel="noopener" style="color:var(--coral); font-weight:600;">Learn more about the BYOA pledge →</a>
+        </div></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-trigger">
+          <span>What is a fleet of agents?</span>
+          <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
+        </summary>
+        <div class="faq-body"><div class="faq-body-inner">
+          Instead of one AI tool that tries to do everything, a fleet is a team of specialized agents that each handle a specific job — taking notes, drafting reports, tracking action items, coaching sales calls — and coordinate together. It's a new way to work with AI, and we're building it now. <a href="https://fleet.workplace-ai.com/" target="_blank" rel="noopener" style="color:var(--coral); font-weight:600;">See what we're building →</a>
+        </div></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-trigger">
+          <span>How is Soar different from other AI companies?</span>
+          <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
+        </summary>
+        <div class="faq-body"><div class="faq-body-inner">
+          Most AI companies build tools for companies. We build tools for people. Our products are designed around your life — not just your job — and every one of them is built on the principle that AI should make you more capable, not more dependent. We don't sell your data, we don't serve advertisers, and we don't build general-purpose chatbots. We build specific products that do specific things well.
+        </div></div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-trigger">
+          <span>Can I partner with Soar or white-label a product?</span>
+          <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
+        </summary>
+        <div class="faq-body"><div class="faq-body-inner">
+          Yes. We work with organizations who want to bring AI-powered meeting intelligence and agent fleets to their own audience under their own brand. <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3cRrOdW84suJFRQXJg4JaJJRBRug9NzXz_3lP9KURE8N9Cdr7P_XK5z0icf5r9t2cDDu8lcW16" target="_blank" rel="noopener" style="color:var(--coral); font-weight:600;">Schedule a conversation →</a>
+        </div></div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ FOUNDER ═══════ -->
+<section class="section founder-section" id="about" style="background:var(--navy);">
+  <div class="container">
+    <div class="founder-grid fade-up">
+      <div class="founder-left">
+        <span class="eyebrow" style="color:var(--coral);">Meet the founder</span>
+        <h2 style="margin-top:20px; font-size:clamp(32px,4vw,48px); font-weight:800; color:var(--fg-on-dark);">
+          Paul Allen
+        </h2>
+        <p style="font-size:15px; color:var(--fg-on-dark-muted); margin-top:4px; font-weight:500;">
+          Co-founder of Ancestry.com &middot; Founder &amp; CEO, SOAR
+        </p>
+        <p style="font-size:16px; color:var(--fg-on-dark-muted); line-height:1.75; margin-top:24px; font-weight:400;">
+          Paul co-founded Ancestry.com in 1997 — the platform that helped over 100 million people discover their family history. A sought-after keynote speaker and Ernst &amp; Young Entrepreneur of the Year, he's spent thirty years building technology that makes complex, deeply human things accessible to everyone.
+        </p>
+        <p style="font-size:16px; color:var(--fg-on-dark-muted); line-height:1.75; margin-top:16px; font-weight:400;">
+          With SOAR, he's building what he calls PURE AI — Personalized, Uplifting, Responsible, Ethical — across work, family, faith, community, and beyond.
+        </p>
+        <div style="display:flex; gap:16px; margin-top:32px; align-items:center;">
+          <a href="https://www.linkedin.com/in/paulballen/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.4); transition:color 0.15s;" title="LinkedIn"><span class="material-symbols-outlined" style="font-size:22px;">person</span></a>
+          <a href="https://substack.com/@paulallenai" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.4); transition:color 0.15s;" title="Substack"><span class="material-symbols-outlined" style="font-size:22px;">rss_feed</span></a>
+          <a href="https://www.youtube.com/@SoarWithYourStrengths" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.4); transition:color 0.15s;" title="YouTube"><span class="material-symbols-outlined" style="font-size:22px;">play_circle</span></a>
+          <a href="https://twitter.com/soaruplift" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.4); transition:color 0.15s;" title="X"><span class="material-symbols-outlined" style="font-size:22px;">alternate_email</span></a>
+        </div>
+      </div>
+      <div class="founder-right">
+        <div class="founder-video" style="position:relative; cursor:pointer;" onclick="window.open('https://www.youtube.com/watch?v=tfXwQIFOlIY','_blank')">
+          <img src="https://img.youtube.com/vi/tfXwQIFOlIY/maxresdefault.jpg" alt="Paul Allen — This Tech Guru from SOAR AI Says 90% of Advice Is Wrong" style="width:100%; height:100%; object-fit:cover; border-radius:var(--r-lg);">
+          <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.25); border-radius:var(--r-lg); transition:background 0.2s;">
+            <div style="width:72px; height:72px; border-radius:50%; background:rgba(255,255,255,0.95); display:flex; align-items:center; justify-content:center;">
+              <span class="material-symbols-outlined" style="font-size:36px; color:var(--coral); margin-left:4px;">play_arrow</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Founder content grid -->
+    <div style="margin-top:80px;">
+      <div class="founder-content-grid fade-up">
+
+        <a href="https://paulallenai.substack.com/p/bring-your-own-agents" target="_blank" rel="noopener" class="content-card">
+          <div class="content-card-img" style="background-image:url('https://substackcdn.com/image/fetch/w_400,c_limit,f_auto,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6827fc03-c8e6-4ba7-992b-5f30876401b8_750x500.jpeg');"></div>
+          <div class="content-card-badge">Article</div>
+          <div class="content-card-body">
+            <h4>"Bring Your Own Agents"</h4>
+            <p>It's 2030. The first question in your job interview isn't about your resume — it's about your fleet.</p>
+            <span class="content-card-link">Read on Substack <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span></span>
+          </div>
+        </a>
+
+        <a href="https://paulallenai.substack.com/p/your-company-already-knows-what-its" target="_blank" rel="noopener" class="content-card">
+          <div class="content-card-img" style="background-image:url('https://substackcdn.com/image/fetch/w_400,c_limit,f_auto,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd70cd878-f6ee-4e45-a2af-fd547d36b313_1365x768.jpeg');"></div>
+          <div class="content-card-badge">Article</div>
+          <div class="content-card-body">
+            <h4>Your Company Already Knows What Its AI Agents Should Do</h4>
+            <p>Every meeting your team has is a set of instructions waiting to be handed to a machine.</p>
+            <span class="content-card-link">Read on Substack <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span></span>
+          </div>
+        </a>
+
+        <a href="https://www.mos.org/events/subspace/soarai-evening-founder-paul-allen" target="_blank" rel="noopener" class="content-card">
+          <div class="content-card-img" style="background:linear-gradient(135deg, #1a1530 0%, #2d1f4e 100%); display:flex; align-items:center; justify-content:center;">
+            <span class="material-symbols-outlined" style="font-size:40px; color:rgba(255,255,255,0.3);">play_circle</span>
+          </div>
+          <div class="content-card-badge" style="background:rgba(212,168,67,0.15); color:#D4A843;">Event</div>
+          <div class="content-card-body">
+            <h4>SOAR AI: An Evening with Paul Allen</h4>
+            <p>Fireside chat at the Museum of Science on AI, empathy, and building technology that uplifts.</p>
+            <span class="content-card-link">Learn more <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span></span>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/paulballen/" target="_blank" rel="noopener" class="content-card">
+          <div class="content-card-img" style="background:linear-gradient(135deg, #0a3d6b 0%, #0e5a9e 100%); display:flex; align-items:center; justify-content:center;">
+            <span class="material-symbols-outlined" style="font-size:40px; color:rgba(255,255,255,0.3);">forum</span>
+          </div>
+          <div class="content-card-badge" style="background:rgba(74,139,196,0.15); color:#4A8BC4;">LinkedIn</div>
+          <div class="content-card-body">
+            <h4>CliftonStrengths &amp; the Future of AI</h4>
+            <p>Paul on why strengths-based development is the foundation for how we should build — and use — AI.</p>
+            <span class="content-card-link">Read on LinkedIn <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span></span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ CONTACT ═══════ -->
+<section class="section" id="contact" style="position:relative; overflow:hidden;">
+  <div style="position:absolute; inset:0; z-index:0;">
+    <img src="sky-hero.jpg" alt="" style="width:100%; height:100%; object-fit:cover; object-position:center 70%; transform:scaleX(-1);">
+  </div>
+  <div class="container" style="position:relative; z-index:1;">
+    <div class="contact-grid fade-up">
+      <div class="contact-left">
+        <span class="eyebrow">Get in touch</span>
+        <h2 style="margin-top:20px; font-size:clamp(28px,3.5vw,42px); font-weight:800; color:var(--fg);">
+          We'd love to<br>hear from you.
+        </h2>
+        <p style="font-size:16px; color:var(--fg); opacity:0.75; margin-top:16px; line-height:1.7; max-width:400px;">
+          Whether you're exploring AI for your team, your industry, or your community — drop us a line and we'll get back to you.
+        </p>
+      </div>
+      <div class="contact-right">
+        <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.btn-primary').textContent='Sent — we\'ll be in touch!'; this.querySelector('.btn-primary').disabled=true;">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Your email" required>
+          <textarea name="message" placeholder="What's on your mind?"></textarea>
+          <button type="submit" class="btn btn-primary" style="font-size:15px; padding:14px 28px;">
+            Send Message
+            <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ CONNECT ═══════ -->
+<section style="background:var(--off-white); padding:72px 0; border-top:1px solid var(--border);">
+  <div class="container">
+    <div style="text-align:center;" class="fade-up">
+      <span class="eyebrow">Stay connected</span>
+      <p style="font-size:16px; color:var(--fg-muted); margin-top:16px; max-width:480px; margin-left:auto; margin-right:auto; text-wrap:balance;">
+        Keep up with Soar and Paul Allen.
+      </p>
+      <div style="display:flex; justify-content:center; gap:16px; margin-top:36px; flex-wrap:wrap;">
+        <a href="https://substack.com/@paulallenai" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:10px; padding:14px 24px; background:#fff; border:1.5px solid var(--border); border-radius:var(--r-pill); font-family:'Urbanist',sans-serif; font-size:14px; font-weight:600; color:var(--fg); text-decoration:none; transition:border-color 0.2s, box-shadow 0.2s, transform 0.15s;">
+          <span class="material-symbols-outlined" style="font-size:20px; color:#D4A843;">rss_feed</span>
+          Substack
+        </a>
+        <a href="https://www.linkedin.com/in/paulballen/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:10px; padding:14px 24px; background:#fff; border:1.5px solid var(--border); border-radius:var(--r-pill); font-family:'Urbanist',sans-serif; font-size:14px; font-weight:600; color:var(--fg); text-decoration:none; transition:border-color 0.2s, box-shadow 0.2s, transform 0.15s;">
+          <span class="material-symbols-outlined" style="font-size:20px; color:#0A66C2;">person</span>
+          LinkedIn
+        </a>
+        <a href="https://www.instagram.com/soaruplift/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:10px; padding:14px 24px; background:#fff; border:1.5px solid var(--border); border-radius:var(--r-pill); font-family:'Urbanist',sans-serif; font-size:14px; font-weight:600; color:var(--fg); text-decoration:none; transition:border-color 0.2s, box-shadow 0.2s, transform 0.15s;">
+          <span class="material-symbols-outlined" style="font-size:20px; color:#E4405F;">photo_camera</span>
+          Instagram
+        </a>
+        <a href="https://www.facebook.com/soarwithyourstrengths/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:10px; padding:14px 24px; background:#fff; border:1.5px solid var(--border); border-radius:var(--r-pill); font-family:'Urbanist',sans-serif; font-size:14px; font-weight:600; color:var(--fg); text-decoration:none; transition:border-color 0.2s, box-shadow 0.2s, transform 0.15s;">
+          <span class="material-symbols-outlined" style="font-size:20px; color:#1877F2;">group</span>
+          Facebook
+        </a>
+        <a href="https://twitter.com/soaruplift" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:10px; padding:14px 24px; background:#fff; border:1.5px solid var(--border); border-radius:var(--r-pill); font-family:'Urbanist',sans-serif; font-size:14px; font-weight:600; color:var(--fg); text-decoration:none; transition:border-color 0.2s, box-shadow 0.2s, transform 0.15s;">
+          <span class="material-symbols-outlined" style="font-size:20px; color:var(--fg);">alternate_email</span>
+          X
+        </a>
+        <a href="https://www.youtube.com/@SoarWithYourStrengths" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:10px; padding:14px 24px; background:#fff; border:1.5px solid var(--border); border-radius:var(--r-pill); font-family:'Urbanist',sans-serif; font-size:14px; font-weight:600; color:var(--fg); text-decoration:none; transition:border-color 0.2s, box-shadow 0.2s, transform 0.15s;">
+          <span class="material-symbols-outlined" style="font-size:20px; color:#FF0000;">play_circle</span>
+          YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ FOOTER ═══════ -->
+<footer style="background:var(--navy); padding:56px 0 40px;">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px;">
+      <!-- Brand column -->
+      <div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <svg viewBox="0 0 98.2 142.65" height="24" width="auto"><defs><style>.sf{fill:#e57e61;}</style></defs><g><path class="sf" d="M73.35,78.48c4.3,21.62,3.91,36.66-13.2,51.9-7.5,6.68-16.42,11.12-26.43,12.13-12.86,1.3-24.08-6.68-26.62-19.28-2.89-14.38,25.95-17.09,39.56-19.59l20.66-3.8c1.69-15.89-12.99-49.53-2.41-55.74,12.18-7.15,40.38,26.51,31.65,47.27-2.56,6.1-9.03,11.17-15.36,12.21-2.32.38-2.95-2.98-2.84-4.35.15-2,1.5-3.67,3.65-4.63,5.97-2.68,9.31-8.55,7.81-15.25-2.55-11.39-9.83-21.91-20.39-28.29-.4,9.77,2.14,18.39,3.93,27.41ZM32.43,134.29c14.71-1.63,27.39-11.55,33.21-25.3l-32.75,5.36c-4.91.8-9.36,2.05-13.81,4.21-1.28.77-3.77,2.18-3.38,4.12,1.48,7.35,8.52,12.52,16.74,11.6Z"/><path class="sf" d="M.66,65.76c-2.52-11.16,2.32-20.79,12.1-25.34,1.63-.76,3.54-2.35,5.6-.98,2.31,1.54,2.15,6.7-.75,7.86-6.74,2.7-10.78,8.85-8.97,16.38,2.69,11.16,9.73,21.23,20.17,27.87.79-8.37-1.33-15.99-3.05-23.7-4.02-17.99-5.91-34.97,6.3-49.33C40.32,8.81,50.97,1.85,63.69.22c13.61-1.74,26.24,6.78,27.68,20.67.43,4.13-3.22,7.83-6.68,9.73-13.86,7.63-36.96,7.51-53.71,12.28-1.41,16.22,13.87,51.89,1.53,56.01-4.35,1.45-8.85-.32-12.43-3.17-9.46-7.52-16.68-17.86-19.42-29.99ZM82.63,20.06c-1.26-7.65-8.82-12.69-16.85-11.8-14.5,1.61-27.3,11.73-33.16,25.44l23.63-3.81c8.81-1.42,27.27-4.48,26.38-9.83Z"/></g></svg>
+          <span style="font-family:'Urbanist',sans-serif; font-size:14px; font-weight:700; color:var(--fg-on-dark); letter-spacing:0.08em;">SOAR</span>
+        </div>
+        <p style="font-size:14px; color:rgba(255,255,255,0.4); font-style:italic;">Uplift your humanity.</p>
+      </div>
+      <!-- Company column -->
+      <div>
+        <p style="font-family:'Urbanist',sans-serif; font-size:12px; font-weight:700; color:rgba(255,255,255,0.5); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:16px;">Company</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="#about" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">About &amp; Team</a>
+          <a href="#" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Founder</a>
+          <a href="#" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Advisory Board</a>
+          <a href="#" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Investors</a>
+          <a href="#" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Careers</a>
+        </div>
+      </div>
+      <!-- Resources column -->
+      <div>
+        <p style="font-family:'Urbanist',sans-serif; font-size:12px; font-weight:700; color:rgba(255,255,255,0.5); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:16px;">Resources</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="https://substack.com/@paulallenai" target="_blank" rel="noopener" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">News</a>
+          <a href="https://lighthearted-cupcake-70d020.netlify.app/" target="_blank" rel="noopener" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">BYOA Pledge</a>
+          <a href="https://fleet.workplace-ai.com/" target="_blank" rel="noopener" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Fleet of Agents</a>
+          <a href="#" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Case Studies</a>
+        </div>
+      </div>
+      <!-- Connect column -->
+      <div>
+        <p style="font-family:'Urbanist',sans-serif; font-size:12px; font-weight:700; color:rgba(255,255,255,0.5); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:16px;">Connect</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3cRrOdW84suJFRQXJg4JaJJRBRug9NzXz_3lP9KURE8N9Cdr7P_XK5z0icf5r9t2cDDu8lcW16" target="_blank" rel="noopener" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Get Involved</a>
+          <a href="#" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Partner With Us</a>
+          <a href="#contact" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p style="font-size:12px; color:rgba(255,255,255,0.35);">&copy; 2026 Soar. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://try.soar.com/privacy/" target="_blank" rel="noopener">Privacy</a>
+        <a href="https://try.soar.com/terms/" target="_blank" rel="noopener">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Remaining: save to Mac, deploy -->
+
+<!-- ═══════════════════════════════════════════ JS ═══════ -->
+<script>
+// ── Product Explorer ──
+(function() {
+  var items = document.querySelectorAll('.explorer-item:not(.coming-soon)');
+  var nameEl = document.getElementById('explorerName');
+  var descEl = document.getElementById('explorerDesc');
+  var linkEl = document.getElementById('explorerLink');
+  var catEl = document.getElementById('explorerCat');
+  var iconSpan = document.getElementById('explorerIconSpan');
+  var imgEl = document.getElementById('explorerImg');
+  var bar = document.getElementById('explorerBar');
+  var heroEl = document.getElementById('explorerHero');
+
+  // Color map for categories
+  var catColors = {
+    'Your Work': '#8A51A2',
+    'Your Words': '#1A9E7A',
+    'Your Family': '#EE785A',
+    'Your Community': '#4A8BC4',
+    'Your Learning': '#D4A843'
+  };
+
+  var featured = [];
+  var featuredOrder = ['Workplace AI', 'FamilyScribe', 'Citizen Portal', 'SOAR AI Institute'];
+  featuredOrder.forEach(function(name) {
+    items.forEach(function(item) {
+      if (item.getAttribute('data-name') === name) featured.push(item);
+    });
+  });
+
+  var cycleIndex = 0;
+  var cycleInterval = null;
+  var CYCLE_MS = 4000;
+  var userInteracted = false;
+  var lockedItem = null;
+
+  function selectItem(item) {
+    items.forEach(function(i) { i.classList.remove('active'); });
+    item.classList.add('active');
+
+    var catLabel = item.getAttribute('data-cat-label') || '';
+    var color = catColors[catLabel] || '#EE785A';
+
+    nameEl.textContent = item.getAttribute('data-name');
+    descEl.textContent = item.getAttribute('data-desc');
+    linkEl.href = item.getAttribute('data-url');
+    catEl.textContent = catLabel;
+
+    // Apply category color to accents
+    catEl.style.color = color;
+    linkEl.style.color = color;
+    bar.style.background = color;
+
+    // Show image or icon in hero area
+    var imgSrc = item.getAttribute('data-img');
+    if (imgSrc) {
+      iconSpan.style.display = 'none';
+      imgEl.src = imgSrc;
+      imgEl.alt = item.getAttribute('data-name');
+      imgEl.style.display = 'block';
+    } else {
+      imgEl.style.display = 'none';
+      iconSpan.style.display = '';
+      iconSpan.textContent = item.getAttribute('data-icon');
+      iconSpan.style.color = color;
+    }
+
+    if (item.getAttribute('data-url') === '#') {
+      linkEl.style.display = 'none';
+    } else {
+      linkEl.style.display = '';
+    }
+  }
+
+  function startProgress() {
+    bar.style.transition = 'none';
+    bar.style.width = '0%';
+    void bar.offsetWidth;
+    bar.style.transition = 'width ' + CYCLE_MS + 'ms linear';
+    bar.style.width = '100%';
+  }
+
+  function cycle() {
+    selectItem(featured[cycleIndex]);
+    startProgress();
+    cycleIndex = (cycleIndex + 1) % featured.length;
+  }
+
+  function startCycle() {
+    cycle();
+    cycleInterval = setInterval(cycle, CYCLE_MS);
+  }
+
+  function stopCycle() {
+    userInteracted = true;
+    clearInterval(cycleInterval);
+    bar.style.transition = 'none';
+    bar.style.width = '0%';
+    document.getElementById('explorerProgress').style.display = 'none';
+  }
+
+  // Hover previews (only if user has interacted)
+  items.forEach(function(item) {
+    item.addEventListener('mouseenter', function() {
+      if (!userInteracted) return;
+      selectItem(item);
+    });
+    item.addEventListener('mouseleave', function() {
+      if (!userInteracted) return;
+      // Snap back to locked item if one exists
+      if (lockedItem && lockedItem !== item) {
+        selectItem(lockedItem);
+      }
+    });
+    item.addEventListener('click', function() {
+      if (!userInteracted) stopCycle();
+      lockedItem = item;
+      selectItem(item);
+      if (window.innerWidth <= 700) {
+        document.querySelector('.explorer-detail').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  });
+
+  startCycle();
+})();
+
+// ── Fade-up on scroll ──
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(function(el) {
+    observer.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>
