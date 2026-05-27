@@ -747,7 +747,8 @@ details[open] .faq-icon .material-symbols-outlined {
   width: 100%;
 }
 .contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.contact-form select:focus {
   border-color: var(--coral);
   box-shadow: 0 0 0 3px rgba(238,120,90,0.12);
 }
@@ -1404,7 +1405,16 @@ details[open] .faq-icon .material-symbols-outlined {
         <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.btn-primary').textContent='Sent — we\'ll be in touch!'; this.querySelector('.btn-primary').disabled=true;">
           <input type="text" name="name" placeholder="Your name" required>
           <input type="email" name="email" placeholder="Your email" required>
-          <textarea name="message" placeholder="What's on your mind?"></textarea>
+          <select name="inquiry" required style="font-family:'Outfit',sans-serif; font-size:15px; padding:14px 18px; border:1.5px solid rgba(0,0,0,0.12); border-radius:var(--r-md); background:#fff; color:var(--fg-subtle); outline:none; appearance:none; -webkit-appearance:none; background-image:url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%228%22%3E%3Cpath%20fill%3D%22%239a9a9a%22%20d%3D%22M6%208L0%200h12z%22%2F%3E%3C%2Fsvg%3E'); background-repeat:no-repeat; background-position:right 18px center; transition:border-color 0.2s, box-shadow 0.2s;">
+            <option value="" disabled selected>I'm interested in...</option>
+            <option value="demo">Seeing a product demo</option>
+            <option value="partnership">Partnership or collaboration</option>
+            <option value="investment">Investment conversation</option>
+            <option value="speaking">Booking Paul as a speaker</option>
+            <option value="press">Press or media inquiry</option>
+            <option value="other">Something else</option>
+          </select>
+          <textarea name="message" placeholder="Tell us more..."></textarea>
           <button type="submit" class="btn btn-primary" style="font-size:15px; padding:14px 28px;">
             Send Message
             <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
