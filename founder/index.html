@@ -165,7 +165,7 @@ select option { color: #1a1917; background: #fff; }
       </div>
       <div style="padding:40px; background:rgba(255,255,255,0.08); border-radius:var(--r-xl); border:1px solid rgba(255,255,255,0.1); margin-top:48px;">
         <div style="border-left:3px solid var(--coral); padding-left:24px;">
-          <p style="font-size:20px; color:#fff; line-height:1.7; font-style:italic; font-weight:400;">Every person everywhere deserves a chance to <span style="color:var(--coral);">soar with their strengths</span>. AI should make you more capable, not more dependent.</p>
+          <p style="font-size:20px; color:#fff; line-height:1.7; font-style:italic; font-weight:400;">&ldquo;Every person everywhere deserves a chance to <span style="color:var(--coral);">soar with their strengths</span>. AI should make you more capable, not more dependent.&rdquo;</p>
         </div>
       </div>
     </div>
@@ -308,7 +308,7 @@ select option { color: #1a1917; background: #fff; }
       <div style="margin-top:64px;">
         <div style="padding:40px; background:rgba(255,255,255,0.06); border-radius:var(--r-xl); border:1px solid rgba(255,255,255,0.1);">
           <div style="border-left:3px solid var(--coral); padding-left:28px; margin-left:8px;">
-            <p style="font-size:20px; color:#fff; line-height:1.7; font-style:italic;">&ldquo;<span style="color:var(--coral); font-style:normal; font-weight:600;">No margin, no mission.</span> You can have the greatest mission in the world, but without revenue, it dies.&rdquo;</p>
+            <p style="font-size:20px; color:#fff; line-height:1.7; font-style:italic;">&ldquo; <span style="color:var(--coral); font-style:normal; font-weight:600;">No margin, no mission.</span> You can have the greatest mission in the world, but without revenue, it dies.&rdquo;</p>
           </div>
         </div>
         <div style="display:flex; gap:24px; margin-top:40px; justify-content:center;">
@@ -376,7 +376,7 @@ select option { color: #1a1917; background: #fff; }
 
 (function(){
   var feed=document.getElementById('substackFeed');
-  var url='https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fpaulallenai.substack.com%2Ffeed&count=6';
+  var url='https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fpaulallenai.substack.com%2Ffeed';
   fetch(url).then(function(r){return r.json()}).then(function(data){
     if(!data.items||!data.items.length){feed.innerHTML='<p style="text-align:center;color:var(--fg-subtle);grid-column:1/-1;">No articles found.</p>';return}
     var html='';var colors=['#5b3578','#EE785A','#1A9E7A','#4A8BC4','#D4A843','#CF6B87'];
