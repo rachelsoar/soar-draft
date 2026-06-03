@@ -6,11 +6,11 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="favicon-512.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<title>SOAR — Uplift Your Humanity</title>
-<meta name="description" content="Soar is an AI studio building personalized, uplifting, responsible, ethical AI — across work, family, community, learning, and beyond. From the co-founder of Ancestry.com.">
+<title>SOAR — Uplift Humanity</title>
+<meta name="description" content="Soar is an AI studio building a technology platform that powers products across work, learning, community, and home. From the co-founder of Ancestry.com.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="SOAR — Uplift Your Humanity">
-<meta property="og:description" content="AI tools for the way you actually work, learn, and live. From the co-founder of Ancestry.com.">
+<meta property="og:title" content="SOAR — Uplift Humanity">
+<meta property="og:description" content="AI tools built for real life. One platform, many products. From the co-founder of Ancestry.com.">
 <meta property="og:url" content="https://soar.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,14 +18,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════
-   DESIGN TOKENS — Matched to institute.soar.com
+   TOKENS — from soar-shared.css (canonical)
    ══════════════════════════════════════ */
 :root {
   --coral: #EE785A;
   --coral-dark: #d56b50;
   --coral-light: #f9ded6;
   --coral-tint: #fef6f4;
-  --purple: #8A51A2;
+  --blue-light: #e1ecf4;
+  --purple: #5b3578;
   --purple-soft: #7F5FAA;
   --purple-tint: #f7f1ff;
   --navy: #06091e;
@@ -48,12 +49,6 @@
   --shadow-card: 0 1px 4px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04);
   --shadow-hover: 0 8px 30px rgba(138,81,162,0.12), 0 0 0 1px rgba(138,81,162,0.1);
   --shadow-coral: 0 4px 20px rgba(238,120,90,0.3);
-  --tab-work:      #8A51A2;
-  --tab-voice:     #1A9E7A;
-  --tab-family:    #EE785A;
-  --tab-community: #4A8BC4;
-  --tab-learning:  #D4A843;
-  --tab-practice:  #CF6B87;
 }
 
 /* ══════════════════════════════════════
@@ -117,8 +112,12 @@ img { max-width: 100%; display: block; }
 }
 .btn-primary:hover {
   background: var(--coral-dark);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-coral);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 24px rgba(238,120,90,0.35);
+}
+.btn-primary:active {
+  transform: scale(0.98) translateY(0);
+  box-shadow: none;
 }
 .btn-ghost {
   background: transparent;
@@ -131,6 +130,21 @@ img { max-width: 100%; display: block; }
 .btn-ghost:hover {
   color: var(--fg);
   border-color: var(--fg-muted);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--fg);
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: var(--r-pill);
+  border: 1.5px solid var(--border);
+  transition: all 0.2s ease;
+}
+.btn-outline:hover {
+  background: var(--fg);
+  color: #fff;
+  border-color: var(--fg);
+  transform: translateY(-1px);
 }
 
 /* ══════════════════════════════════════
@@ -149,26 +163,20 @@ img { max-width: 100%; display: block; }
 .nav {
   position: sticky;
   top: 0; z-index: 100;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(16px) saturate(1.2);
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(20px) saturate(1.4);
   border-bottom: 1px solid var(--border);
   height: 64px; padding: 0 48px;
   display: flex; align-items: center; justify-content: space-between;
 }
-.nav-logo {
-  display: flex; align-items: center; gap: 10px;
-}
+.nav-logo { display: flex; align-items: center; gap: 8px; }
 .nav-logo svg { height: 28px; width: auto; }
 .nav-logo-text {
   font-family: 'Urbanist', sans-serif;
-  font-size: 15px; font-weight: 700;
-  color: var(--fg);
-  letter-spacing: 0.08em;
+  font-size: 15px; font-weight: 800;
+  letter-spacing: 0.06em; color: var(--fg);
 }
-.nav-links {
-  display: flex; align-items: center; gap: 32px;
-  list-style: none;
-}
+.nav-links { display: flex; list-style: none; gap: 36px; align-items: center; }
 .nav-links a {
   font-family: 'Outfit', sans-serif;
   font-size: 14px; color: var(--fg-muted);
@@ -178,11 +186,11 @@ img { max-width: 100%; display: block; }
 .nav-cta {
   background: var(--coral);
   color: #fff !important;
-  font-family: 'Urbanist', sans-serif !important;
-  font-weight: 600 !important;
-  font-size: 14px !important;
-  padding: 10px 22px;
+  padding: 9px 22px;
   border-radius: var(--r-pill);
+  font-family: 'Urbanist', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
   transition: background 0.15s, transform 0.15s;
 }
 .nav-cta:hover {
@@ -191,7 +199,7 @@ img { max-width: 100%; display: block; }
 }
 
 /* ══════════════════════════════════════
-   HERO
+   HERO — matched to V1
    ══════════════════════════════════════ */
 .hero {
   position: relative;
@@ -203,8 +211,7 @@ img { max-width: 100%; display: block; }
   background: #d0e4f0;
 }
 .hero-bg {
-  position: absolute; inset: 0;
-  z-index: 0;
+  position: absolute; inset: 0; z-index: 0;
 }
 .hero-bg img {
   width: 100%; height: 100%;
@@ -252,28 +259,21 @@ img { max-width: 100%; display: block; }
   flex-wrap: wrap;
 }
 
-.hero-cta-row .btn-primary {
-  background: var(--coral);
-}
-.hero-cta-row .btn-primary:hover {
-  background: var(--coral-dark);
-  box-shadow: var(--shadow-coral);
-}
-
-/* ── Category Ticker ── */
+/* ── Hero ticker ── */
 .hero-ticker-area {
-  position: relative; z-index: 2;
+  position: relative; z-index: 1;
   padding: 0 0 48px;
   overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 .hero-ticker-row {
-  display: flex;
-  gap: 14px;
+  display: flex; gap: 12px;
   width: max-content;
-  animation: tickerScroll 35s linear infinite;
+  animation: tickerScroll 60s linear infinite;
 }
 .hero-ticker-row.reverse {
-  animation: tickerScrollReverse 40s linear infinite;
+  animation: tickerScrollReverse 55s linear infinite;
 }
 @keyframes tickerScroll {
   0% { transform: translateX(0); }
@@ -284,264 +284,766 @@ img { max-width: 100%; display: block; }
   100% { transform: translateX(0); }
 }
 .ticker-pill {
-  flex-shrink: 0;
-  font-family: 'Urbanist', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 10px 22px;
+  display: inline-flex; align-items: center;
+  padding: 8px 20px;
   border-radius: var(--r-pill);
-  border: 1px solid rgba(0,0,0,0.12);
-  background: rgba(255,255,255,0.35);
-  backdrop-filter: blur(4px);
-  color: rgba(0,0,0,0.55);
+  border: 1.5px solid rgba(26,25,23,0.12);
+  font-family: 'Urbanist', sans-serif;
+  font-size: 14px; font-weight: 600;
+  color: var(--fg-muted);
   white-space: nowrap;
-  user-select: none;
-}
-
-@media (max-width: 700px) {
-  .hero { min-height: 85vh; }
-  .hero-content { padding: 100px 0 60px; }
-  .hero h1 { max-width: 100%; }
-  .hero-sub { max-width: 100%; }
-  .ticker-pill { font-size: 13px; padding: 8px 18px; }
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px);
 }
 
 /* ══════════════════════════════════════
-   THESIS / PURE AI
+   WHAT IS SOAR — purple section (matched to V1 thesis)
    ══════════════════════════════════════ */
-.thesis-grid {
+.whatis-section {
+  background: #5b3578;
+  padding: 96px 0;
+}
+.whatis-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: center;
 }
-.thesis-left {
+.whatis-grid h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  color: #fff;
+  margin-top: 20px;
+  line-height: 1.12;
 }
-.pure-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-top: 56px;
+.whatis-grid h2 span {
+  color: var(--coral);
 }
-.pure-card {
-  background: rgba(255,255,255,0.95);
-  border-radius: var(--r-lg);
-  padding: 28px 24px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.whatis-right p {
+  font-size: 17px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.85);
+  font-weight: 400;
 }
-.pure-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 16px;
-  font-size: 22px;
+.whatis-right .btn-outline {
+  color: #fff;
+  border-color: rgba(255,255,255,0.25);
+  margin-top: 32px;
 }
-.pure-card h4 {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-.pure-card p {
-  font-size: 14px;
-  color: var(--fg-muted);
-  line-height: 1.6;
+.whatis-right .btn-outline:hover {
+  background: #fff;
+  color: var(--purple);
+  border-color: #fff;
 }
 
 /* ══════════════════════════════════════
-   PRODUCT EXPLORER
+   HOW IT WORKS — vertical scroll story
    ══════════════════════════════════════ */
-.products-section { background: var(--white); }
-.products-head { text-align: center; margin-bottom: 48px; }
-.products-head h2 { font-size: clamp(32px,4vw,48px); font-weight: 800; margin-top: 20px; }
-.product-explorer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  align-items: start;
+.hiw-section {
+  padding: 0;
+  background: var(--off-white);
 }
-.explorer-cards {
+.hiw-header {
+  padding: 80px 0 0;
+  text-align: center;
+}
+.hiw-header h2 {
+  font-size: clamp(36px, 4vw, 54px);
+  font-weight: 800;
+  margin-top: 20px;
+}
+.hiw-step {
+  padding: 24px 0;
+}
+.hiw-step .container {
+  background: var(--white);
+  border-radius: var(--r-xl);
+  padding: 56px 48px;
+  max-width: 1000px;
+}
+.hiw-step-grid {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  gap: 40px;
 }
-.explorer-card {
+
+.platform-bullets {
+  margin-top: 16px;
+  padding: 0;
+  list-style: none;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+.platform-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  color: var(--fg-body);
+  line-height: 1.55;
+}
+.platform-bullets .material-symbols-outlined {
+  font-size: 18px;
+  color: var(--coral);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.hiw-text {
+  max-width: 640px;
+  text-align: center;
+}
+.hiw-step-number {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 16px;
+}
+.hiw-text h3 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+.hiw-text p {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--fg-body);
+}
+/* Visual panels — no card wrapper, content flows naturally */
+.hiw-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* Memory mock UI — app interface */
+.memory-app {
+  width: 100%;
+  max-width: 720px;
+  background: #fff;
   border-radius: var(--r-lg);
-  padding: 20px 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
   display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 16px;
-  align-items: start;
+  grid-template-columns: 48px 1fr;
 }
-.explorer-card-label {
+.memory-app-sidebar {
+  background: var(--purple);
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.memory-app-sidebar-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.35);
+  cursor: default;
+  transition: background 0.15s;
+}
+.memory-app-sidebar-icon.active {
+  background: rgba(255,255,255,0.1);
+  color: var(--coral);
+}
+.memory-app-sidebar-icon .material-symbols-outlined {
+  font-size: 20px;
+}
+.memory-app-sidebar-spacer { flex: 1; }
+.memory-app-sidebar-avatar {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--coral), #D4A843);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+.memory-app-main {
+  display: flex;
+  flex-direction: column;
+}
+.memory-app-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.memory-app-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.memory-app-header-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #1A9E7A;
+}
+.memory-app-header-name {
   font-family: 'Urbanist', sans-serif;
   font-size: 14px;
   font-weight: 700;
-  padding-top: 6px;
-  line-height: 1.3;
+  color: var(--fg);
 }
-.explorer-card-items {
+.memory-app-header-status {
+  font-size: 11px;
+  color: var(--fg-subtle);
+}
+.memory-app-chat {
+  flex: 1;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  border-left: 1px solid rgba(0,0,0,0.08);
-  padding-left: 16px;
+  gap: 12px;
+  overflow: hidden;
 }
-.explorer-item {
+/* User message — right aligned */
+.memory-msg-user {
+  align-self: flex-end;
+  background: var(--purple);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: var(--r-md) var(--r-md) 4px var(--r-md);
+  font-size: 13px;
+  line-height: 1.55;
+  max-width: 80%;
+}
+/* AI response — left aligned, with refs beside it */
+.memory-msg-ai-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: stretch;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.hiw-visual.visible .memory-msg-ai-wrap {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.35s;
+}
+.memory-msg-ai {
+  background: var(--off-white);
+  padding: 14px 16px;
+  border-radius: 4px var(--r-md) var(--r-md) var(--r-md);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--fg-body);
+}
+.memory-msg-ai strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+/* Reference index */
+.memory-refs-panel {
+  background: var(--off-white);
+  border-radius: var(--r-sm);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+}
+.memory-refs-title {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--fg-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.memory-ref-row {
+  display: flex;
+  gap: 6px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--fg-body);
+  flex: 1;
+}
+.memory-ref-row:last-child { border-bottom: none; }
+.memory-ref-num {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--coral);
+  min-width: 18px;
+  flex-shrink: 0;
+}
+/* Suggestion chips */
+.memory-app-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 16px;
+}
+.memory-app-chip {
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border);
+  background: #fff;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--purple);
+  cursor: default;
+}
+/* Input bar */
+.memory-app-input {
+  margin: 10px 16px 14px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
-  border-radius: var(--r-sm);
-  cursor: pointer;
-  transition: background 0.15s;
+  gap: 8px;
+  background: var(--off-white);
+  border-radius: var(--r-pill);
+  padding: 8px 14px;
+}
+.memory-app-input span {
+  font-size: 13px;
+  color: var(--fg-subtle);
+  flex: 1;
+}
+.memory-app-input .material-symbols-outlined {
+  font-size: 18px;
+  color: var(--coral);
+  flex: none;
+}
+
+/* Platform diagram — logo to products */
+.platform-map {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  justify-content: center;
+}
+.platform-map-logo {
+  width: 64px; height: 64px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.platform-map-logo svg {
+  height: 48px; width: auto;
+}
+.platform-map-lines {
+  width: 60px;
+  flex-shrink: 0;
   position: relative;
-  min-height: 38px;
+  height: 200px;
 }
-.explorer-item:hover { background: rgba(255,255,255,0.5); }
-.explorer-item.active { background: rgba(255,255,255,0.6); }
-.explorer-item.active::before {
-  content: '';
-  position: absolute;
-  left: -17px; top: 8px; bottom: 8px;
-  width: 3px;
-  border-radius: 2px;
-  background: currentColor;
+.platform-map-products {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-.explorer-dot {
+.platform-map-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: var(--r-md);
+  background: var(--white);
+  border: 1px solid var(--border);
+  font-family: 'Urbanist', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+  opacity: 0;
+  transform: translateX(12px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  white-space: nowrap;
+}
+.hiw-visual.visible .platform-map-pill {
+  opacity: 1;
+  transform: translateX(0);
+}
+.hiw-visual.visible .platform-map-pill:nth-child(1) { transition-delay: 0.15s; }
+.hiw-visual.visible .platform-map-pill:nth-child(2) { transition-delay: 0.25s; }
+.hiw-visual.visible .platform-map-pill:nth-child(3) { transition-delay: 0.35s; }
+.hiw-visual.visible .platform-map-pill:nth-child(4) { transition-delay: 0.45s; }
+.hiw-visual.visible .platform-map-pill:nth-child(5) { transition-delay: 0.55s; }
+.hiw-visual.visible .platform-map-pill:nth-child(6) { transition-delay: 0.65s; }
+.platform-map-dot {
   width: 8px; height: 8px;
   border-radius: 50%;
   flex-shrink: 0;
 }
-.explorer-item.featured .explorer-dot {
-  width: 10px; height: 10px;
-  box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
+
+/* Earth + categories diagram */
+.earth-diagram {
+  text-align: center;
+  width: 100%;
+  position: relative;
 }
-.explorer-name {
+.earth-core {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4A8BC4, #1A9E7A);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 0 40px rgba(74,139,196,0.25);
+  position: relative;
+  z-index: 2;
+}
+.earth-core .material-symbols-outlined {
+  font-size: 44px;
+  color: #fff;
+}
+.earth-spokes-wrap {
+  position: relative;
+  width: 100%;
+  margin-top: -20px;
+  padding-top: 40px;
+}
+.earth-spokes {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.earth-spoke {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.hiw-visual.visible .earth-spoke {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hiw-visual.visible .earth-spoke:nth-child(1) { transition-delay: 0.15s; }
+.hiw-visual.visible .earth-spoke:nth-child(2) { transition-delay: 0.25s; }
+.hiw-visual.visible .earth-spoke:nth-child(3) { transition-delay: 0.35s; }
+.hiw-visual.visible .earth-spoke:nth-child(4) { transition-delay: 0.4s; }
+.hiw-visual.visible .earth-spoke:nth-child(5) { transition-delay: 0.5s; }
+.earth-spoke-line {
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(to bottom, rgba(74,139,196,0.4), transparent);
+}
+.earth-spoke-label {
   font-family: 'Urbanist', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--fg);
-}
-.explorer-item.featured .explorer-name {
-  font-weight: 700;
-  font-size: 15px;
-}
-.explorer-badge {
-  font-family: 'Urbanist', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fg-muted);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--coral);
-  background: rgba(255,255,255,0.7);
-  padding: 2px 8px;
-  border-radius: var(--r-pill);
-  margin-left: auto;
-  flex-shrink: 0;
 }
-.explorer-item.coming-soon { opacity: 0.45; }
-.explorer-detail {
-  align-self: stretch;
+
+/* Guardrails visual */
+.guardrails-stack {
+  width: 100%;
+  max-width: 520px;
   display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
-.explorer-detail-inner {
+.guardrail-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  opacity: 0;
+  transform: translateX(-12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.hiw-visual.visible .guardrail-bar {
+  opacity: 1;
+  transform: translateX(0);
+}
+.hiw-visual.visible .guardrail-bar:nth-child(1) { transition-delay: 0.15s; }
+.hiw-visual.visible .guardrail-bar:nth-child(2) { transition-delay: 0.3s; }
+.hiw-visual.visible .guardrail-bar:nth-child(3) { transition-delay: 0.45s; }
+.hiw-visual.visible .guardrail-bar:nth-child(4) { transition-delay: 0.6s; }
+.guardrail-bar .material-symbols-outlined {
+  font-size: 20px;
+  color: #2e7d32;
+}
+.guardrail-bar span:last-child {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+/* ══════════════════════════════════════
+   FOUNDER SECTION
+   ══════════════════════════════════════ */
+.founder-section {
+  background: var(--navy);
+  padding: 112px 0;
+}
+.founder-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.founder-photo {
+  width: 280px; height: 340px;
+  border-radius: var(--r-xl);
+  object-fit: cover;
+  object-position: center top;
+}
+.founder-text .eyebrow { color: var(--coral); }
+.founder-text h2 {
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 800;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  line-height: 1.15;
+  color: var(--fg-on-dark);
+}
+.founder-text p {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--fg-on-dark-muted);
+  max-width: 560px;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+.founder-social {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 28px;
+}
+.founder-social a.social-icon {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.7);
+  transition: background 0.2s, color 0.2s;
+}
+.founder-social a.social-icon:hover {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+.founder-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 14px; font-weight: 600;
+  color: var(--coral);
+  margin-left: 8px;
+  transition: gap 0.2s;
+}
+.founder-link:hover { gap: 10px; }
+.founder-content-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 72px;
+}
+.content-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  display: flex;
+  flex-direction: column;
+}
+.content-card:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+}
+.content-card-img {
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+}
+
+.content-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.content-card-body h4 {
+  font-size: 15px; font-weight: 700;
+  color: #fff; line-height: 1.3;
+  margin-bottom: 8px;
+}
+.content-card-body p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.55;
+  margin-bottom: 14px;
+  max-width: none;
+}
+.content-card-link {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 13px; font-weight: 600;
+  color: var(--coral);
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-top: auto;
+}
+.content-card:hover .content-card-link { gap: 8px; }
+
+/* ══════════════════════════════════════
+   FLAGSHIPS SECTION
+   ══════════════════════════════════════ */
+.flagships-section {
   background: var(--off-white);
+  padding: 112px 0;
+}
+.flagships-section h2 {
+  font-size: clamp(36px, 4vw, 54px);
+  font-weight: 800;
+  margin-top: 20px;
+  margin-bottom: 56px;
+}
+.flagship-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+.flagship-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.flagship-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+.flagship-card-icon {
+  width: 100%;
+  height: 140px;
+  border-radius: var(--r-lg);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 24px;
+  font-size: 96px;
+}
+.flagship-card-icon img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+.flagship-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.flagship-card p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--fg-body);
+  flex: 1;
+  margin-bottom: 20px;
+}
+.flagship-card a {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 14px; font-weight: 600;
+  color: var(--coral);
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: gap 0.2s;
+}
+.flagship-card a:hover { gap: 10px; }
+
+/* ══════════════════════════════════════
+   CASE STUDIES + TRUST
+   ══════════════════════════════════════ */
+.cases-section {
+  background: var(--white);
+  padding: 112px 0;
+}
+.cases-section h2 {
+  font-size: clamp(36px, 4vw, 54px);
+  font-weight: 800;
+  margin-top: 20px;
+  margin-bottom: 56px;
+}
+.case-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 64px;
+}
+.case-card {
+  background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--r-xl);
   overflow: hidden;
-  transition: border-color 0.3s;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-.explorer-detail-hero {
-  flex: 0.65;
-  min-height: 130px;
+.case-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+.case-card-img {
+  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--off-white);
   border-bottom: 1px solid var(--border);
-  transition: background 0.3s;
 }
-.explorer-detail-hero .material-symbols-outlined {
-  font-size: 72px;
-  opacity: 0.2;
-  transition: color 0.3s;
+.case-card-img img {
+  max-height: 120px;
+  max-width: 80%;
+  object-fit: contain;
 }
-.explorer-detail-body {
-  flex: 1;
-  padding: 32px 36px 36px;
+.case-card-body {
+  padding: 24px 28px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  flex: 1;
 }
-.explorer-detail-cat {
-  font-family: 'Urbanist', sans-serif;
-  font-size: 12px;
+.case-card-body h3 {
+  font-size: 18px;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--coral);
-  margin-bottom: 8px;
-  transition: color 0.3s;
+  margin-bottom: 10px;
 }
-.explorer-detail-name {
-  font-size: 26px;
-  font-weight: 800;
+.case-card-body p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--fg-muted);
   margin-bottom: 16px;
 }
-.explorer-detail-desc {
-  font-size: 15px;
-  color: var(--fg-muted);
-  line-height: 1.7;
-  margin-bottom: 28px;
-}
-.explorer-detail-link {
+.case-card-body a {
   font-family: 'Urbanist', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 14px; font-weight: 600;
   color: var(--coral);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: gap 0.15s;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: gap 0.2s;
+  margin-top: auto;
 }
-.explorer-detail-link:hover { gap: 10px; }
-.explorer-progress {
-  margin: 24px 36px 28px;
-  height: 3px;
-  background: rgba(0,0,0,0.06);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.explorer-progress-bar {
-  height: 100%;
-  background: var(--coral);
-  border-radius: 2px;
-  width: 0%;
-  transition: width 0.1s linear;
-}
-/* Category card colors */
-.explorer-card[data-cat="work"] { background: rgba(138,81,162,0.12); }
-.explorer-card[data-cat="work"] .explorer-card-label { color: var(--tab-work); }
-.explorer-card[data-cat="work"] .explorer-item.active::before { color: var(--tab-work); }
-.explorer-card[data-cat="words"] { background: rgba(26,158,122,0.12); }
-.explorer-card[data-cat="words"] .explorer-card-label { color: var(--tab-voice); }
-.explorer-card[data-cat="words"] .explorer-item.active::before { color: var(--tab-voice); }
-.explorer-card[data-cat="family"] { background: rgba(238,120,90,0.12); }
-.explorer-card[data-cat="family"] .explorer-card-label { color: var(--tab-family); }
-.explorer-card[data-cat="family"] .explorer-item.active::before { color: var(--tab-family); }
-.explorer-card[data-cat="community"] { background: rgba(74,139,196,0.12); }
-.explorer-card[data-cat="community"] .explorer-card-label { color: var(--tab-community); }
-.explorer-card[data-cat="community"] .explorer-item.active::before { color: var(--tab-community); }
-.explorer-card[data-cat="learning"] { background: rgba(212,168,67,0.12); }
-.explorer-card[data-cat="learning"] .explorer-card-label { color: var(--tab-learning); }
-.explorer-card[data-cat="learning"] .explorer-item.active::before { color: var(--tab-learning); }
+.case-card-body a:hover { gap: 10px; }
 
-/* ══════════════════════════════════════
-   TRUST LOGO TICKER
-   ══════════════════════════════════════ */
+/* Trust logos */
 .trust-bar {
   padding: 48px 0;
   overflow: hidden;
@@ -550,13 +1052,15 @@ img { max-width: 100%; display: block; }
   border-bottom: 1px solid var(--border);
 }
 .trust-track {
-  display: flex;
-  gap: 64px;
-  align-items: center;
-  animation: ticker 30s linear infinite;
+  display: flex; gap: 64px; align-items: center;
   width: max-content;
+  animation: trustScroll 60s linear infinite;
 }
 .trust-track:hover { animation-play-state: paused; }
+@keyframes trustScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 .trust-track img {
   height: auto;
   max-height: 36px;
@@ -571,291 +1075,170 @@ img { max-width: 100%; display: block; }
   filter: grayscale(0%);
   opacity: 1;
 }
-@keyframes ticker {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
 
 /* ══════════════════════════════════════
-   FOUNDER
+   FAQ
    ══════════════════════════════════════ */
-.founder-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
+.faq-section {
+  background: var(--off-white);
+  padding: 112px 0;
 }
-.founder-video {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  background: var(--navy-mid);
+.faq-section h2 {
+  font-size: clamp(36px, 4vw, 54px);
+  font-weight: 800;
+  margin-bottom: 48px;
 }
-.founder-content-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+.faq-list {
+  max-width: 780px;
 }
-.content-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  transition: background 0.2s, border-color 0.2s, transform 0.15s;
-  position: relative;
-}
-.content-card:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.15);
-  transform: translateY(-2px);
-}
-.content-card-img {
-  height: 140px;
-  background-size: cover;
-  background-position: center;
-}
-.content-card-badge {
-  position: absolute;
-  top: 12px; left: 12px;
-  font-family: 'Urbanist', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 4px 10px;
-  border-radius: var(--r-pill);
-  background: rgba(238,120,90,0.15);
-  color: var(--coral);
-}
-.content-card-body {
-  padding: 20px;
-}
-.content-card-body h4 {
-  font-size: 15px;
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.3;
-  margin-bottom: 8px;
-}
-.content-card-body p {
-  font-size: 13px;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.55;
-  margin-bottom: 14px;
-}
-.content-card-link {
-  font-family: 'Urbanist', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--coral);
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-.content-card:hover .content-card-link { gap: 8px; }
-
-/* ══════════════════════════════════════
-   CONTACT
-   ══════════════════════════════════════ */
-
-/* ── FAQ ── */
 .faq-item {
   border-bottom: 1px solid var(--border);
 }
-.faq-item:first-child {
-  border-top: 1px solid var(--border);
-}
 .faq-trigger {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
+  background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
   padding: 24px 0;
-  cursor: pointer;
-  list-style: none;
   font-family: 'Urbanist', sans-serif;
-  font-size: 17px;
-  font-weight: 600;
+  font-size: 17px; font-weight: 600;
   color: var(--fg);
+  text-align: left;
+  gap: 16px;
 }
-.faq-trigger::-webkit-details-marker { display: none; }
+.faq-trigger:hover { color: var(--coral); }
 .faq-icon {
   width: 28px; height: 28px;
   border-radius: 50%;
-  background: var(--off-white);
+  background: var(--coral-tint);
+  color: var(--coral);
   display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 700;
   flex-shrink: 0;
-  transition: background 0.2s, transform 0.2s;
+  transition: transform 0.3s, background 0.3s, color 0.3s;
 }
-.faq-icon .material-symbols-outlined {
-  font-size: 18px;
-  color: var(--fg-muted);
-  transition: color 0.2s;
-}
-details[open] .faq-icon {
-  background: var(--coral);
+.faq-item.open .faq-icon {
   transform: rotate(45deg);
-}
-details[open] .faq-icon .material-symbols-outlined {
+  background: var(--coral);
   color: #fff;
 }
 .faq-body {
-  padding: 0 0 24px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
 }
 .faq-body-inner {
-  font-size: 15px;
-  color: var(--fg-muted);
-  line-height: 1.7;
+  padding: 0 0 24px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--fg-body);
   max-width: 640px;
 }
 .faq-body-inner a {
-  text-decoration: none;
+  color: var(--coral);
+  font-weight: 500;
 }
-.faq-body-inner a:hover {
-  text-decoration: underline;
-}
+.faq-body-inner a:hover { text-decoration: underline; }
 
 /* ══════════════════════════════════════
    CONTACT
    ══════════════════════════════════════ */
+.contact-section {
+  position: relative;
+  overflow: hidden;
+  padding: 112px 0;
+}
+.contact-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.contact-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 70%;
+  transform: scaleX(-1);
+}
 .contact-grid {
+  position: relative; z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: start;
 }
+.contact-left h2 {
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800;
+  color: var(--fg);
+  margin-top: 20px;
+}
+.contact-left p {
+  font-size: 16px;
+  color: var(--fg);
+  opacity: 0.75;
+  margin-top: 16px;
+  line-height: 1.7;
+  max-width: 400px;
+}
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 .contact-form input,
+.contact-form select,
 .contact-form textarea {
   font-family: 'Outfit', sans-serif;
   font-size: 15px;
   padding: 14px 18px;
   border: 1.5px solid rgba(0,0,0,0.12);
   border-radius: var(--r-md);
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(8px);
+  background: #fff;
   color: var(--fg);
-  transition: border-color 0.2s, box-shadow 0.2s;
   outline: none;
-  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 .contact-form input:focus,
-.contact-form textarea:focus,
-.contact-form select:focus {
+.contact-form select:focus,
+.contact-form textarea:focus {
   border-color: var(--coral);
   box-shadow: 0 0 0 3px rgba(238,120,90,0.12);
 }
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: var(--fg-subtle);
-}
 .contact-form textarea {
+  min-height: 100px;
   resize: vertical;
-  min-height: 120px;
 }
-.contact-form .btn-primary {
-  align-self: flex-start;
-}
-.contact-links {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 8px;
-}
-.contact-card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 20px 24px;
-  background: var(--off-white);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  transition: border-color 0.2s, box-shadow 0.2s;
-  text-decoration: none;
-  color: inherit;
-}
-.contact-card:hover {
-  border-color: rgba(0,0,0,0.15);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-}
-.contact-card div { flex: 1; }
-.contact-card h4 {
-  font-size: 15px;
-  font-weight: 700;
-  margin-bottom: 2px;
-}
-.contact-card p {
-  font-size: 13px;
-  color: var(--fg-muted);
-  line-height: 1.5;
-  margin: 0;
+.contact-form select {
+  appearance: none; -webkit-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%228%22%3E%3Cpath%20fill%3D%22%239a9a9a%22%20d%3D%22M6%208L0%200h12z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  color: var(--fg-subtle);
 }
 
 /* ══════════════════════════════════════
    FOOTER
    ══════════════════════════════════════ */
-.footer-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.footer-divider {
-  height: 1px;
-  background: rgba(255,255,255,0.08);
-  margin: 24px 0;
-}
-.footer-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.footer-links {
-  display: flex;
-  gap: 24px;
-}
-.footer-links a {
-  font-size: 12px;
-  color: rgba(255,255,255,0.4);
-  transition: color 0.15s;
-}
-.footer-links a:hover { color: rgba(255,255,255,0.7); }
+.footer-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 24px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 12px; color: rgba(255,255,255,0.35); transition: color 0.15s; }
+.footer-links a:hover { color: rgba(255,255,255,0.6); }
 
 /* ══════════════════════════════════════
-   MOBILE
+   RESPONSIVE
    ══════════════════════════════════════ */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .container { padding: 0 20px; }
   .section { padding: 72px 0; }
   .nav { padding: 0 16px; }
   .nav-links { display: none; }
-  .hero { padding: 88px 0 72px; }
-  .hero h1 { font-size: clamp(36px, 10vw, 56px); }
-  .hero-you { font-size: clamp(48px, 14vw, 80px); }
-  .thesis-grid { grid-template-columns: 1fr; gap: 40px; }
-  .thesis-left { position: static; }
-  .pure-grid { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 40px; }
-  .product-explorer { grid-template-columns: 1fr; }
-  .explorer-detail { position: static; }
-  .trust-track { gap: 40px; }
-  .trust-track img { max-height: 28px; max-width: 100px; }
-  .founder-grid { grid-template-columns: 1fr; gap: 40px; }
-  .founder-content-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
-  .contact-form .btn-primary { align-self: stretch; }
-  .case-study-grid { grid-template-columns: 1fr !important; }
-  .footer-top, .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .hero h1 { font-size: clamp(40px, 10vw, 56px); }
+  .whatis-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hiw-step-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hiw-step:nth-child(even) .hiw-step-grid { direction: ltr; }
+  .flagship-cards { grid-template-columns: 1fr; }
+  .case-cards { grid-template-columns: 1fr; }
+  .founder-grid { grid-template-columns: 1fr; text-align: center; }
+  .founder-photo { width: 200px; height: 240px; margin: 0 auto; }
+  .founder-text p { max-width: 100%; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
 }
 </style>
 </head>
@@ -863,12 +1246,12 @@ details[open] .faq-icon .material-symbols-outlined {
 
 <!-- ═══════════════════════════════════════════ NAV ═══════ -->
 <nav class="nav">
-  <a href="#" class="nav-logo">
-    <svg viewBox="0 0 98.2 142.65" aria-label="SOAR"><defs><style>.sb{fill:#e57e61;}</style></defs><g><path class="sb" d="M73.35,78.48c4.3,21.62,3.91,36.66-13.2,51.9-7.5,6.68-16.42,11.12-26.43,12.13-12.86,1.3-24.08-6.68-26.62-19.28-2.89-14.38,25.95-17.09,39.56-19.59l20.66-3.8c1.69-15.89-12.99-49.53-2.41-55.74,12.18-7.15,40.38,26.51,31.65,47.27-2.56,6.1-9.03,11.17-15.36,12.21-2.32.38-2.95-2.98-2.84-4.35.15-2,1.5-3.67,3.65-4.63,5.97-2.68,9.31-8.55,7.81-15.25-2.55-11.39-9.83-21.91-20.39-28.29-.4,9.77,2.14,18.39,3.93,27.41ZM32.43,134.29c14.71-1.63,27.39-11.55,33.21-25.3l-32.75,5.36c-4.91.8-9.36,2.05-13.81,4.21-1.28.77-3.77,2.18-3.38,4.12,1.48,7.35,8.52,12.52,16.74,11.6Z"/><path class="sb" d="M.66,65.76c-2.52-11.16,2.32-20.79,12.1-25.34,1.63-.76,3.54-2.35,5.6-.98,2.31,1.54,2.15,6.7-.75,7.86-6.74,2.7-10.78,8.85-8.97,16.38,2.69,11.16,9.73,21.23,20.17,27.87.79-8.37-1.33-15.99-3.05-23.7-4.02-17.99-5.91-34.97,6.3-49.33C40.32,8.81,50.97,1.85,63.69.22c13.61-1.74,26.24,6.78,27.68,20.67.43,4.13-3.22,7.83-6.68,9.73-13.86,7.63-36.96,7.51-53.71,12.28-1.41,16.22,13.87,51.89,1.53,56.01-4.35,1.45-8.85-.32-12.43-3.17-9.46-7.52-16.68-17.86-19.42-29.99ZM82.63,20.06c-1.26-7.65-8.82-12.69-16.85-11.8-14.5,1.61-27.3,11.73-33.16,25.44l23.63-3.81c8.81-1.42,27.27-4.48,26.38-9.83Z"/></g></svg>
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 98.2 142.65"><defs><style>.sf{fill:#e57e61;}</style></defs><g><path class="sf" d="M73.35,78.48c4.3,21.62,3.91,36.66-13.2,51.9-7.5,6.68-16.42,11.12-26.43,12.13-12.86,1.3-24.08-6.68-26.62-19.28-2.89-14.38,25.95-17.09,39.56-19.59l20.66-3.8c1.69-15.89-12.99-49.53-2.41-55.74,12.18-7.15,40.38,26.51,31.65,47.27-2.56,6.1-9.03,11.17-15.36,12.21-2.32.38-2.95-2.98-2.84-4.35.15-2,1.5-3.67,3.65-4.63,5.97-2.68,9.31-8.55,7.81-15.25-2.55-11.39-9.83-21.91-20.39-28.29-.4,9.77,2.14,18.39,3.93,27.41ZM32.43,134.29c14.71-1.63,27.39-11.55,33.21-25.3l-32.75,5.36c-4.91.8-9.36,2.05-13.81,4.21-1.28.77-3.77,2.18-3.38,4.12,1.48,7.35,8.52,12.52,16.74,11.6Z"/><path class="sf" d="M.66,65.76c-2.52-11.16,2.32-20.79,12.1-25.34,1.63-.76,3.54-2.35,5.6-.98,2.31,1.54,2.15,6.7-.75,7.86-6.74,2.7-10.78,8.85-8.97,16.38,2.69,11.16,9.73,21.23,20.17,27.87.79-8.37-1.33-15.99-3.05-23.7-4.02-17.99-5.91-34.97,6.3-49.33C40.32,8.81,50.97,1.85,63.69.22c13.61-1.74,26.24,6.78,27.68,20.67.43,4.13-3.22,7.83-6.68,9.73-13.86,7.63-36.96,7.51-53.71,12.28-1.41,16.22,13.87,51.89,1.53,56.01-4.35,1.45-8.85-.32-12.43-3.17-9.46-7.52-16.68-17.86-19.42-29.99ZM82.63,20.06c-1.26-7.65-8.82-12.69-16.85-11.8-14.5,1.61-27.3,11.73-33.16,25.44l23.63-3.81c8.81-1.42,27.27-4.48,26.38-9.83Z"/></g></svg>
     <span class="nav-logo-text">SOAR</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#products">Products</a></li>
+    <li><a href="products/">Products</a></li>
     <li><a href="about/">About</a></li>
     <li><a href="media/">Media</a></li>
     <li><a href="get-involved/" class="nav-cta">Get Involved</a></li>
@@ -878,23 +1261,21 @@ details[open] .faq-icon .material-symbols-outlined {
 <!-- ═══════════════════════════════════════════ HERO ═══════ -->
 <section class="hero">
   <div class="hero-bg">
-    <!-- Replace src with your sky/clouds image -->
     <img src="sky-hero.jpg" alt="">
   </div>
   <div class="hero-content">
     <div class="container">
       <p class="hero-credibility">From the creators of Ancestry.com</p>
-      <h1>Uplift your<br><em>humanity.</em></h1>
-      <p class="hero-sub">Soar with AI tools built for <strong>your life</strong>.</p>
+      <h1>Uplift<br><em>Humanity.</em></h1>
+      <p class="hero-sub">Soar with AI tools built for real life</p>
       <div class="hero-cta-row">
-        <a href="#products" class="btn btn-primary">
-          See What We Build
+        <a href="#platform" class="btn btn-primary">
+          See How It Works
           <span class="material-symbols-outlined" style="font-size:18px;">arrow_downward</span>
         </a>
       </div>
     </div>
   </div>
-  <!-- Category ticker -->
   <div class="hero-ticker-area">
     <div class="hero-ticker-row" id="tickerRow1">
       <span class="ticker-pill">Meeting Intelligence</span>
@@ -909,7 +1290,6 @@ details[open] .faq-icon .material-symbols-outlined {
       <span class="ticker-pill">Sales Coaching</span>
       <span class="ticker-pill">Site Building</span>
       <span class="ticker-pill">Academic Writing</span>
-      <!-- duplicate set for seamless loop -->
       <span class="ticker-pill">Meeting Intelligence</span>
       <span class="ticker-pill">Family Stories</span>
       <span class="ticker-pill">Legal Research</span>
@@ -936,7 +1316,6 @@ details[open] .faq-icon .material-symbols-outlined {
       <span class="ticker-pill">Content Strategy</span>
       <span class="ticker-pill">Health & Wellness</span>
       <span class="ticker-pill">Professional Development</span>
-      <!-- duplicate set for seamless loop -->
       <span class="ticker-pill">Team Performance</span>
       <span class="ticker-pill">Genealogy</span>
       <span class="ticker-pill">Investor Outreach</span>
@@ -953,463 +1332,497 @@ details[open] .faq-icon .material-symbols-outlined {
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════ THESIS ═══════ -->
-<section style="background:#5b3578; padding:96px 0 0;">
+<!-- ═══════════════════════════════════════════ WHAT IS SOAR ═══════ -->
+<section class="whatis-section" id="platform">
   <div class="container">
-    <div class="thesis-grid fade-up">
-      <div class="thesis-left">
+    <div class="whatis-grid fade-up">
+      <div class="whatis-left">
         <span class="eyebrow" style="color:var(--coral);">What is SOAR?</span>
-        <h2 style="margin-top:20px; font-size:clamp(32px,4vw,48px); font-weight:800; color:#fff;">
-          An AI studio built on one belief:<br>
-          <span style="color:var(--coral);">technology should make you more human, not less.</span>
-        </h2>
+        <h2>Built on Conversation.<br><span>AI technology for daily life.</span></h2>
       </div>
-      <div class="thesis-right">
-        <p style="font-size:17px; line-height:1.75; color:rgba(255,255,255,0.85); font-weight:400;">
-          Soar is an AI studio building across every part of life — work, family, community, learning. One platform. Many products. All yours.
-        </p>
-        <div style="margin-top:28px; padding:24px; background:rgba(255,255,255,0.08); border-radius:var(--r-md); border:1px solid rgba(255,255,255,0.1);">
-          <h4 style="font-size:16px; font-weight:700; color:#fff; margin-bottom:8px;">Bring Your Own Agents</h4>
-          <p style="font-size:15px; line-height:1.65; color:rgba(255,255,255,0.75);">
-            Every Soar product comes with a fleet of AI agents that learn how you work, write, and think. They're yours — trained on your voice, your data, your goals.
-          </p>
-          <a href="https://lighthearted-cupcake-70d020.netlify.app/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; margin-top:14px; font-family:'Urbanist',sans-serif; font-size:14px; font-weight:600; color:var(--coral); text-decoration:none;">
-            Read the vision <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
-          </a>
+      <div class="whatis-right">
+        <p>Soar is an AI studio that builds purpose-driven products across work, family, community, and learning — all powered by one shared technology platform.</p>
+        <a href="#howitworks" class="btn btn-outline">
+          See How It Works
+          <span class="material-symbols-outlined" style="font-size:18px;">arrow_downward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ HOW IT WORKS ═══════ -->
+<section class="hiw-section" id="howitworks">
+  <div class="hiw-header">
+    <div class="container">
+      <span class="eyebrow fade-up">How It Works</span>
+      <h2 class="fade-up">One platform. Many products.</h2>
+    </div>
+  </div>
+
+  <!-- Step 1: Build once, deploy everywhere -->
+  <div class="hiw-step">
+    <div class="container">
+      <div class="hiw-step-grid">
+        <div class="hiw-text fade-up">
+          <div class="hiw-step-number">01</div>
+          <h3>Build once, deploy everywhere</h3>
+          <p>Soar is an AI studio that builds across every part of life — work, family, community, learning, and beyond. One technology platform powers the entire family of products.</p>
+          <ul class="platform-bullets">
+            <li><span class="material-symbols-outlined">check</span>Transcription and meeting intelligence</li>
+            <li><span class="material-symbols-outlined">check</span>Personalized coaching and analysis</li>
+            <li><span class="material-symbols-outlined">check</span>Agent orchestration — specialized AI working together</li>
+            <li><span class="material-symbols-outlined">check</span>Shared memory that carries context across every product</li>
+          </ul>
+        </div>
+        <div class="hiw-visual fade-up">
+          <div style="display:flex; align-items:center; gap:32px; width:100%;">
+            <!-- Soar logo -->
+            <div style="flex-shrink:0;">
+              <svg viewBox="0 0 98.2 142.65" style="height:120px; width:auto;"><defs><style>.sfm{fill:#e57e61;}</style></defs><g><path class="sfm" d="M73.35,78.48c4.3,21.62,3.91,36.66-13.2,51.9-7.5,6.68-16.42,11.12-26.43,12.13-12.86,1.3-24.08-6.68-26.62-19.28-2.89-14.38,25.95-17.09,39.56-19.59l20.66-3.8c1.69-15.89-12.99-49.53-2.41-55.74,12.18-7.15,40.38,26.51,31.65,47.27-2.56,6.1-9.03,11.17-15.36,12.21-2.32.38-2.95-2.98-2.84-4.35.15-2,1.5-3.67,3.65-4.63,5.97-2.68,9.31-8.55,7.81-15.25-2.55-11.39-9.83-21.91-20.39-28.29-.4,9.77,2.14,18.39,3.93,27.41ZM32.43,134.29c14.71-1.63,27.39-11.55,33.21-25.3l-32.75,5.36c-4.91.8-9.36,2.05-13.81,4.21-1.28.77-3.77,2.18-3.38,4.12,1.48,7.35,8.52,12.52,16.74,11.6Z"/><path class="sfm" d="M.66,65.76c-2.52-11.16,2.32-20.79,12.1-25.34,1.63-.76,3.54-2.35,5.6-.98,2.31,1.54,2.15,6.7-.75,7.86-6.74,2.7-10.78,8.85-8.97,16.38,2.69,11.16,9.73,21.23,20.17,27.87.79-8.37-1.33-15.99-3.05-23.7-4.02-17.99-5.91-34.97,6.3-49.33C40.32,8.81,50.97,1.85,63.69.22c13.61-1.74,26.24,6.78,27.68,20.67.43,4.13-3.22,7.83-6.68,9.73-13.86,7.63-36.96,7.51-53.71,12.28-1.41,16.22,13.87,51.89,1.53,56.01-4.35,1.45-8.85-.32-12.43-3.17-9.46-7.52-16.68-17.86-19.42-29.99ZM82.63,20.06c-1.26-7.65-8.82-12.69-16.85-11.8-14.5,1.61-27.3,11.73-33.16,25.44l23.63-3.81c8.81-1.42,27.27-4.48,26.38-9.83Z"/></g></svg>
+            </div>
+            <!-- Horizontal connector -->
+            <div style="width:40px; height:2px; background:linear-gradient(to right, var(--coral), rgba(238,120,90,0.15)); flex-shrink:0;"></div>
+            <!-- Icons + link -->
+            <div>
+              <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:20px;">
+                <div style="display:flex; gap:10px;">
+                  <div style="width:44px; height:44px; border-radius:12px; background:var(--white); border:1px solid var(--border); display:flex; align-items:center; justify-content:center;"><span class="material-symbols-outlined" style="font-size:22px; color:var(--purple);">business_center</span></div>
+                  <div style="width:44px; height:44px; border-radius:12px; background:var(--white); border:1px solid var(--border); display:flex; align-items:center; justify-content:center;"><span class="material-symbols-outlined" style="font-size:22px; color:#4A8BC4;">account_balance</span></div>
+                  <div style="width:44px; height:44px; border-radius:12px; background:var(--white); border:1px solid var(--border); display:flex; align-items:center; justify-content:center;"><span class="material-symbols-outlined" style="font-size:22px; color:var(--coral);">family_restroom</span></div>
+                  <div style="width:44px; height:44px; border-radius:12px; background:var(--white); border:1px solid var(--border); display:flex; align-items:center; justify-content:center;"><span class="material-symbols-outlined" style="font-size:22px; color:#1A9E7A;">gavel</span></div>
+                  <div style="width:44px; height:44px; border-radius:12px; background:var(--white); border:1px solid var(--border); display:flex; align-items:center; justify-content:center;"><span class="material-symbols-outlined" style="font-size:22px; color:#D4A843;">school</span></div>
+                </div>
+                <div style="display:flex; gap:10px;">
+                  <div style="width:44px; height:44px; border-radius:12px; background:var(--white); border:1px solid var(--border); display:flex; align-items:center; justify-content:center;"><span class="material-symbols-outlined" style="font-size:22px; color:#CF6B87;">mic</span></div>
+                  <div style="width:44px; height:44px; border-radius:12px; background:var(--white); border:1px solid var(--border); display:flex; align-items:center; justify-content:center;"><span class="material-symbols-outlined" style="font-size:22px; color:var(--purple-soft);">edit_note</span></div>
+                  <div style="width:44px; height:44px; border-radius:12px; background:var(--white); border:1px solid var(--border); display:flex; align-items:center; justify-content:center;"><span class="material-symbols-outlined" style="font-size:22px; color:#E65100;">podcasts</span></div>
+                  <div style="width:44px; height:44px; border-radius:12px; background:var(--white); border:1px solid var(--border); display:flex; align-items:center; justify-content:center;"><span class="material-symbols-outlined" style="font-size:22px; color:#4A8BC4;">groups</span></div>
+                  <div style="width:44px; height:44px; border-radius:12px; background:var(--white); border:1px solid var(--border); display:flex; align-items:center; justify-content:center;"><span class="material-symbols-outlined" style="font-size:22px; color:var(--fg-subtle);">more_horiz</span></div>
+                </div>
+              </div>
+              <a href="products/" style="font-family:'Urbanist',sans-serif; font-size:13px; font-weight:600; color:var(--fg); display:inline-flex; align-items:center; gap:4px;">
+                Explore our products <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- PURE AI banner strip -->
-  <div style="margin-top:64px; padding:32px 0; background:rgba(255,255,255,0.06); border-top:1px solid rgba(255,255,255,0.1);">
+
+  <!-- Step 2: AI that already knows you -->
+  <div class="hiw-step">
     <div class="container">
-      <div class="fade-up" style="display:flex; justify-content:center; align-items:center; gap:48px; flex-wrap:wrap;">
-        <div style="display:flex; align-items:center; gap:10px;">
-          <span class="material-symbols-outlined" style="font-size:22px; color:var(--coral);">person</span>
-          <span style="font-family:'Urbanist',sans-serif; font-size:15px; font-weight:600; color:#fff;">Personalized</span>
+      <div class="hiw-step-grid">
+        <div class="hiw-text fade-up">
+          <div class="hiw-step-number">02</div>
+          <h3>AI that already knows you</h3>
+          <p>Every other AI tool starts from zero. Soar's memory system builds a living picture of your work, your preferences, and your history — and it carries that context across every task and conversation. The more you use it, the more it understands you. No repeating yourself, no re-explaining. You pick up right where you left off, every time.</p>
         </div>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <span class="material-symbols-outlined" style="font-size:22px; color:var(--coral);">trending_up</span>
-          <span style="font-family:'Urbanist',sans-serif; font-size:15px; font-weight:600; color:#fff;">Uplifting</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <span class="material-symbols-outlined" style="font-size:22px; color:var(--coral);">shield</span>
-          <span style="font-family:'Urbanist',sans-serif; font-size:15px; font-weight:600; color:#fff;">Responsible</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <span class="material-symbols-outlined" style="font-size:22px; color:var(--coral);">balance</span>
-          <span style="font-family:'Urbanist',sans-serif; font-size:15px; font-weight:600; color:#fff;">Ethical</span>
+        <div class="hiw-visual fade-up">
+          <div class="memory-app">
+            <!-- Sidebar -->
+            <div class="memory-app-sidebar">
+              <div class="memory-app-sidebar-icon active"><span class="material-symbols-outlined">chat</span></div>
+              <div class="memory-app-sidebar-icon"><span class="material-symbols-outlined">person</span></div>
+              <div class="memory-app-sidebar-icon"><span class="material-symbols-outlined">tune</span></div>
+              <div class="memory-app-sidebar-icon"><span class="material-symbols-outlined">event</span></div>
+              <div class="memory-app-sidebar-icon"><span class="material-symbols-outlined">checklist</span></div>
+              <div class="memory-app-sidebar-spacer"></div>
+              <div class="memory-app-sidebar-avatar">JM</div>
+            </div>
+            <!-- Main chat area -->
+            <div class="memory-app-main">
+              <div class="memory-app-header">
+                <div class="memory-app-header-left">
+                  <div class="memory-app-header-dot"></div>
+                  <span class="memory-app-header-name">Workplace AI</span>
+                </div>
+                <span class="memory-app-header-status">Online</span>
+              </div>
+              <div class="memory-app-chat">
+                <!-- User message -->
+                <div class="memory-msg-user">What did Tom say about the pricing model yesterday, and what does he likely want to see next?</div>
+                <!-- AI response + reference index -->
+                <div class="memory-msg-ai-wrap">
+                  <div class="memory-msg-ai">
+                    Tom said he was <strong>open to tiered pricing</strong> but wants to see <strong>Q1 usage data</strong> before committing to per-seat. He flagged that smaller teams might get priced out and asked for a <strong>starter tier under $500/mo</strong>. Based on past conversations, he'll want a side-by-side comparison with projected revenue at different adoption rates.
+                  </div>
+                  <div class="memory-refs-panel">
+                    <div class="memory-refs-title">Sources</div>
+                    <div class="memory-ref-row"><span class="memory-ref-num">[1]</span> Tom Chen, Marketing sync — May 27</div>
+                    <div class="memory-ref-row"><span class="memory-ref-num">[2]</span> Pricing review — May 14</div>
+                    <div class="memory-ref-row"><span class="memory-ref-num">[3]</span> Q1 recap w/ Tom — Apr 30</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Suggestions -->
+              <div class="memory-app-suggestions">
+                <span class="memory-app-chip">Draft the comparison</span>
+                <span class="memory-app-chip">Pull Q1 data</span>
+                <span class="memory-app-chip">Prep talking points</span>
+              </div>
+              <!-- Input -->
+              <div class="memory-app-input">
+                <span>Type your message here</span>
+                <span class="material-symbols-outlined">send</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Step 3: Built-in guardrails -->
+  <div class="hiw-step">
+    <div class="container">
+      <div class="hiw-step-grid">
+        <div class="hiw-text fade-up">
+          <div class="hiw-step-number">03</div>
+          <h3>Built-in guardrails</h3>
+          <p>Every Soar product ships with safety rules baked in — locked parameters that control what the AI can and can't do. Your data stays yours, and the AI stays in its lane.</p>
+        </div>
+        <div class="hiw-visual fade-up">
+          <div class="guardrails-stack">
+            <div class="guardrail-bar">
+              <span class="material-symbols-outlined">lock</span>
+              <span>Your data never leaves your account</span>
+            </div>
+            <div class="guardrail-bar">
+              <span class="material-symbols-outlined">shield</span>
+              <span>AI follows your rules, not its own</span>
+            </div>
+            <div class="guardrail-bar">
+              <span class="material-symbols-outlined">visibility_off</span>
+              <span>No ads, no data harvesting</span>
+            </div>
+            <div class="guardrail-bar">
+              <span class="material-symbols-outlined">verified_user</span>
+              <span>Locked parameters on every product</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Band -->
+  <div style="background:#5b3578; padding:72px 0; margin-top:40px;">
+    <div class="container fade-up" style="text-align:center;">
+      <h2 style="font-size:clamp(28px,4vw,42px); font-weight:800; color:#fff; margin-bottom:16px; text-wrap:balance;">Ready to see what AI can do for you?</h2>
+      <p style="font-size:17px; color:rgba(255,255,255,0.75); margin-bottom:36px; max-width:480px; margin-left:auto; margin-right:auto;">We're always happy to talk about what we're building and where it's going.</p>
+      <a href="get-involved/" class="btn btn-primary">
+        Get Involved
+        <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════ FOUNDER ═══════ -->
-<section class="section founder-section" id="founder" style="background:var(--navy);">
+<section class="founder-section section" id="founder">
   <div class="container">
     <div class="founder-grid fade-up">
-      <div class="founder-left">
-        <span class="eyebrow" style="color:var(--coral);">Meet the founder</span>
-        <h2 style="margin-top:20px; font-size:clamp(32px,4vw,48px); font-weight:800; color:var(--fg-on-dark);">
-          Paul Allen
-        </h2>
-        <p style="font-size:15px; color:var(--fg-on-dark-muted); margin-top:4px; font-weight:500;">
-          Co-founder of Ancestry.com &middot; Founder &amp; CEO, SOAR
-        </p>
-        <p style="font-size:16px; color:var(--fg-on-dark-muted); line-height:1.75; margin-top:24px; font-weight:400;">
-          Paul co-founded Ancestry.com in 1997 — the platform that helped over 100 million people discover their family history. A sought-after keynote speaker and Ernst &amp; Young Entrepreneur of the Year, he's spent thirty years building technology that makes complex, deeply human things accessible to everyone.
-        </p>
-        <p style="font-size:16px; color:var(--fg-on-dark-muted); line-height:1.75; margin-top:16px; font-weight:400;">
-          With SOAR, he's building what he calls PURE AI — Personalized, Uplifting, Responsible, Ethical — across work, family, faith, community, and beyond.
-        </p>
-        <div style="display:flex; gap:20px; margin-top:32px; align-items:center;">
-          <a href="https://www.linkedin.com/in/paulballen/" target="_blank" rel="noopener" style="width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.7); transition:background 0.2s, color 0.2s;" title="LinkedIn"><i class="fa-brands fa-linkedin-in" style="font-size:18px;"></i></a>
-          <a href="https://substack.com/@paulallenai" target="_blank" rel="noopener" style="width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.7); transition:background 0.2s, color 0.2s;" title="Substack"><i class="fa-solid fa-square-rss" style="font-size:18px;"></i></a>
-          <a href="https://x.com/paulballen" target="_blank" rel="noopener" style="width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.7); transition:background 0.2s, color 0.2s;" title="X"><i class="fa-brands fa-x-twitter" style="font-size:18px;"></i></a>
-          <a href="founder/" style="font-family:'Urbanist',sans-serif; font-size:14px; font-weight:600; color:var(--coral); display:flex; align-items:center; gap:6px; margin-left:8px; transition:opacity 0.15s;">More about Paul <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
-        </div>
-      </div>
-      <div class="founder-right">
-        <div class="founder-video" style="position:relative; cursor:pointer;" onclick="window.open('https://www.youtube.com/watch?v=tfXwQIFOlIY','_blank')">
-          <img src="https://img.youtube.com/vi/tfXwQIFOlIY/maxresdefault.jpg" alt="Paul Allen — This Tech Guru from SOAR AI Says 90% of Advice Is Wrong" style="width:100%; height:100%; object-fit:cover; border-radius:var(--r-lg);">
-          <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.25); border-radius:var(--r-lg); transition:background 0.2s;">
-            <div style="width:72px; height:72px; border-radius:50%; background:rgba(255,255,255,0.95); display:flex; align-items:center; justify-content:center;">
-              <span class="material-symbols-outlined" style="font-size:36px; color:var(--coral); margin-left:4px;">play_arrow</span>
-            </div>
-          </div>
+      <img src="founder/paul01.png" alt="Paul Allen, Founder of Soar" class="founder-photo">
+      <div class="founder-text">
+        <span class="eyebrow">The founder</span>
+        <h2>Paul Allen built Ancestry.com.<br>Now he's building the future of personal AI.</h2>
+        <p>Paul Allen founded Ancestry.com and grew it into the largest consumer genomics company in the world. Now he's applying the same belief — that technology should serve individuals, not corporations — to artificial intelligence.</p>
+        <p>Soar is his answer to Big Tech AI: a studio model where every product is built to uplift the person using it. No ads or data harvesting. AI in the service of humanity.</p>
+        <div class="founder-social">
+          <a href="https://www.linkedin.com/in/paulballen/" target="_blank" rel="noopener" class="social-icon" title="LinkedIn"><i class="fa-brands fa-linkedin-in" style="font-size:18px;"></i></a>
+          <a href="https://substack.com/@paulallenai" target="_blank" rel="noopener" class="social-icon" title="Substack"><i class="fa-solid fa-square-rss" style="font-size:18px;"></i></a>
+          <a href="https://x.com/paulballen" target="_blank" rel="noopener" class="social-icon" title="X"><i class="fa-brands fa-x-twitter" style="font-size:18px;"></i></a>
+          <a href="founder/" class="founder-link">More about Paul <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></a>
         </div>
       </div>
     </div>
 
-    <!-- Founder content grid -->
-    <div style="margin-top:80px;">
-      <div class="founder-content-grid fade-up">
-
-        <a href="https://paulallenai.substack.com/p/bring-your-own-agents" target="_blank" rel="noopener" class="content-card">
-          <div class="content-card-img" style="background-image:url('https://substackcdn.com/image/fetch/w_400,c_limit,f_auto,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6827fc03-c8e6-4ba7-992b-5f30876401b8_750x500.jpeg');"></div>
-          <div class="content-card-badge">Article</div>
-          <div class="content-card-body">
-            <h4>"Bring Your Own Agents"</h4>
-            <p>It's 2030. The first question in your job interview isn't about your resume — it's about your fleet.</p>
-            <span class="content-card-link">Read on Substack <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span></span>
-          </div>
-        </a>
-
-        <a href="https://paulallenai.substack.com/p/your-company-already-knows-what-its" target="_blank" rel="noopener" class="content-card">
-          <div class="content-card-img" style="background-image:url('https://substackcdn.com/image/fetch/w_400,c_limit,f_auto,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd70cd878-f6ee-4e45-a2af-fd547d36b313_1365x768.jpeg');"></div>
-          <div class="content-card-badge">Article</div>
-          <div class="content-card-body">
-            <h4>Your Company Already Knows What Its AI Agents Should Do</h4>
-            <p>Every meeting your team has is a set of instructions waiting to be handed to a machine.</p>
-            <span class="content-card-link">Read on Substack <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span></span>
-          </div>
-        </a>
-
-        <a href="https://www.mos.org/events/subspace/soarai-evening-founder-paul-allen" target="_blank" rel="noopener" class="content-card">
-          <div class="content-card-img" style="background:linear-gradient(135deg, #1a1530 0%, #2d1f4e 100%); display:flex; align-items:center; justify-content:center;">
-            <span class="material-symbols-outlined" style="font-size:40px; color:rgba(255,255,255,0.3);">play_circle</span>
-          </div>
-          <div class="content-card-badge" style="background:rgba(212,168,67,0.15); color:#D4A843;">Event</div>
-          <div class="content-card-body">
-            <h4>SOAR AI: An Evening with Paul Allen</h4>
-            <p>Fireside chat at the Museum of Science on AI, empathy, and building technology that uplifts.</p>
-            <span class="content-card-link">Learn more <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span></span>
-          </div>
-        </a>
-
-        <a href="https://www.linkedin.com/in/paulballen/" target="_blank" rel="noopener" class="content-card">
-          <div class="content-card-img" style="background:linear-gradient(135deg, #0a3d6b 0%, #0e5a9e 100%); display:flex; align-items:center; justify-content:center;">
-            <span class="material-symbols-outlined" style="font-size:40px; color:rgba(255,255,255,0.3);">forum</span>
-          </div>
-          <div class="content-card-badge" style="background:rgba(74,139,196,0.15); color:#4A8BC4;">LinkedIn</div>
-          <div class="content-card-body">
-            <h4>CliftonStrengths &amp; the Future of AI</h4>
-            <p>Paul on why strengths-based development is the foundation for how we should build — and use — AI.</p>
-            <span class="content-card-link">Read on LinkedIn <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span></span>
-          </div>
-        </a>
-
-      </div>
+    <div class="founder-content-grid fade-up">
+      <a href="https://paulallenai.substack.com/p/bring-your-own-agents" target="_blank" rel="noopener" class="content-card">
+        <div class="content-card-img" style="background-image:url('https://substackcdn.com/image/fetch/w_400,c_limit,f_auto,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6827fc03-c8e6-4ba7-992b-5f30876401b8_750x500.jpeg');"></div>
+        <div class="content-card-body">
+          <h4>"Bring Your Own Agents"</h4>
+          <p>It's 2030. The first question in your job interview isn't about your resume — it's about your fleet.</p>
+          <span class="content-card-link">Read on Substack <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span></span>
+        </div>
+      </a>
+      <a href="https://paulallenai.substack.com/p/your-company-already-knows-what-its" target="_blank" rel="noopener" class="content-card">
+        <div class="content-card-img" style="background-image:url('https://substackcdn.com/image/fetch/w_400,c_limit,f_auto,q_auto:good/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd70cd878-f6ee-4e45-a2af-fd547d36b313_1365x768.jpeg');"></div>
+        <div class="content-card-body">
+          <h4>Your Company Already Knows What Its AI Agents Should Do</h4>
+          <p>Every meeting your team has is a set of instructions waiting to be handed to a machine.</p>
+          <span class="content-card-link">Read on Substack <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span></span>
+        </div>
+      </a>
+      <a href="https://www.mos.org/events/subspace/soarai-evening-founder-paul-allen" target="_blank" rel="noopener" class="content-card">
+        <div class="content-card-img" style="background:linear-gradient(135deg, #1a1530 0%, #2d1f4e 100%); display:flex; align-items:center; justify-content:center;">
+          <span class="material-symbols-outlined" style="font-size:40px; color:rgba(255,255,255,0.3);">play_circle</span>
+        </div>
+        <div class="content-card-body">
+          <h4>SOAR AI: An Evening with Paul Allen</h4>
+          <p>Fireside chat at the Museum of Science on AI, empathy, and building technology that uplifts.</p>
+          <span class="content-card-link">Learn more <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span></span>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/paulballen/" target="_blank" rel="noopener" class="content-card">
+        <div class="content-card-img" style="background:linear-gradient(135deg, #0a3d6b 0%, #0e5a9e 100%); display:flex; align-items:center; justify-content:center;">
+          <span class="material-symbols-outlined" style="font-size:40px; color:rgba(255,255,255,0.3);">forum</span>
+        </div>
+        <div class="content-card-body">
+          <h4>CliftonStrengths &amp; the Future of AI</h4>
+          <p>Paul on why strengths-based development is the foundation for how we should build — and use — AI.</p>
+          <span class="content-card-link">Read on LinkedIn <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span></span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════════ PRODUCTS ═══════ -->
-<section class="section products-section" id="products">
+<!-- ═══════════════════════════════════════════ FLAGSHIPS ═══════ -->
+<section class="flagships-section" id="products">
   <div class="container">
-    <div class="products-head fade-up">
-      <span class="eyebrow">Products</span>
-      <h2>What we're building.</h2>
-    </div>
+    <span class="eyebrow fade-up">What we're building</span>
+    <h2 class="fade-up">Flagship products. Powered by Soar.</h2>
 
-    <div class="product-explorer fade-up">
-      <!-- Left: category cards -->
-      <div class="explorer-cards">
-
-        <div class="explorer-card" data-cat="work">
-          <div class="explorer-card-label">Your Work</div>
-          <div class="explorer-card-items">
-            <div class="explorer-item featured active" data-color="var(--tab-work)" data-name="Workplace AI" data-cat-label="Your Work" data-desc="Turn every meeting into structured knowledge, tracked actions, and measurable performance. Our flagship product for teams that want to stop losing decisions to bad notes." data-url="https://workplace-ai.com" data-icon="groups" data-img="https://workplace-ai.com/assets/JWmZL2ePmAxEEB4sHm72PhAW5M8.webp">
-              <div class="explorer-dot" style="background:var(--tab-work);"></div>
-              <span class="explorer-name">Workplace AI</span>
-              <span class="explorer-badge">Featured</span>
-            </div>
-            <div class="explorer-item" data-color="var(--tab-work)" data-name="EAScribe" data-cat-label="Your Work" data-desc="AI operating system for executive assistants and chiefs of staff supporting C-suite leaders." data-url="https://eascribe.soar.com" data-icon="assistant">
-              <div class="explorer-dot" style="background:var(--tab-work);"></div>
-              <span class="explorer-name">EAScribe</span>
-            </div>
-            <div class="explorer-item" data-color="var(--tab-work)" data-name="Soar Sales AI" data-cat-label="Your Work" data-desc="Turn sales conversations into actionable insights that drive smarter decisions." data-url="https://soarsales.ai" data-icon="trending_up">
-              <div class="explorer-dot" style="background:var(--tab-work);"></div>
-              <span class="explorer-name">Soar Sales AI</span>
-            </div>
-            <div class="explorer-item" data-color="var(--tab-work)" data-name="PitchPerfect" data-cat-label="Your Work" data-desc="AI pitch coach that scores your pitch like a real VC — so you walk in prepared." data-url="https://pitchperfect.soar.com" data-icon="campaign">
-              <div class="explorer-dot" style="background:var(--tab-work);"></div>
-              <span class="explorer-name">PitchPerfect</span>
-            </div>
-            <div class="explorer-item" data-color="var(--tab-work)" data-name="LegalScribe" data-cat-label="Your Work" data-desc="AI-powered meeting intelligence for legal professionals. Every detail, every case." data-url="https://legalscribe.soar.com" data-icon="gavel">
-              <div class="explorer-dot" style="background:var(--tab-work);"></div>
-              <span class="explorer-name">LegalScribe</span>
-            </div>
-            <div class="explorer-item" data-color="var(--tab-work)" data-name="TradeScribe" data-cat-label="Your Work" data-desc="Narrate on-site, get professional reports and estimates — no more midnight paperwork." data-url="https://tradescribe.soar.com" data-icon="construction">
-              <div class="explorer-dot" style="background:var(--tab-work);"></div>
-              <span class="explorer-name">TradeScribe</span>
-            </div>
-          </div>
+    <div class="flagship-cards">
+      <!-- Workplace AI -->
+      <div class="flagship-card fade-up">
+        <div class="flagship-card-icon" style="background:var(--white);">
+          <img src="assets/WAIlogo.png" alt="Workplace AI logo" >
         </div>
-
-        <div class="explorer-card" data-cat="words">
-          <div class="explorer-card-label">Your Words</div>
-          <div class="explorer-card-items">
-            <div class="explorer-item" data-color="var(--tab-voice)" data-name="AuthorFlow" data-cat-label="Your Words" data-desc="Turn expert interviews and voice notes into chapter-ready first drafts." data-url="https://authorflow.soar.com" data-icon="edit_note">
-              <div class="explorer-dot" style="background:var(--tab-voice);"></div>
-              <span class="explorer-name">AuthorFlow</span>
-            </div>
-            <div class="explorer-item" data-color="var(--tab-voice)" data-name="PodScribe" data-cat-label="Your Words" data-desc="Turn your podcast library into a searchable, queryable knowledge base." data-url="https://podscribe.soar.com" data-icon="podcasts">
-              <div class="explorer-dot" style="background:var(--tab-voice);"></div>
-              <span class="explorer-name">PodScribe</span>
-            </div>
-            <div class="explorer-item" data-color="var(--tab-voice)" data-name="VoxMea" data-cat-label="Your Words" data-desc="Learn languages from your actual work meetings — not textbook phrases." data-url="https://voxmea.soar.com" data-icon="translate">
-              <div class="explorer-dot" style="background:var(--tab-voice);"></div>
-              <span class="explorer-name">VoxMea</span>
-            </div>
-            <div class="explorer-item" data-color="var(--tab-voice)" data-name="CourseScribe" data-cat-label="Your Words" data-desc="Turn classroom recordings into structured course content — built from your best teaching." data-url="https://coursescribe.soar.com" data-icon="school">
-              <div class="explorer-dot" style="background:var(--tab-voice);"></div>
-              <span class="explorer-name">CourseScribe</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="explorer-card" data-cat="family">
-          <div class="explorer-card-label">Your Family</div>
-          <div class="explorer-card-items">
-            <div class="explorer-item featured" data-color="var(--tab-family)" data-name="FamilyScribe" data-cat-label="Your Family" data-desc="Preserve family stories, voices, and history before they're gone. Searchable and organized forever. Built by the co-founder of Ancestry.com." data-url="https://familyscribe.soar.com" data-icon="family_restroom">
-              <div class="explorer-dot" style="background:var(--tab-family);"></div>
-              <span class="explorer-name">FamilyScribe</span>
-              <span class="explorer-badge">Featured</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="explorer-card" data-cat="community">
-          <div class="explorer-card-label">Your Community</div>
-          <div class="explorer-card-items">
-            <div class="explorer-item featured" data-color="var(--tab-community)" data-name="Citizen Portal" data-cat-label="Your Community" data-desc="Stay informed on everything happening in local, state, and federal government. Over 1 million hours of public meetings — searchable, accessible, and transparent." data-url="https://citizenportal.ai/home" data-icon="account_balance">
-              <div class="explorer-dot" style="background:var(--tab-community);"></div>
-              <span class="explorer-name">Citizen Portal</span>
-              <span class="explorer-badge">Featured</span>
-            </div>
-            <div class="explorer-item" data-color="var(--tab-community)" data-name="PublicMinutes" data-cat-label="Your Community" data-desc="Search and explore over 1 million hours of public meetings — made accessible by AI." data-url="https://minutes.citizenportal.ai" data-icon="record_voice_over">
-              <div class="explorer-dot" style="background:var(--tab-community);"></div>
-              <span class="explorer-name">PublicMinutes</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="explorer-card" data-cat="learning">
-          <div class="explorer-card-label">Your Learning</div>
-          <div class="explorer-card-items">
-            <div class="explorer-item featured" data-color="var(--tab-learning)" data-name="SOAR AI Institute" data-cat-label="Your Learning" data-desc="Two-day hands-on workshop. Build a working AI tool on your real business data. Leave with something running. Taught by Paul Allen." data-url="https://institute.soar.com" data-icon="workspace_premium" data-img="https://institute.soar.com/heroillustration.png">
-              <div class="explorer-dot" style="background:var(--tab-learning);"></div>
-              <span class="explorer-name">SOAR AI Institute</span>
-              <span class="explorer-badge">Featured</span>
-            </div>
-            <div class="explorer-item" data-color="var(--tab-learning)" data-name="AceIt" data-cat-label="Your Learning" data-desc="AI interview coach — records real interviews and shows where you shine and stumble." data-url="https://aceit.soar.com" data-icon="mic">
-              <div class="explorer-dot" style="background:var(--tab-learning);"></div>
-              <span class="explorer-name">AceIt</span>
-            </div>
-          </div>
-        </div>
-
+        <h3>Workplace AI</h3>
+        <p>Your meetings, transcribed, analyzed, and turned into action — automatically. Workplace AI becomes part of your meeting routine and handles the busywork so your team can focus on bigger goals.</p>
+        <a href="https://workplace-ai.com" target="_blank" rel="noopener">
+          See Workplace AI
+          <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+        </a>
       </div>
 
-      <!-- Right: detail card -->
-      <div class="explorer-detail">
-        <div class="explorer-detail-inner" id="explorerDetail">
-          <div class="explorer-detail-hero" id="explorerHero">
-            <span class="material-symbols-outlined" id="explorerIconSpan">groups</span>
-            <img id="explorerImg" src="" alt="" style="display:none; max-width:100%; max-height:100%; object-fit:contain; padding:24px;">
-          </div>
-          <div class="explorer-detail-body">
-            <div class="explorer-detail-cat" id="explorerCat">Your Work</div>
-            <h3 class="explorer-detail-name" id="explorerName">Workplace AI</h3>
-            <p class="explorer-detail-desc" id="explorerDesc">Turn every meeting into structured knowledge, tracked actions, and measurable performance. Our flagship product for teams that want to stop losing decisions to bad notes.</p>
-            <a href="https://workplace-ai.com" target="_blank" rel="noopener" class="explorer-detail-link" id="explorerLink">
-              Visit site <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
-            </a>
-          </div>
-          <div class="explorer-progress" id="explorerProgress">
-            <div class="explorer-progress-bar" id="explorerBar"></div>
-          </div>
+      <!-- Citizen Portal -->
+      <div class="flagship-card fade-up">
+        <div class="flagship-card-icon" style="background:var(--white);">
+          <img src="assets/citizenportallogo02.png" alt="Citizen Portal logo" >
         </div>
+        <h3>Citizen Portal</h3>
+        <p>Citizen Portal puts every public meeting, vote, and government decision at your fingertips — searchable, organized, unfiltered, and impossible to spin. Monitor your representatives the way they monitor you.</p>
+        <a href="https://citizenportal.us/home" target="_blank" rel="noopener">
+          See Citizen Portal
+          <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+        </a>
+      </div>
+
+      <!-- Fleet of Agents -->
+      <div class="flagship-card fade-up">
+        <div class="flagship-card-icon" style="background:#F5F4EF; color:#5840d4;">
+          <span class="material-symbols-outlined">rocket_launch</span>
+        </div>
+        <h3>Fleet of Agents</h3>
+        <p>Every Soar product comes with a fleet — a team of specialized AI agents that work together on your behalf, constantly learning and improving.</p>
+        <a href="https://fleet.workplace-ai.com/" target="_blank" rel="noopener">
+          Learn about Fleet
+          <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+        </a>
       </div>
     </div>
 
-    <p class="fade-up" style="text-align:center; margin-top:40px; font-size:14px; color:var(--fg-subtle);">Plus more in development across real estate, fitness, culinary, weddings, and beyond.</p>
+    <div style="text-align:center;" class="fade-up">
+      <a href="products/" class="btn btn-outline">
+        See More Products
+        <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+      </a>
+    </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════ CTA BAND ═══════ -->
-<section style="background:#5b3578; padding:72px 0;">
-  <div class="container fade-up" style="text-align:center;">
-    <h2 style="font-size:clamp(28px,4vw,42px); font-weight:800; color:#fff; margin-bottom:16px; text-wrap:balance;">Ready to see what AI can do for you?</h2>
-    <p style="font-size:17px; color:rgba(255,255,255,0.75); margin-bottom:36px; max-width:480px; margin-left:auto; margin-right:auto;">Whether you're exploring a partnership, investing, or just curious — we'd love to talk.</p>
-    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3cRrOdW84suJFRQXJg4JaJJRBRug9NzXz_3lP9KURE8N9Cdr7P_XK5z0icf5r9t2cDDu8lcW16" target="_blank" rel="noopener" class="btn" style="background:var(--coral); color:#fff; font-size:16px; padding:16px 36px; border-radius:var(--r-pill); transition:all 0.2s;">
-      Get Involved
+<!-- ═══════════════════════════════════════════ BYOA ═══════ -->
+<section style="background:var(--purple); padding:80px 0;">
+  <div class="container fade-up" style="display:flex; align-items:center; justify-content:space-between; gap:48px;">
+    <div style="max-width:640px;">
+      <span class="eyebrow" style="color:var(--coral);">Our pledge</span>
+      <h2 style="font-size:clamp(28px,3.5vw,40px); font-weight:800; color:#fff; margin-top:16px; margin-bottom:16px; text-wrap:balance;">Bring Your Own Agents.</h2>
+      <p style="font-size:17px; color:rgba(255,255,255,0.8); line-height:1.7; font-weight:400;">Every worker deserves their own AI agents — tools they build, train, and carry with them throughout their career, from one role to the next.</p>
+    </div>
+    <a href="https://lighthearted-cupcake-70d020.netlify.app/" target="_blank" rel="noopener" class="btn btn-primary" style="flex-shrink:0;">
+      Read the Pledge
       <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
     </a>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════ TRUST LOGOS ═══════ -->
-<section class="trust-bar">
+<div class="trust-bar">
   <div class="trust-track">
-    <img src="https://unicorn-images.b-cdn.net/63186be6-1282-4543-82eb-c00fe93f2032?optimizer=gif" alt="Peter Drucker Society">
-    <img src="https://unicorn-images.b-cdn.net/016e870f-6985-4d80-8ca5-d94c20c96c3d?optimizer=gif" alt="SHRM">
-    <img src="https://unicorn-images.b-cdn.net/4a69c8a6-4979-4538-9eb6-b2f477a630bf?optimizer=gif" alt="High Focus AI">
-    <img src="https://unicorn-images.b-cdn.net/4ee0f6ad-9a5f-4206-a0df-82539223b147?optimizer=gif" alt="BYU">
-    <img src="https://unicorn-images.b-cdn.net/18742ebf-545d-4c7c-9ea8-a61de59a0f31?optimizer=gif" alt="Sandler Training">
-    <img src="https://unicorn-images.b-cdn.net/4b499b6d-f003-4828-9e1c-df90939802e1?optimizer=gif" alt="Partner">
-    <img src="https://unicorn-images.b-cdn.net/a767e52e-9a3c-430e-8f75-f0dd1b519306?optimizer=gif" alt="Partner">
-    <img src="https://unicorn-images.b-cdn.net/27472eec-3fd5-4ba6-becc-a65b2cc89629?optimizer=gif" alt="Partner">
-    <img src="https://unicorn-images.b-cdn.net/65615f12-5949-4226-855e-2886b2e35d93?optimizer=gif" alt="Partner">
-    <img src="https://unicorn-images.b-cdn.net/af88290a-84c9-4c25-833b-5b60643d059d?optimizer=gif" alt="Partner">
-    <!-- Duplicate for seamless loop -->
-    <img src="https://unicorn-images.b-cdn.net/63186be6-1282-4543-82eb-c00fe93f2032?optimizer=gif" alt="" aria-hidden="true">
-    <img src="https://unicorn-images.b-cdn.net/016e870f-6985-4d80-8ca5-d94c20c96c3d?optimizer=gif" alt="" aria-hidden="true">
-    <img src="https://unicorn-images.b-cdn.net/4a69c8a6-4979-4538-9eb6-b2f477a630bf?optimizer=gif" alt="" aria-hidden="true">
-    <img src="https://unicorn-images.b-cdn.net/4ee0f6ad-9a5f-4206-a0df-82539223b147?optimizer=gif" alt="" aria-hidden="true">
-    <img src="https://unicorn-images.b-cdn.net/18742ebf-545d-4c7c-9ea8-a61de59a0f31?optimizer=gif" alt="" aria-hidden="true">
-    <img src="https://unicorn-images.b-cdn.net/4b499b6d-f003-4828-9e1c-df90939802e1?optimizer=gif" alt="" aria-hidden="true">
-    <img src="https://unicorn-images.b-cdn.net/a767e52e-9a3c-430e-8f75-f0dd1b519306?optimizer=gif" alt="" aria-hidden="true">
-    <img src="https://unicorn-images.b-cdn.net/27472eec-3fd5-4ba6-becc-a65b2cc89629?optimizer=gif" alt="" aria-hidden="true">
-    <img src="https://unicorn-images.b-cdn.net/65615f12-5949-4226-855e-2886b2e35d93?optimizer=gif" alt="" aria-hidden="true">
-    <img src="https://unicorn-images.b-cdn.net/af88290a-84c9-4c25-833b-5b60643d059d?optimizer=gif" alt="" aria-hidden="true">
+    <img src="clients/A9jZQIDb7uvc7EvaCsS3MT0cF0A.webp" alt="Client">
+    <img src="clients/BBcY3axNHRW48I4mOHckIrKPU.webp" alt="Client">
+    <img src="clients/FAJR9X9bEPjgJssGQDBkjpXWGM.webp" alt="Client">
+    <img src="clients/H939iJdVU8dZBCHZcOMv1JulGz4.webp" alt="Client">
+    <img src="clients/MbizcPDRwLwOzsQnIrdWYrHRs.webp" alt="Client">
+    <img src="clients/PDW9UpMOb6xG5AP0I3AbARTeM.png" alt="Client">
+    <img src="clients/PU2dlifAkrSAGSSVD8sukJdRJYE.webp" alt="Client">
+    <img src="clients/clS9OCGFV3ohmBjJurwgw8JtuJ4.webp" alt="Client">
+    <img src="clients/gYilpfInlXZLPYgLLJx7tLpWnA.webp" alt="Client">
+    <img src="clients/mizobrmMHSGbEsJvrpXjer9XM.webp" alt="Client">
+    <img src="clients/vFcRQ8qKSxD7QsPw6PnYD635U.png" alt="Client">
+    <img src="clients/xQAknZvttJMavNu9YniE3vzrsGE.png" alt="Client">
+    <img src="clients/A9jZQIDb7uvc7EvaCsS3MT0cF0A.webp" alt="Client">
+    <img src="clients/BBcY3axNHRW48I4mOHckIrKPU.webp" alt="Client">
+    <img src="clients/FAJR9X9bEPjgJssGQDBkjpXWGM.webp" alt="Client">
+    <img src="clients/H939iJdVU8dZBCHZcOMv1JulGz4.webp" alt="Client">
+    <img src="clients/MbizcPDRwLwOzsQnIrdWYrHRs.webp" alt="Client">
+    <img src="clients/PDW9UpMOb6xG5AP0I3AbARTeM.png" alt="Client">
+    <img src="clients/PU2dlifAkrSAGSSVD8sukJdRJYE.webp" alt="Client">
+    <img src="clients/clS9OCGFV3ohmBjJurwgw8JtuJ4.webp" alt="Client">
+    <img src="clients/gYilpfInlXZLPYgLLJx7tLpWnA.webp" alt="Client">
+    <img src="clients/mizobrmMHSGbEsJvrpXjer9XM.webp" alt="Client">
+    <img src="clients/vFcRQ8qKSxD7QsPw6PnYD635U.png" alt="Client">
+    <img src="clients/xQAknZvttJMavNu9YniE3vzrsGE.png" alt="Client">
   </div>
-</section>
+</div>
 
-<!-- ═══════════════════════════════════════════ CASE STUDIES ═══════ -->
-<section class="section" style="background:var(--off-white);">
+<!-- ═══════════════════════════════════════════ CASE STUDIES + TRUST ═══════ -->
+<section class="cases-section">
   <div class="container">
-    <div style="text-align:center; margin-bottom:48px;" class="fade-up">
-      <span class="eyebrow">Impact</span>
-      <h2 style="font-size:clamp(28px,3.5vw,42px); font-weight:800; margin-top:20px;">
-        See how organizations use Soar.
-      </h2>
-    </div>
-    <div class="case-study-grid fade-up" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
-      <a href="https://try.soar.com/drucker" target="_blank" rel="noopener" style="background:#fff; border:1px solid var(--border); border-radius:var(--r-xl); overflow:hidden; text-decoration:none; color:inherit; transition:box-shadow 0.2s, transform 0.15s;">
-        <div style="height:160px; background:linear-gradient(135deg, #f7f1ff 0%, #ede9f9 100%); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
-          <img src="https://unicorn-images.b-cdn.net/63186be6-1282-4543-82eb-c00fe93f2032?optimizer=gif" alt="Peter Drucker Society" style="max-height:120px; filter:none; opacity:1;">
+    <span class="eyebrow fade-up">In the field</span>
+    <h2 class="fade-up">Organizations using Soar today.</h2>
+
+    <div class="case-cards">
+      <div class="case-card fade-up">
+        <div class="case-card-img" style="background:linear-gradient(135deg, #f7f1ff 0%, #ede9f9 100%);">
+          <img src="https://unicorn-images.b-cdn.net/63186be6-1282-4543-82eb-c00fe93f2032?optimizer=gif" alt="Peter Drucker Society">
         </div>
-        <div style="padding:24px;">
-          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">Global Peter Drucker Forum</h3>
-          <p style="font-size:14px; color:var(--fg-muted); line-height:1.6; margin-bottom:16px;">AI-enabled learning for leaders at one of the world's most respected management conferences.</p>
-          <span style="font-family:'Urbanist',sans-serif; font-size:14px; font-weight:600; color:var(--coral); display:inline-flex; align-items:center; gap:4px;">Read the case study <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></span>
+        <div class="case-card-body">
+          <h3>Global Peter Drucker Forum</h3>
+          <p>AI-enabled learning for leaders at one of the world's most respected management conferences.</p>
+          <a href="case-studies/drucker/">
+            Read the case study
+            <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+          </a>
         </div>
-      </a>
-      <a href="https://try.soar.com/shrm" target="_blank" rel="noopener" style="background:#fff; border:1px solid var(--border); border-radius:var(--r-xl); overflow:hidden; text-decoration:none; color:inherit; transition:box-shadow 0.2s, transform 0.15s;">
-        <div style="height:160px; background:linear-gradient(135deg, #eef5fb 0%, #dce9f4 100%); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
-          <img src="https://unicorn-images.b-cdn.net/016e870f-6985-4d80-8ca5-d94c20c96c3d?optimizer=gif" alt="SHRM" style="max-height:120px; filter:none; opacity:1;">
+      </div>
+      <div class="case-card fade-up">
+        <div class="case-card-img" style="background:linear-gradient(135deg, #1a3a5c 0%, #254887 100%);">
+          <img src="https://unicorn-images.b-cdn.net/016e870f-6985-4d80-8ca5-d94c20c96c3d?optimizer=gif" alt="SHRM">
         </div>
-        <div style="padding:24px;">
-          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">SHRM</h3>
-          <p style="font-size:14px; color:var(--fg-muted); line-height:1.6; margin-bottom:16px;">Turning content into a growth flywheel for the global leader in human resources.</p>
-          <span style="font-family:'Urbanist',sans-serif; font-size:14px; font-weight:600; color:var(--coral); display:inline-flex; align-items:center; gap:4px;">Read the case study <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></span>
+        <div class="case-card-body">
+          <h3>SHRM</h3>
+          <p>Turning content into a growth flywheel for the global leader in human resources.</p>
+          <a href="case-studies/shrm/">
+            Read the case study
+            <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+          </a>
         </div>
-      </a>
-      <a href="https://try.soar.com/highfocus" target="_blank" rel="noopener" style="background:#fff; border:1px solid var(--border); border-radius:var(--r-xl); overflow:hidden; text-decoration:none; color:inherit; transition:box-shadow 0.2s, transform 0.15s;">
-        <div style="height:160px; background:linear-gradient(135deg, #e8f5f0 0%, #dbfff5 100%); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
-          <img src="https://unicorn-images.b-cdn.net/4a69c8a6-4979-4538-9eb6-b2f477a630bf?optimizer=gif" alt="High Focus AI" style="max-height:120px; filter:none; opacity:1;">
+      </div>
+      <div class="case-card fade-up">
+        <div class="case-card-img" style="background:linear-gradient(135deg, #e8f5f0 0%, #dbfff5 100%);">
+          <img src="https://unicorn-images.b-cdn.net/4a69c8a6-4979-4538-9eb6-b2f477a630bf?optimizer=gif" alt="HighFocus AI">
         </div>
-        <div style="padding:24px;">
-          <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">HighFocus Sales AI</h3>
-          <p style="font-size:14px; color:var(--fg-muted); line-height:1.6; margin-bottom:16px;">Instant AI feedback on email and video calls to boost sales communication.</p>
-          <span style="font-family:'Urbanist',sans-serif; font-size:14px; font-weight:600; color:var(--coral); display:inline-flex; align-items:center; gap:4px;">Read the case study <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span></span>
+        <div class="case-card-body">
+          <h3>HighFocus Sales AI</h3>
+          <p>Instant AI feedback on email and video calls to boost sales communication.</p>
+          <a href="case-studies/highfocus/">
+            Read the case study
+            <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+          </a>
         </div>
-      </a>
+      </div>
     </div>
   </div>
+
 </section>
 
 <!-- ═══════════════════════════════════════════ FAQ ═══════ -->
-<section class="section" style="background:var(--white);">
+<section class="faq-section">
   <div class="container">
-    <div style="text-align:center; margin-bottom:56px;" class="fade-up">
-      <span class="eyebrow">FAQ</span>
-      <h2 style="font-size:clamp(28px,3.5vw,42px); font-weight:800; margin-top:20px;">Common questions.</h2>
-    </div>
-    <div class="fade-up" style="max-width:720px; margin:0 auto;">
+    <h2 class="fade-up">Common questions</h2>
+    <div class="faq-list fade-up">
 
-      <details class="faq-item">
-        <summary class="faq-trigger">
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="this.parentElement.classList.toggle('open'); var b=this.nextElementSibling; b.style.maxHeight=b.style.maxHeight?null:b.scrollHeight+'px';">
           <span>What does Soar actually do?</span>
-          <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
-        </summary>
-        <div class="faq-body"><div class="faq-body-inner">
-          Soar is an AI studio that builds products across work, family, community, and learning. Our flagship product, Workplace AI, turns meetings into structured knowledge and action items. But we also build tools for authors, lawyers, tradespeople, podcasters, families, educators, and public institutions — all powered by the same underlying AI platform.
-        </div></div>
-      </details>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">Soar is an AI studio — we build a shared technology platform and use it to launch products across work, learning, community, and home. Think of it as one AI engine that powers a whole family of purpose-built tools.</div>
+        </div>
+      </div>
 
-      <details class="faq-item">
-        <summary class="faq-trigger">
-          <span>Who founded Soar?</span>
-          <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
-        </summary>
-        <div class="faq-body"><div class="faq-body-inner">
-          Paul Allen, co-founder of Ancestry.com. He spent thirty years building technology that makes complex, deeply human things accessible to everyone. With Soar, he's applying that same philosophy to AI — building what he calls PURE AI: Personalized, Uplifting, Responsible, and Ethical.
-        </div></div>
-      </details>
-
-      <details class="faq-item">
-        <summary class="faq-trigger">
-          <span>What is "Bring Your Own Agents"?</span>
-          <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
-        </summary>
-        <div class="faq-body"><div class="faq-body-inner">
-          BYOA is our belief that every person should have access to their own AI agents — not just the company they work for. Your agents learn how you work, write, and think. They travel with you. They're yours. <a href="https://lighthearted-cupcake-70d020.netlify.app/" target="_blank" rel="noopener" style="color:var(--coral); font-weight:600;">Learn more about the BYOA pledge →</a>
-        </div></div>
-      </details>
-
-      <details class="faq-item">
-        <summary class="faq-trigger">
-          <span>What is a fleet of agents?</span>
-          <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
-        </summary>
-        <div class="faq-body"><div class="faq-body-inner">
-          Instead of one AI tool that tries to do everything, a fleet is a team of specialized agents that each handle a specific job — taking notes, drafting reports, tracking action items, coaching sales calls — and coordinate together. It's a new way to work with AI, and we're building it now. <a href="https://fleet.workplace-ai.com/" target="_blank" rel="noopener" style="color:var(--coral); font-weight:600;">See what we're building →</a>
-        </div></div>
-      </details>
-
-      <details class="faq-item">
-        <summary class="faq-trigger">
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="this.parentElement.classList.toggle('open'); var b=this.nextElementSibling; b.style.maxHeight=b.style.maxHeight?null:b.scrollHeight+'px';">
           <span>How is Soar different from other AI companies?</span>
-          <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
-        </summary>
-        <div class="faq-body"><div class="faq-body-inner">
-          Most AI companies build tools for companies. We build tools for people. Our products are designed around your life — not just your job — and every one of them is built on the principle that AI should make you more capable, not more dependent. We don't sell your data, we don't serve advertisers, and we don't build general-purpose chatbots. We build specific products that do specific things well.
-        </div></div>
-      </details>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">Most AI companies build one product. Soar's technology platform powers a portfolio of products. Every product benefits from the same core technology, and every improvement to the platform makes every product better. We also never sell your data or serve advertisers — our products serve you, not ad networks.</div>
+        </div>
+      </div>
 
-      <details class="faq-item">
-        <summary class="faq-trigger">
-          <span>Can I partner with Soar or white-label a product?</span>
-          <span class="faq-icon"><span class="material-symbols-outlined">add</span></span>
-        </summary>
-        <div class="faq-body"><div class="faq-body-inner">
-          Yes. We work with organizations who want to bring Soar's AI capabilities to their own audience under their own brand — across any vertical. <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3cRrOdW84suJFRQXJg4JaJJRBRug9NzXz_3lP9KURE8N9Cdr7P_XK5z0icf5r9t2cDDu8lcW16" target="_blank" rel="noopener" style="color:var(--coral); font-weight:600;">Schedule a conversation →</a>
-        </div></div>
-      </details>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="this.parentElement.classList.toggle('open'); var b=this.nextElementSibling; b.style.maxHeight=b.style.maxHeight?null:b.scrollHeight+'px';">
+          <span>Who founded Soar?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">Paul Allen, the founder of Ancestry.com. He built one of the world's largest consumer technology companies and is now applying the same approach — technology in the service of individuals — to AI.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="this.parentElement.classList.toggle('open'); var b=this.nextElementSibling; b.style.maxHeight=b.style.maxHeight?null:b.scrollHeight+'px';">
+          <span>What is &ldquo;Bring Your Own Agents&rdquo;?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">BYOA is Soar's commitment to letting you own and control your AI agents. Your agents work for you, not for us. You choose what they do, what they access, and where your data goes. <a href="https://lighthearted-cupcake-70d020.netlify.app/" target="_blank" rel="noopener">Read the BYOA pledge &rarr;</a></div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="this.parentElement.classList.toggle('open'); var b=this.nextElementSibling; b.style.maxHeight=b.style.maxHeight?null:b.scrollHeight+'px';">
+          <span>What is a fleet of agents?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">A fleet is a team of specialized AI agents that work together inside a single product. Instead of one chatbot that tries to do everything, you get purpose-built agents that are continually learning and improving. They coordinate automatically so you don't have to. <a href="https://fleet.workplace-ai.com/" target="_blank" rel="noopener">Learn more about Fleet &rarr;</a></div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="this.parentElement.classList.toggle('open'); var b=this.nextElementSibling; b.style.maxHeight=b.style.maxHeight?null:b.scrollHeight+'px';">
+          <span>Can I invest in Soar or partner with us?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">Yes. Soar has a growing community of individual investors and is actively seeking partners who want to bring AI into their industry. Visit our Get Involved page to start a conversation. <a href="get-involved/">Get Involved &rarr;</a></div>
+        </div>
+      </div>
 
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════ CONTACT ═══════ -->
-<section class="section" id="contact" style="position:relative; overflow:hidden;">
-  <div style="position:absolute; inset:0; z-index:0;">
-    <img src="sky-hero.jpg" alt="" style="width:100%; height:100%; object-fit:cover; object-position:center 70%; transform:scaleX(-1);">
+<section class="contact-section" id="contact">
+  <div class="contact-bg">
+    <img src="sky-hero.jpg" alt="">
   </div>
-  <div class="container" style="position:relative; z-index:1;">
+  <div class="container">
     <div class="contact-grid fade-up">
       <div class="contact-left">
         <span class="eyebrow">Get in touch</span>
-        <h2 style="margin-top:20px; font-size:clamp(28px,3.5vw,42px); font-weight:800; color:var(--fg);">
-          We'd love to<br>hear from you.
-        </h2>
-        <p style="font-size:16px; color:var(--fg); opacity:0.75; margin-top:16px; line-height:1.7; max-width:400px;">
-          What are you interested in? Let us know and we'll get back to you.
-        </p>
+        <h2>We'd love to<br>hear from you.</h2>
+        <p>What are you interested in? Let us know and we'll get back to you.</p>
       </div>
       <div class="contact-right">
         <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.btn-primary').textContent='Sent — we\'ll be in touch!'; this.querySelector('.btn-primary').disabled=true;">
           <input type="text" name="name" placeholder="Your name" required>
           <input type="email" name="email" placeholder="Your email" required>
-          <select name="inquiry" required style="font-family:'Outfit',sans-serif; font-size:15px; padding:14px 18px; border:1.5px solid rgba(0,0,0,0.12); border-radius:var(--r-md); background:#fff; color:var(--fg-subtle); outline:none; appearance:none; -webkit-appearance:none; background-image:url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%228%22%3E%3Cpath%20fill%3D%22%239a9a9a%22%20d%3D%22M6%208L0%200h12z%22%2F%3E%3C%2Fsvg%3E'); background-repeat:no-repeat; background-position:right 18px center; transition:border-color 0.2s, box-shadow 0.2s;">
+          <select name="inquiry" required>
             <option value="" disabled selected>I'm interested in...</option>
             <option value="demo">Seeing a product demo</option>
-            <option value="partnership">Partnership or collaboration</option>
+            <option value="partnership">Partnership or white-label</option>
             <option value="investment">Investment conversation</option>
             <option value="speaking">Booking Paul as a speaker</option>
             <option value="press">Press or media inquiry</option>
@@ -1430,14 +1843,13 @@ details[open] .faq-icon .material-symbols-outlined {
 <footer style="background:var(--navy); padding:56px 0 40px;">
   <div class="container">
     <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px;">
-      <!-- Brand column -->
       <div>
         <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
-          <svg viewBox="0 0 98.2 142.65" style="height:22px; width:auto; flex-shrink:0;"><defs><style>.sf{fill:#e57e61;}</style></defs><g><path class="sf" d="M73.35,78.48c4.3,21.62,3.91,36.66-13.2,51.9-7.5,6.68-16.42,11.12-26.43,12.13-12.86,1.3-24.08-6.68-26.62-19.28-2.89-14.38,25.95-17.09,39.56-19.59l20.66-3.8c1.69-15.89-12.99-49.53-2.41-55.74,12.18-7.15,40.38,26.51,31.65,47.27-2.56,6.1-9.03,11.17-15.36,12.21-2.32.38-2.95-2.98-2.84-4.35.15-2,1.5-3.67,3.65-4.63,5.97-2.68,9.31-8.55,7.81-15.25-2.55-11.39-9.83-21.91-20.39-28.29-.4,9.77,2.14,18.39,3.93,27.41ZM32.43,134.29c14.71-1.63,27.39-11.55,33.21-25.3l-32.75,5.36c-4.91.8-9.36,2.05-13.81,4.21-1.28.77-3.77,2.18-3.38,4.12,1.48,7.35,8.52,12.52,16.74,11.6Z"/><path class="sf" d="M.66,65.76c-2.52-11.16,2.32-20.79,12.1-25.34,1.63-.76,3.54-2.35,5.6-.98,2.31,1.54,2.15,6.7-.75,7.86-6.74,2.7-10.78,8.85-8.97,16.38,2.69,11.16,9.73,21.23,20.17,27.87.79-8.37-1.33-15.99-3.05-23.7-4.02-17.99-5.91-34.97,6.3-49.33C40.32,8.81,50.97,1.85,63.69.22c13.61-1.74,26.24,6.78,27.68,20.67.43,4.13-3.22,7.83-6.68,9.73-13.86,7.63-36.96,7.51-53.71,12.28-1.41,16.22,13.87,51.89,1.53,56.01-4.35,1.45-8.85-.32-12.43-3.17-9.46-7.52-16.68-17.86-19.42-29.99ZM82.63,20.06c-1.26-7.65-8.82-12.69-16.85-11.8-14.5,1.61-27.3,11.73-33.16,25.44l23.63-3.81c8.81-1.42,27.27-4.48,26.38-9.83Z"/></g></svg><span style="font-family:'Urbanist',sans-serif; font-size:15px; font-weight:700; color:var(--fg-on-dark); letter-spacing:0.08em;">SOAR</span>
+          <svg viewBox="0 0 98.2 142.65" style="height:22px; width:auto; flex-shrink:0;"><defs><style>.sf2{fill:#e57e61;}</style></defs><g><path class="sf2" d="M73.35,78.48c4.3,21.62,3.91,36.66-13.2,51.9-7.5,6.68-16.42,11.12-26.43,12.13-12.86,1.3-24.08-6.68-26.62-19.28-2.89-14.38,25.95-17.09,39.56-19.59l20.66-3.8c1.69-15.89-12.99-49.53-2.41-55.74,12.18-7.15,40.38,26.51,31.65,47.27-2.56,6.1-9.03,11.17-15.36,12.21-2.32.38-2.95-2.98-2.84-4.35.15-2,1.5-3.67,3.65-4.63,5.97-2.68,9.31-8.55,7.81-15.25-2.55-11.39-9.83-21.91-20.39-28.29-.4,9.77,2.14,18.39,3.93,27.41ZM32.43,134.29c14.71-1.63,27.39-11.55,33.21-25.3l-32.75,5.36c-4.91.8-9.36,2.05-13.81,4.21-1.28.77-3.77,2.18-3.38,4.12,1.48,7.35,8.52,12.52,16.74,11.6Z"/><path class="sf2" d="M.66,65.76c-2.52-11.16,2.32-20.79,12.1-25.34,1.63-.76,3.54-2.35,5.6-.98,2.31,1.54,2.15,6.7-.75,7.86-6.74,2.7-10.78,8.85-8.97,16.38,2.69,11.16,9.73,21.23,20.17,27.87.79-8.37-1.33-15.99-3.05-23.7-4.02-17.99-5.91-34.97,6.3-49.33C40.32,8.81,50.97,1.85,63.69.22c13.61-1.74,26.24,6.78,27.68,20.67.43,4.13-3.22,7.83-6.68,9.73-13.86,7.63-36.96,7.51-53.71,12.28-1.41,16.22,13.87,51.89,1.53,56.01-4.35,1.45-8.85-.32-12.43-3.17-9.46-7.52-16.68-17.86-19.42-29.99ZM82.63,20.06c-1.26-7.65-8.82-12.69-16.85-11.8-14.5,1.61-27.3,11.73-33.16,25.44l23.63-3.81c8.81-1.42,27.27-4.48,26.38-9.83Z"/></g></svg>
+          <span style="font-family:'Urbanist',sans-serif; font-size:15px; font-weight:700; color:var(--fg-on-dark); letter-spacing:0.08em;">SOAR</span>
         </div>
-        <p style="font-size:14px; color:rgba(255,255,255,0.4); font-style:italic;">Uplift your humanity.</p>
+        <p style="font-size:14px; color:rgba(255,255,255,0.4); font-style:italic;">Uplift Humanity.</p>
       </div>
-      <!-- Company column -->
       <div>
         <p style="font-family:'Urbanist',sans-serif; font-size:11px; font-weight:700; color:rgba(255,255,255,0.75); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.1);">Company</p>
         <div style="display:flex; flex-direction:column; gap:10px;">
@@ -1448,17 +1860,15 @@ details[open] .faq-icon .material-symbols-outlined {
           <a href="careers/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Careers</a>
         </div>
       </div>
-      <!-- Resources column -->
       <div>
         <p style="font-family:'Urbanist',sans-serif; font-size:11px; font-weight:700; color:rgba(255,255,255,0.75); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.1);">Resources</p>
         <div style="display:flex; flex-direction:column; gap:10px;">
           <a href="media/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Media</a>
-          <a href="byoa/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">BYOA Pledge</a>
+          <a href="https://lighthearted-cupcake-70d020.netlify.app/" target="_blank" rel="noopener" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">BYOA Pledge</a>
           <a href="https://fleet.workplace-ai.com/" target="_blank" rel="noopener" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Fleet of Agents</a>
           <a href="case-studies/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Case Studies</a>
         </div>
       </div>
-      <!-- Connect column -->
       <div>
         <p style="font-family:'Urbanist',sans-serif; font-size:11px; font-weight:700; color:rgba(255,255,255,0.75); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.1);">Connect</p>
         <div style="display:flex; flex-direction:column; gap:10px;">
@@ -1486,150 +1896,17 @@ details[open] .faq-icon .material-symbols-outlined {
   </div>
 </footer>
 
-<!-- Remaining: save to Mac, deploy -->
-
 <!-- ═══════════════════════════════════════════ JS ═══════ -->
 <script>
-// ── Product Explorer ──
-(function() {
-  var items = document.querySelectorAll('.explorer-item:not(.coming-soon)');
-  var nameEl = document.getElementById('explorerName');
-  var descEl = document.getElementById('explorerDesc');
-  var linkEl = document.getElementById('explorerLink');
-  var catEl = document.getElementById('explorerCat');
-  var iconSpan = document.getElementById('explorerIconSpan');
-  var imgEl = document.getElementById('explorerImg');
-  var bar = document.getElementById('explorerBar');
-  var heroEl = document.getElementById('explorerHero');
-
-  // Color map for categories
-  var catColors = {
-    'Your Work': '#8A51A2',
-    'Your Words': '#1A9E7A',
-    'Your Family': '#EE785A',
-    'Your Community': '#4A8BC4',
-    'Your Learning': '#D4A843'
-  };
-
-  var featured = [];
-  var featuredOrder = ['Workplace AI', 'FamilyScribe', 'Citizen Portal', 'SOAR AI Institute'];
-  featuredOrder.forEach(function(name) {
-    items.forEach(function(item) {
-      if (item.getAttribute('data-name') === name) featured.push(item);
-    });
-  });
-
-  var cycleIndex = 0;
-  var cycleInterval = null;
-  var CYCLE_MS = 4000;
-  var userInteracted = false;
-  var lockedItem = null;
-
-  function selectItem(item) {
-    items.forEach(function(i) { i.classList.remove('active'); });
-    item.classList.add('active');
-
-    var catLabel = item.getAttribute('data-cat-label') || '';
-    var color = catColors[catLabel] || '#EE785A';
-
-    nameEl.textContent = item.getAttribute('data-name');
-    descEl.textContent = item.getAttribute('data-desc');
-    linkEl.href = item.getAttribute('data-url');
-    catEl.textContent = catLabel;
-
-    // Apply category color to accents
-    catEl.style.color = color;
-    linkEl.style.color = color;
-    bar.style.background = color;
-
-    // Show image or icon in hero area
-    var imgSrc = item.getAttribute('data-img');
-    if (imgSrc) {
-      iconSpan.style.display = 'none';
-      imgEl.src = imgSrc;
-      imgEl.alt = item.getAttribute('data-name');
-      imgEl.style.display = 'block';
-    } else {
-      imgEl.style.display = 'none';
-      iconSpan.style.display = '';
-      iconSpan.textContent = item.getAttribute('data-icon');
-      iconSpan.style.color = color;
-    }
-
-    if (item.getAttribute('data-url') === '#') {
-      linkEl.style.display = 'none';
-    } else {
-      linkEl.style.display = '';
-    }
-  }
-
-  function startProgress() {
-    bar.style.transition = 'none';
-    bar.style.width = '0%';
-    void bar.offsetWidth;
-    bar.style.transition = 'width ' + CYCLE_MS + 'ms linear';
-    bar.style.width = '100%';
-  }
-
-  function cycle() {
-    selectItem(featured[cycleIndex]);
-    startProgress();
-    cycleIndex = (cycleIndex + 1) % featured.length;
-  }
-
-  function startCycle() {
-    cycle();
-    cycleInterval = setInterval(cycle, CYCLE_MS);
-  }
-
-  function stopCycle() {
-    userInteracted = true;
-    clearInterval(cycleInterval);
-    bar.style.transition = 'none';
-    bar.style.width = '0%';
-    document.getElementById('explorerProgress').style.display = 'none';
-  }
-
-  // Hover previews (only if user has interacted)
-  items.forEach(function(item) {
-    item.addEventListener('mouseenter', function() {
-      if (!userInteracted) return;
-      selectItem(item);
-    });
-    item.addEventListener('mouseleave', function() {
-      if (!userInteracted) return;
-      // Snap back to locked item if one exists
-      if (lockedItem && lockedItem !== item) {
-        selectItem(lockedItem);
-      }
-    });
-    item.addEventListener('click', function() {
-      if (!userInteracted) stopCycle();
-      lockedItem = item;
-      selectItem(item);
-      if (window.innerWidth <= 700) {
-        document.querySelector('.explorer-detail').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    });
-  });
-
-  startCycle();
-})();
-
-// ── Fade-up on scroll ──
+// Fade-up observer
 (function() {
   var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
+    entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('visible'); });
   }, { threshold: 0.15 });
-  document.querySelectorAll('.fade-up').forEach(function(el) {
-    observer.observe(el);
-  });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+  // Also observe hiw-visual panels for scroll-triggered animations
+  document.querySelectorAll('.hiw-visual').forEach(function(el) { observer.observe(el); });
 })();
 </script>
-
 </body>
 </html>
