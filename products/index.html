@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="apple-touch-icon" href="../favicon-512.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<title>Products — SOAR AI Studio</title>
+<meta name="description" content="SOAR AI Studio builds AI products across work, family, community, and learning. Explore our flagship products and full portfolio.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Products — SOAR AI Studio">
+<meta property="og:description" content="Explore the full SOAR product portfolio — AI tools built for every part of life.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+<style>
+/* ══════ TOKENS ══════ */
+:root {
+  --coral: #EE785A; --coral-dark: #d56b50; --coral-light: #f9ded6;
+  --purple: #5b3578; --purple-soft: #7F5FAA; --purple-tint: #f7f1ff;
+  --navy: #06091e; --navy-mid: #0f1330;
+  --white: #ffffff; --off-white: #fafaf8;
+  --fg: #1a1917; --fg-body: #545454; --fg-muted: #7a7a7a; --fg-subtle: #9a9a9a;
+  --fg-on-dark: #ffffff; --fg-on-dark-muted: rgba(255,255,255,0.85);
+  --border: rgba(26,25,23,0.1); --border-dark: rgba(255,255,255,0.1);
+  --r-sm: 8px; --r-md: 14px; --r-lg: 20px; --r-xl: 28px; --r-pill: 100px;
+  --shadow-card: 0 1px 4px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04);
+  --tab-work: #8A51A2; --tab-voice: #1A9E7A; --tab-family: #EE785A;
+  --tab-community: #4A8BC4; --tab-learning: #D4A843;
+}
+/* ══════ RESET & BASE ══════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Outfit', sans-serif; font-weight: 400; font-size: 17px; line-height: 1.7; color: var(--fg-body); background: var(--white); -webkit-font-smoothing: antialiased; text-wrap: pretty; }
+h1,h2,h3,h4,h5 { font-family: 'Urbanist', sans-serif; color: var(--fg); line-height: 1.12; text-wrap: balance; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+.section { padding: 112px 0; }
+.eyebrow { font-family: 'Urbanist', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral); }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+.fade-up { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ══════ BUTTONS ══════ */
+.btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Urbanist', sans-serif; font-weight: 600; border: none; cursor: pointer; transition: all 0.2s ease; text-decoration: none; }
+.btn-primary { background: var(--coral); color: #fff; font-size: 16px; padding: 16px 32px; border-radius: var(--r-pill); }
+.btn-primary:hover { background: var(--navy); box-shadow: none; }
+.btn-outline { background: transparent; color: var(--fg); font-size: 15px; padding: 14px 28px; border-radius: var(--r-pill); border: 1.5px solid var(--border); }
+.btn-outline:hover { background: var(--fg); color: #fff; border-color: var(--fg); }
+.btn-outline-ondark { background: transparent; color: #fff; font-size: 15px; padding: 14px 28px; border-radius: var(--r-pill); border: 1.5px solid rgba(255,255,255,0.25); }
+.btn-outline-ondark:hover { background: #fff; color: var(--fg); border-color: #fff; }
+
+/* ══════ NAV ══════ */
+.nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(16px) saturate(1.2); height: 64px; padding: 0 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+.nav-logo { display: flex; align-items: center; gap: 8px; }
+.nav-logo svg { height: 28px; width: auto; }
+.nav-logo-text { font-family: 'Urbanist', sans-serif; font-size: 15px; font-weight: 800; letter-spacing: 0.06em; color: var(--fg); }
+.nav-links { display: flex; list-style: none; gap: 36px; align-items: center; }
+.nav-links a { font-family: 'Outfit', sans-serif; font-size: 14px; color: var(--fg-muted); transition: color 0.15s; }
+.nav-links a:hover { color: var(--fg); }
+.nav-cta { background: var(--coral); color: #fff !important; padding: 9px 22px; border-radius: var(--r-pill); font-family: 'Urbanist', sans-serif !important; font-size: 13px !important; font-weight: 600 !important; transition: background 0.15s, transform 0.15s; }
+.nav-cta:hover { background: var(--navy); transform: translateY(-1px); }
+
+/* ══════ INTRO SECTION ══════ */
+.intro-section { background: var(--purple); padding: 96px 0 80px; }
+.intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.intro-grid h1 { font-size: clamp(36px, 4.5vw, 54px); font-weight: 800; margin-top: 20px; line-height: 1.12; color: #fff; }
+.intro-grid .eyebrow { color: var(--coral); }
+.intro-right p { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.85); font-weight: 400; margin-bottom: 16px; }
+.intro-right p strong { color: #fff; }
+
+/* ══════ FLAGSHIP SECTION ══════ */
+.flagships-deep { background: var(--off-white); padding: 112px 0; }
+.flagship-horiz { display: grid; grid-template-columns: 340px 1fr; gap: 0; align-items: start; background: var(--white); border: 1px solid var(--border); border-radius: var(--r-xl); overflow: hidden; margin-bottom: 32px; }
+.flagship-horiz-img { display: flex; align-items: center; justify-content: center; min-height: 280px; padding: 0; align-self: stretch; }
+.flagship-horiz-img img { max-width: 60%; max-height: 120px; object-fit: contain; }
+.flagship-horiz-body { padding: 40px; }
+.flagship-horiz-body .eyebrow { margin-bottom: 12px; display: block; }
+.flagship-horiz-body h3 { font-size: 26px; font-weight: 800; margin-bottom: 20px; }
+.flagship-horiz-body p { font-size: 16px; line-height: 1.75; color: var(--fg-body); margin-bottom: 16px; }
+.flagship-horiz-body a.flagship-link { font-family: 'Urbanist', sans-serif; font-size: 14px; font-weight: 600; color: var(--coral); display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+.flagship-horiz-body a.flagship-link:hover { gap: 10px; }
+
+/* ══════ PRODUCT EXPLORER ══════ */
+.products-section { background: var(--white); padding: 112px 0; }
+.products-head { text-align: center; margin-bottom: 48px; }
+.products-head h2 { font-size: clamp(32px,4vw,48px); font-weight: 800; margin-top: 20px; }
+.product-explorer { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+.explorer-cards { display: flex; flex-direction: column; gap: 12px; }
+.explorer-card { border-radius: var(--r-lg); padding: 20px 24px; display: grid; grid-template-columns: 100px 1fr; gap: 16px; align-items: start; }
+.explorer-card-label { font-family: 'Urbanist', sans-serif; font-size: 14px; font-weight: 700; padding-top: 6px; line-height: 1.3; }
+.explorer-card-items { display: flex; flex-direction: column; gap: 2px; border-left: 1px solid rgba(0,0,0,0.08); padding-left: 16px; }
+.explorer-item { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: var(--r-sm); cursor: pointer; transition: background 0.15s; position: relative; min-height: 38px; }
+.explorer-item:hover { background: rgba(255,255,255,0.5); }
+.explorer-item.active { background: rgba(255,255,255,0.6); }
+.explorer-item.active::before { content: ''; position: absolute; left: -17px; top: 8px; bottom: 8px; width: 3px; border-radius: 2px; background: currentColor; }
+.explorer-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.explorer-item.featured .explorer-dot { width: 10px; height: 10px; box-shadow: 0 0 0 3px rgba(0,0,0,0.06); }
+.explorer-name { font-family: 'Urbanist', sans-serif; font-size: 14px; font-weight: 500; color: var(--fg); }
+.explorer-item.featured .explorer-name { font-weight: 700; font-size: 15px; }
+.explorer-badge { font-family: 'Urbanist', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--coral); background: rgba(255,255,255,0.7); padding: 2px 8px; border-radius: var(--r-pill); margin-left: auto; flex-shrink: 0; }
+
+/* Explorer detail card */
+.explorer-detail { align-self: stretch; display: flex; }
+.explorer-detail-inner { background: var(--off-white); border: 1px solid var(--border); border-radius: var(--r-xl); overflow: hidden; transition: border-color 0.3s; display: flex; flex-direction: column; flex: 1; }
+.explorer-detail-hero { flex: 0.65; min-height: 130px; display: flex; align-items: center; justify-content: center; background: var(--off-white); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+.explorer-detail-hero .material-symbols-outlined { font-size: 72px; opacity: 0.2; transition: color 0.3s; }
+.explorer-detail-body { flex: 1; padding: 32px 36px 36px; display: flex; flex-direction: column; justify-content: center; }
+.explorer-detail-cat { font-family: 'Urbanist', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--coral); margin-bottom: 8px; transition: color 0.3s; }
+.explorer-detail-name { font-size: 26px; font-weight: 800; margin-bottom: 16px; }
+.explorer-detail-desc { font-size: 15px; color: var(--fg-muted); line-height: 1.7; margin-bottom: 28px; }
+.explorer-detail-link { font-family: 'Urbanist', sans-serif; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s, color 0.2s; }
+.explorer-detail-link:hover { gap: 10px; }
+.explorer-progress { height: 3px; background: rgba(0,0,0,0.04); }
+.explorer-progress-bar { height: 100%; width: 0%; border-radius: 2px; }
+
+/* ══════ FOOTER ══════ */
+.footer-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 24px; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 12px; color: rgba(255,255,255,0.35); transition: color 0.15s; }
+.footer-links a:hover { color: var(--coral); }
+footer a:hover { color: var(--coral) !important; }
+footer .fa-brands, footer .fa-solid { transition: color 0.15s; }
+footer a:hover .fa-brands, footer a:hover .fa-solid { color: var(--coral) !important; }
+
+/* ══════ RESPONSIVE ══════ */
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .section { padding: 72px 0; }
+  .nav { padding: 0 16px; }
+  .nav-links { display: none; }
+  .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+  .flagship-horiz { grid-template-columns: 1fr; }
+  .flagship-horiz-body { padding: 24px; }
+  .flagship-horiz-img { min-height: 180px; padding: 24px; }
+  .product-explorer { grid-template-columns: 1fr; }
+  .explorer-detail { position: static; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════ NAV ═══════ -->
+<nav class="nav">
+  <a href="../" class="nav-logo">
+    <svg viewBox="0 0 98.2 142.65"><defs><style>.sf{fill:#e57e61;}</style></defs><g><path class="sf" d="M73.35,78.48c4.3,21.62,3.91,36.66-13.2,51.9-7.5,6.68-16.42,11.12-26.43,12.13-12.86,1.3-24.08-6.68-26.62-19.28-2.89-14.38,25.95-17.09,39.56-19.59l20.66-3.8c1.69-15.89-12.99-49.53-2.41-55.74,12.18-7.15,40.38,26.51,31.65,47.27-2.56,6.1-9.03,11.17-15.36,12.21-2.32.38-2.95-2.98-2.84-4.35.15-2,1.5-3.67,3.65-4.63,5.97-2.68,9.31-8.55,7.81-15.25-2.55-11.39-9.83-21.91-20.39-28.29-.4,9.77,2.14,18.39,3.93,27.41ZM32.43,134.29c14.71-1.63,27.39-11.55,33.21-25.3l-32.75,5.36c-4.91.8-9.36,2.05-13.81,4.21-1.28.77-3.77,2.18-3.38,4.12,1.48,7.35,8.52,12.52,16.74,11.6Z"/><path class="sf" d="M.66,65.76c-2.52-11.16,2.32-20.79,12.1-25.34,1.63-.76,3.54-2.35,5.6-.98,2.31,1.54,2.15,6.7-.75,7.86-6.74,2.7-10.78,8.85-8.97,16.38,2.69,11.16,9.73,21.23,20.17,27.87.79-8.37-1.33-15.99-3.05-23.7-4.02-17.99-5.91-34.97,6.3-49.33C40.32,8.81,50.97,1.85,63.69.22c13.61-1.74,26.24,6.78,27.68,20.67.43,4.13-3.22,7.83-6.68,9.73-13.86,7.63-36.96,7.51-53.71,12.28-1.41,16.22,13.87,51.89,1.53,56.01-4.35,1.45-8.85-.32-12.43-3.17-9.46-7.52-16.68-17.86-19.42-29.99ZM82.63,20.06c-1.26-7.65-8.82-12.69-16.85-11.8-14.5,1.61-27.3,11.73-33.16,25.44l23.63-3.81c8.81-1.42,27.27-4.48,26.38-9.83Z"/></g></svg>
+    <span class="nav-logo-text">SOAR</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./" style="color:var(--fg); font-weight:600;">Products</a></li>
+    <li><a href="../about/">About</a></li>
+    <li><a href="../media/">Media</a></li>
+    <li><a href="../get-involved/" class="nav-cta">Get Involved</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════ INTRO ═══════ -->
+<section class="intro-section">
+  <div class="container">
+    <div class="intro-grid fade-up">
+      <div>
+        <span class="eyebrow">Our Products</span>
+        <h1>AI for every part of life.</h1>
+      </div>
+      <div class="intro-right">
+        <p>Most AI companies build one product for one market. SOAR builds across <strong>work, family, community, and learning</strong> because the problems worth solving don't stop at the office door.</p>
+        <p>Every product runs on the same platform — the same intelligence engine, the same persistent memory, the same multi-agent orchestration. That means every improvement we make benefits every product in the portfolio.</p>
+        <a href="#explorer" class="btn btn-outline-ondark" style="margin-top:16px;">
+          Explore Our Products
+          <span class="material-symbols-outlined" style="font-size:18px;">arrow_downward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FLAGSHIPS ═══════ -->
+<section class="flagships-deep" id="flagships">
+  <div class="container">
+    <span class="eyebrow fade-up">Flagship Products</span>
+    <h2 class="fade-up" style="font-size:clamp(36px,4vw,54px); font-weight:800; margin-top:20px; margin-bottom:56px;">Built to lead.</h2>
+
+    <!-- Workplace AI -->
+    <div class="flagship-horiz fade-up">
+      <div class="flagship-horiz-img" style="background:var(--white);">
+        <img src="../assets/WAIlogo.png" alt="Workplace AI logo">
+      </div>
+      <div class="flagship-horiz-body">
+        <span class="eyebrow">Your Work</span>
+        <h3>Workplace AI</h3>
+        <p>Your meetings, transcribed, analyzed, and turned into action automatically. Workplace AI becomes part of your meeting routine and handles the busywork so your team can focus on the decisions that actually matter.</p>
+        <p>Every conversation is captured, every action item is assigned, and every commitment is tracked. The system remembers what was said, who said it, and what was promised — so nothing falls through the cracks and no one has to take notes again.</p>
+        <a href="https://workplace-ai.com" target="_blank" rel="noopener" class="flagship-link">
+          Visit Workplace AI <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Citizen Portal -->
+    <div class="flagship-horiz fade-up">
+      <div class="flagship-horiz-img" style="background:var(--white);">
+        <img src="../assets/citizenportallogo02.png" alt="Citizen Portal logo">
+      </div>
+      <div class="flagship-horiz-body">
+        <span class="eyebrow">Your Community</span>
+        <h3>Citizen Portal</h3>
+        <p>Every public meeting, vote, and government decision at your fingertips — searchable, organized, unfiltered, and impossible to spin. Citizen Portal puts over a million hours of public record into a format that ordinary people can actually use.</p>
+        <p>Monitor your representatives the way they monitor you. Track how they vote, what they say, and whether they follow through. Government transparency should not require a law degree or a full-time research staff.</p>
+        <a href="https://citizenportal.us/home" target="_blank" rel="noopener" class="flagship-link">
+          Visit Citizen Portal <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Fleet of Agents -->
+    <div class="flagship-horiz fade-up">
+      <div class="flagship-horiz-img" style="background:#F5F4EF;">
+        <span class="material-symbols-outlined" style="font-size:80px; color:#5840d4; opacity:0.7;">rocket_launch</span>
+      </div>
+      <div class="flagship-horiz-body">
+        <span class="eyebrow">The Platform</span>
+        <h3>Fleet of Agents</h3>
+        <p>Every SOAR product comes with a fleet — a team of specialized AI agents that work together on your behalf, constantly learning and improving. Instead of one AI that tries to do everything, you get purpose-built agents coordinated by a single orchestration layer.</p>
+        <p>Each agent is trained on a specific domain and shares context with every other agent in the fleet. The result is work that gets better the more you use it, because the system remembers your patterns, your preferences, and your history across every interaction.</p>
+        <a href="https://fleet.workplace-ai.com/" target="_blank" rel="noopener" class="flagship-link">
+          Learn about Fleet <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════ PRODUCT EXPLORER ═══════ -->
+<section class="products-section section" id="explorer">
+  <div class="container">
+    <div class="products-head fade-up">
+      <span class="eyebrow">Full Portfolio</span>
+      <h2>Explore all products.</h2>
+    </div>
+
+    <div class="product-explorer fade-up">
+      <!-- Left: category cards -->
+      <div class="explorer-cards">
+
+        <div class="explorer-card" data-cat="work" style="background:rgba(138,81,162,0.08);">
+          <div class="explorer-card-label">Your Work</div>
+          <div class="explorer-card-items">
+            <div class="explorer-item featured active" data-color="#8A51A2" data-name="Workplace AI" data-cat-label="Your Work" data-desc="Turn every meeting into structured knowledge, tracked actions, and measurable performance. Our flagship product for teams that want to stop losing decisions to bad notes." data-url="https://workplace-ai.com" data-icon="groups">
+              <div class="explorer-dot" style="background:#8A51A2;"></div>
+              <span class="explorer-name">Workplace AI</span>
+              <span class="explorer-badge">Featured</span>
+            </div>
+            <div class="explorer-item" data-color="#8A51A2" data-name="EAScribe" data-cat-label="Your Work" data-desc="AI operating system for executive assistants and chiefs of staff supporting C-suite leaders." data-url="https://eascribe.soar.com" data-icon="assistant">
+              <div class="explorer-dot" style="background:#8A51A2;"></div>
+              <span class="explorer-name">EAScribe</span>
+            </div>
+            <div class="explorer-item" data-color="#8A51A2" data-name="Soar Sales AI" data-cat-label="Your Work" data-desc="Turn sales conversations into actionable insights that drive smarter decisions." data-url="https://soarsales.ai" data-icon="trending_up">
+              <div class="explorer-dot" style="background:#8A51A2;"></div>
+              <span class="explorer-name">Soar Sales AI</span>
+            </div>
+            <div class="explorer-item" data-color="#8A51A2" data-name="PitchPerfect" data-cat-label="Your Work" data-desc="AI pitch coach that scores your pitch like a real VC — so you walk in prepared." data-url="https://pitchperfect.soar.com" data-icon="campaign">
+              <div class="explorer-dot" style="background:#8A51A2;"></div>
+              <span class="explorer-name">PitchPerfect</span>
+            </div>
+            <div class="explorer-item" data-color="#8A51A2" data-name="LegalScribe" data-cat-label="Your Work" data-desc="AI-powered meeting intelligence for legal professionals. Every detail, every case." data-url="https://legalscribe.soar.com" data-icon="gavel">
+              <div class="explorer-dot" style="background:#8A51A2;"></div>
+              <span class="explorer-name">LegalScribe</span>
+            </div>
+            <div class="explorer-item" data-color="#8A51A2" data-name="SiteScribe" data-cat-label="Your Work" data-desc="Narrate on-site, get professional reports and estimates — no more midnight paperwork." data-url="https://tradescribe.soar.com" data-icon="construction">
+              <div class="explorer-dot" style="background:#8A51A2;"></div>
+              <span class="explorer-name">SiteScribe</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="explorer-card" data-cat="words" style="background:rgba(26,158,122,0.08);">
+          <div class="explorer-card-label">Your Words</div>
+          <div class="explorer-card-items">
+            <div class="explorer-item" data-color="#1A9E7A" data-name="AuthorFlow" data-cat-label="Your Words" data-desc="Turn expert interviews and voice notes into chapter-ready first drafts." data-url="https://authorflow.soar.com" data-icon="edit_note">
+              <div class="explorer-dot" style="background:#1A9E7A;"></div>
+              <span class="explorer-name">AuthorFlow</span>
+            </div>
+            <div class="explorer-item" data-color="#1A9E7A" data-name="PodScribe" data-cat-label="Your Words" data-desc="Turn your podcast library into a searchable, queryable knowledge base." data-url="https://podscribe.soar.com" data-icon="podcasts">
+              <div class="explorer-dot" style="background:#1A9E7A;"></div>
+              <span class="explorer-name">PodScribe</span>
+            </div>
+            <div class="explorer-item" data-color="#1A9E7A" data-name="VoxMea" data-cat-label="Your Words" data-desc="Learn languages from your actual work meetings — not textbook phrases." data-url="https://voxmea.soar.com" data-icon="translate">
+              <div class="explorer-dot" style="background:#1A9E7A;"></div>
+              <span class="explorer-name">VoxMea</span>
+            </div>
+            <div class="explorer-item" data-color="#1A9E7A" data-name="CourseScribe" data-cat-label="Your Words" data-desc="Turn classroom recordings into structured course content — built from your best teaching." data-url="https://coursescribe.soar.com" data-icon="school">
+              <div class="explorer-dot" style="background:#1A9E7A;"></div>
+              <span class="explorer-name">CourseScribe</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="explorer-card" data-cat="family" style="background:rgba(238,120,90,0.08);">
+          <div class="explorer-card-label">Your Family</div>
+          <div class="explorer-card-items">
+            <div class="explorer-item featured" data-color="#EE785A" data-name="FamilyScribe" data-cat-label="Your Family" data-desc="Preserve family stories, voices, and history before they're gone. Searchable and organized forever. Built by the co-founder of Ancestry.com." data-url="https://familyscribe.soar.com" data-icon="family_restroom">
+              <div class="explorer-dot" style="background:#EE785A;"></div>
+              <span class="explorer-name">FamilyScribe</span>
+              <span class="explorer-badge">Featured</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="explorer-card" data-cat="community" style="background:rgba(74,139,196,0.08);">
+          <div class="explorer-card-label">Your Community</div>
+          <div class="explorer-card-items">
+            <div class="explorer-item featured" data-color="#4A8BC4" data-name="Citizen Portal" data-cat-label="Your Community" data-desc="Stay informed on everything happening in local, state, and federal government. Over 1 million hours of public meetings — searchable, accessible, and transparent." data-url="https://citizenportal.us/home" data-icon="account_balance">
+              <div class="explorer-dot" style="background:#4A8BC4;"></div>
+              <span class="explorer-name">Citizen Portal</span>
+              <span class="explorer-badge">Featured</span>
+            </div>
+            <div class="explorer-item" data-color="#4A8BC4" data-name="PublicMinutes" data-cat-label="Your Community" data-desc="Search and explore over 1 million hours of public meetings — made accessible by AI." data-url="https://minutes.citizenportal.ai" data-icon="record_voice_over">
+              <div class="explorer-dot" style="background:#4A8BC4;"></div>
+              <span class="explorer-name">PublicMinutes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="explorer-card" data-cat="learning" style="background:rgba(212,168,67,0.08);">
+          <div class="explorer-card-label">Your Learning</div>
+          <div class="explorer-card-items">
+            <div class="explorer-item featured" data-color="#D4A843" data-name="SOAR AI Institute" data-cat-label="Your Learning" data-desc="Two-day hands-on workshop. Build a working AI tool on your real business data. Leave with something running. Taught by Paul Allen." data-url="https://institute.soar.com" data-icon="workspace_premium">
+              <div class="explorer-dot" style="background:#D4A843;"></div>
+              <span class="explorer-name">SOAR AI Institute</span>
+              <span class="explorer-badge">Featured</span>
+            </div>
+            <div class="explorer-item" data-color="#D4A843" data-name="AceIt" data-cat-label="Your Learning" data-desc="AI interview coach — records real interviews and shows where you shine and stumble." data-url="https://aceit.soar.com" data-icon="mic">
+              <div class="explorer-dot" style="background:#D4A843;"></div>
+              <span class="explorer-name">AceIt</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: detail card -->
+      <div class="explorer-detail">
+        <div class="explorer-detail-inner" id="explorerDetail">
+          <div class="explorer-detail-hero" id="explorerHero">
+            <span class="material-symbols-outlined" id="explorerIconSpan">groups</span>
+            <img id="explorerImg" src="" alt="" style="display:none; max-width:100%; max-height:100%; object-fit:contain; padding:24px;">
+          </div>
+          <div class="explorer-detail-body">
+            <div class="explorer-detail-cat" id="explorerCat">Your Work</div>
+            <h3 class="explorer-detail-name" id="explorerName">Workplace AI</h3>
+            <p class="explorer-detail-desc" id="explorerDesc">Turn every meeting into structured knowledge, tracked actions, and measurable performance. Our flagship product for teams that want to stop losing decisions to bad notes.</p>
+            <a href="https://workplace-ai.com" target="_blank" rel="noopener" class="explorer-detail-link" id="explorerLink">
+              Visit site <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+            </a>
+          </div>
+          <div class="explorer-progress" id="explorerProgress">
+            <div class="explorer-progress-bar" id="explorerBar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="fade-up" style="text-align:center; margin-top:40px; font-size:14px; color:var(--fg-subtle);">Plus more in development across real estate, fitness, culinary, weddings, and beyond.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ CTA BAND ═══════ -->
+<section style="background:var(--purple); padding:80px 0;">
+  <div class="container fade-up" style="text-align:center;">
+    <h2 style="font-size:clamp(28px,4vw,42px); font-weight:800; color:#fff; margin-bottom:16px; text-wrap:balance;">Want to know more?</h2>
+    <p style="font-size:17px; color:rgba(255,255,255,0.75); margin-bottom:36px; max-width:480px; margin-left:auto; margin-right:auto;">Learn about the team building these products, or start a conversation about what SOAR can do for you.</p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+      <a href="../about/" class="btn btn-primary">
+        About Our Team
+        <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+      </a>
+      <a href="../get-involved/" class="btn btn-outline-ondark">
+        Get Involved
+        <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FOOTER ═══════ -->
+<footer style="background:var(--navy); padding:56px 0 40px;">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px;">
+      <div>
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+          <svg viewBox="0 0 98.2 142.65" style="height:22px; width:auto; flex-shrink:0;"><defs><style>.sf2{fill:#e57e61;}</style></defs><g><path class="sf2" d="M73.35,78.48c4.3,21.62,3.91,36.66-13.2,51.9-7.5,6.68-16.42,11.12-26.43,12.13-12.86,1.3-24.08-6.68-26.62-19.28-2.89-14.38,25.95-17.09,39.56-19.59l20.66-3.8c1.69-15.89-12.99-49.53-2.41-55.74,12.18-7.15,40.38,26.51,31.65,47.27-2.56,6.1-9.03,11.17-15.36,12.21-2.32.38-2.95-2.98-2.84-4.35.15-2,1.5-3.67,3.65-4.63,5.97-2.68,9.31-8.55,7.81-15.25-2.55-11.39-9.83-21.91-20.39-28.29-.4,9.77,2.14,18.39,3.93,27.41ZM32.43,134.29c14.71-1.63,27.39-11.55,33.21-25.3l-32.75,5.36c-4.91.8-9.36,2.05-13.81,4.21-1.28.77-3.77,2.18-3.38,4.12,1.48,7.35,8.52,12.52,16.74,11.6Z"/><path class="sf2" d="M.66,65.76c-2.52-11.16,2.32-20.79,12.1-25.34,1.63-.76,3.54-2.35,5.6-.98,2.31,1.54,2.15,6.7-.75,7.86-6.74,2.7-10.78,8.85-8.97,16.38,2.69,11.16,9.73,21.23,20.17,27.87.79-8.37-1.33-15.99-3.05-23.7-4.02-17.99-5.91-34.97,6.3-49.33C40.32,8.81,50.97,1.85,63.69.22c13.61-1.74,26.24,6.78,27.68,20.67.43,4.13-3.22,7.83-6.68,9.73-13.86,7.63-36.96,7.51-53.71,12.28-1.41,16.22,13.87,51.89,1.53,56.01-4.35,1.45-8.85-.32-12.43-3.17-9.46-7.52-16.68-17.86-19.42-29.99ZM82.63,20.06c-1.26-7.65-8.82-12.69-16.85-11.8-14.5,1.61-27.3,11.73-33.16,25.44l23.63-3.81c8.81-1.42,27.27-4.48,26.38-9.83Z"/></g></svg>
+          <span style="font-family:'Urbanist',sans-serif; font-size:15px; font-weight:700; color:var(--fg-on-dark); letter-spacing:0.08em;">SOAR</span>
+        </div>
+        <p style="font-size:14px; color:rgba(255,255,255,0.4); font-style:italic;">Unlocking Human Potential with AI</p>
+      </div>
+      <div>
+        <p style="font-family:'Urbanist',sans-serif; font-size:11px; font-weight:700; color:rgba(255,255,255,0.75); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.1);">Company</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="../about/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">About</a>
+          <a href="../founder/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Founder</a>
+          <a href="../careers/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Careers</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:'Urbanist',sans-serif; font-size:11px; font-weight:700; color:rgba(255,255,255,0.75); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.1);">Resources</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="../media/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Media</a>
+          <a href="./" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Products</a>
+          <a href="../case-studies/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Case Studies</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:'Urbanist',sans-serif; font-size:11px; font-weight:700; color:rgba(255,255,255,0.75); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.1);">Connect</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="../get-involved/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Get Involved</a>
+          <a href="../#contact" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Contact</a>
+        </div>
+        <div style="display:flex; gap:14px; margin-top:20px;">
+          <a href="https://substack.com/@paulallenai" target="_blank" rel="noopener" style="width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.45); transition:background 0.2s, color 0.2s;" title="Substack"><i class="fa-solid fa-square-rss" style="font-size:14px;"></i></a>
+          <a href="https://www.linkedin.com/company/soarwithyourstrengths/posts/?feedView=all" target="_blank" rel="noopener" style="width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.45); transition:background 0.2s, color 0.2s;" title="LinkedIn"><i class="fa-brands fa-linkedin-in" style="font-size:14px;"></i></a>
+          <a href="https://x.com/soaruplift" target="_blank" rel="noopener" style="width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.45); transition:background 0.2s, color 0.2s;" title="X"><i class="fa-brands fa-x-twitter" style="font-size:14px;"></i></a>
+          <a href="https://www.youtube.com/@SoarWithYourStrengths" target="_blank" rel="noopener" style="width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.45); transition:background 0.2s, color 0.2s;" title="YouTube"><i class="fa-brands fa-youtube" style="font-size:14px;"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p style="font-size:12px; color:rgba(255,255,255,0.35);">&copy; 2026 SOAR AI Studio. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://try.soar.com/privacy/" target="_blank" rel="noopener">Privacy</a>
+        <a href="https://try.soar.com/terms/" target="_blank" rel="noopener">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════ JS ═══════ -->
+<script>
+// Product Explorer
+(function() {
+  var items = document.querySelectorAll('.explorer-item');
+  var nameEl = document.getElementById('explorerName');
+  var descEl = document.getElementById('explorerDesc');
+  var linkEl = document.getElementById('explorerLink');
+  var catEl = document.getElementById('explorerCat');
+  var iconSpan = document.getElementById('explorerIconSpan');
+  var imgEl = document.getElementById('explorerImg');
+  var bar = document.getElementById('explorerBar');
+
+  var catColors = {
+    'Your Work': '#8A51A2', 'Your Words': '#1A9E7A',
+    'Your Family': '#EE785A', 'Your Community': '#4A8BC4', 'Your Learning': '#D4A843'
+  };
+
+  var featured = [];
+  var featuredOrder = ['Workplace AI', 'FamilyScribe', 'Citizen Portal', 'SOAR AI Institute'];
+  featuredOrder.forEach(function(name) {
+    items.forEach(function(item) {
+      if (item.getAttribute('data-name') === name) featured.push(item);
+    });
+  });
+
+  var cycleIndex = 0, cycleInterval = null, CYCLE_MS = 4000;
+  var userInteracted = false, lockedItem = null;
+
+  function selectItem(item) {
+    items.forEach(function(i) { i.classList.remove('active'); });
+    item.classList.add('active');
+    var catLabel = item.getAttribute('data-cat-label') || '';
+    var color = catColors[catLabel] || '#EE785A';
+    nameEl.textContent = item.getAttribute('data-name');
+    descEl.textContent = item.getAttribute('data-desc');
+    linkEl.href = item.getAttribute('data-url');
+    catEl.textContent = catLabel;
+    catEl.style.color = color;
+    linkEl.style.color = color;
+    bar.style.background = color;
+    var imgSrc = item.getAttribute('data-img');
+    if (imgSrc) {
+      iconSpan.style.display = 'none';
+      imgEl.src = imgSrc; imgEl.alt = item.getAttribute('data-name'); imgEl.style.display = 'block';
+    } else {
+      imgEl.style.display = 'none'; iconSpan.style.display = '';
+      iconSpan.textContent = item.getAttribute('data-icon'); iconSpan.style.color = color;
+    }
+    linkEl.style.display = item.getAttribute('data-url') === '#' ? 'none' : '';
+  }
+
+  function startProgress() {
+    bar.style.transition = 'none'; bar.style.width = '0%';
+    void bar.offsetWidth;
+    bar.style.transition = 'width ' + CYCLE_MS + 'ms linear'; bar.style.width = '100%';
+  }
+  function cycle() { selectItem(featured[cycleIndex]); startProgress(); cycleIndex = (cycleIndex + 1) % featured.length; }
+  function startCycle() { cycle(); cycleInterval = setInterval(cycle, CYCLE_MS); }
+  function stopCycle() { userInteracted = true; clearInterval(cycleInterval); bar.style.transition = 'none'; bar.style.width = '0%'; document.getElementById('explorerProgress').style.display = 'none'; }
+
+  items.forEach(function(item) {
+    item.addEventListener('mouseenter', function() {
+      if (!userInteracted) return;
+      selectItem(item);
+    });
+    item.addEventListener('mouseleave', function() {
+      if (!userInteracted) return;
+      if (lockedItem && lockedItem !== item) selectItem(lockedItem);
+    });
+    item.addEventListener('click', function() {
+      if (!userInteracted) stopCycle();
+      lockedItem = item;
+      selectItem(item);
+      if (window.innerWidth <= 768) {
+        document.querySelector('.explorer-detail').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  });
+  startCycle();
+})();
+
+// Fade-up observer
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+})();
+</script>
+</body>
+</html>
