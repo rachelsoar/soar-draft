@@ -40,7 +40,8 @@ img { max-width: 100%; display: block; }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
 .section { padding: 112px 0; }
 .eyebrow { font-family: 'Urbanist', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral); }
-.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; visibility: hidden; }
+.fonts-loaded .material-symbols-outlined { visibility: visible; }
 .fade-up { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 
@@ -403,9 +404,9 @@ footer a:hover .fa-brands, footer a:hover .fa-solid { color: var(--coral) !impor
         <p style="font-family:'Urbanist',sans-serif; font-size:11px; font-weight:700; color:rgba(255,255,255,0.75); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.1);">Company</p>
         <div style="display:flex; flex-direction:column; gap:10px;">
           <a href="../about/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">About</a>
-          <a href="../team/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Team</a>
+          <a href="../about/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Team</a>
           <a href="../founder/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Founder</a>
-          <a href="../advisory-board/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Advisory Board</a>
+          <a href="../get-involved/#advisory-board" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Advisory Board</a>
           <a href="../careers/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Careers</a>
         </div>
       </div>
@@ -422,7 +423,7 @@ footer a:hover .fa-brands, footer a:hover .fa-solid { color: var(--coral) !impor
         <p style="font-family:'Urbanist',sans-serif; font-size:11px; font-weight:700; color:rgba(255,255,255,0.75); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.1);">Connect</p>
         <div style="display:flex; flex-direction:column; gap:10px;">
           <a href="../get-involved/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Get Involved</a>
-          <a href="../#contact" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Contact</a>
+          <a href="#contact" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Contact</a>
         </div>
         <div style="display:flex; gap:14px; margin-top:20px;">
           <a href="https://substack.com/@paulallenai" target="_blank" rel="noopener" style="width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.45); transition:background 0.2s, color 0.2s;" title="Substack"><i class="fa-solid fa-square-rss" style="font-size:14px;"></i></a>
