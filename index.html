@@ -14,6 +14,7 @@
 <meta property="og:url" content="https://soar.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="sky-hero.jpg" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
 <style>
@@ -87,6 +88,10 @@ img { max-width: 100%; display: block; }
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   vertical-align: middle;
+  visibility: hidden;
+}
+.fonts-loaded .material-symbols-outlined {
+  visibility: visible;
 }
 
 /* ══════════════════════════════════════
@@ -1387,8 +1392,8 @@ footer a:hover .fa-brands, footer a:hover .fa-solid { color: var(--coral) !impor
         <h2>A human-centered AI company.</h2>
       </div>
       <div class="whatis-right">
-        <p>SOAR AI Studio is a <strong style="color:#fff;">human-centered AI company</strong> building products that help people <strong style="color:#fff;">learn faster, create more, work smarter</strong>, and live with greater purpose.</p>
-        <p style="margin-top:16px;">Built on a <strong style="color:#fff;">shared AI platform</strong>, SOAR brings practical AI into everyday life across work, family, learning, and community.</p>
+        <p>SOAR AI Studio is a human-centered AI company building products that help people <strong style="color:#fff;">learn faster, create more, work smarter</strong>, and live with greater purpose.</p>
+        <p style="margin-top:16px;">Built on a shared AI platform, SOAR brings practical AI into everyday life across work, family, learning, and community.</p>
         <p style="margin-top:16px;">We believe AI should do more than automate tasks. It should <strong style="color:#fff;">expand what people are capable of becoming</strong>.</p>
         <a href="about/" class="btn btn-outline">
           More About Us
@@ -1809,7 +1814,7 @@ footer a:hover .fa-brands, footer a:hover .fa-solid { color: var(--coral) !impor
         <div class="case-card-body">
           <h3>Global Peter Drucker Forum</h3>
           <p>AI-enabled learning for leaders at one of the world's most respected management conferences.</p>
-          <a href="case-studies/drucker/">
+          <a href="case-studies/">
             Read the case study
             <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
           </a>
@@ -1822,7 +1827,7 @@ footer a:hover .fa-brands, footer a:hover .fa-solid { color: var(--coral) !impor
         <div class="case-card-body">
           <h3>SHRM</h3>
           <p>Turning content into a growth flywheel for the global leader in human resources.</p>
-          <a href="case-studies/shrm/">
+          <a href="case-studies/">
             Read the case study
             <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
           </a>
@@ -1835,7 +1840,7 @@ footer a:hover .fa-brands, footer a:hover .fa-solid { color: var(--coral) !impor
         <div class="case-card-body">
           <h3>HighFocus Sales AI</h3>
           <p>Instant AI feedback on email and video calls to boost sales communication.</p>
-          <a href="case-studies/highfocus/">
+          <a href="case-studies/">
             Read the case study
             <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
           </a>
@@ -1967,9 +1972,9 @@ footer a:hover .fa-brands, footer a:hover .fa-solid { color: var(--coral) !impor
         <p style="font-family:'Urbanist',sans-serif; font-size:11px; font-weight:700; color:rgba(255,255,255,0.75); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.1);">Company</p>
         <div style="display:flex; flex-direction:column; gap:10px;">
           <a href="about/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">About</a>
-          <a href="team/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Team</a>
+          <a href="about/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Team</a>
           <a href="founder/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Founder</a>
-          <a href="advisory-board/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Advisory Board</a>
+          <a href="get-involved/#advisory-board" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Advisory Board</a>
           <a href="careers/" style="font-size:14px; color:rgba(255,255,255,0.55); transition:color 0.15s;">Careers</a>
         </div>
       </div>
@@ -2002,8 +2007,8 @@ footer a:hover .fa-brands, footer a:hover .fa-solid { color: var(--coral) !impor
     <div class="footer-bottom">
       <p style="font-size:12px; color:rgba(255,255,255,0.35);">&copy; 2026 SOAR AI Studio. All rights reserved.</p>
       <div class="footer-links">
-        <a href="https://try.soar.com/privacy/" target="_blank" rel="noopener">Privacy</a>
-        <a href="https://try.soar.com/terms/" target="_blank" rel="noopener">Terms</a>
+        <a href="privacy/">Privacy</a>
+        <a href="terms/">Terms</a>
       </div>
     </div>
   </div>
@@ -2019,6 +2024,11 @@ footer a:hover .fa-brands, footer a:hover .fa-solid { color: var(--coral) !impor
   document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
   document.querySelectorAll('.hiw-visual').forEach(function(el) { observer.observe(el); });
 })();
+
+// Show icons once Material Symbols font loads
+document.fonts.ready.then(function() {
+  document.body.classList.add('fonts-loaded');
+});
 
 // Agent feed — staggered infinite scroll with checkbox animation
 (function() {
