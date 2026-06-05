@@ -2111,7 +2111,7 @@ document.fonts.ready.then(function() {
 
     setTimeout(function() {
       if (running) intervalId = setInterval(tick, 1800);
-    }, 2000);
+    }, 400);
   }
 
   function stop() {
@@ -2131,7 +2131,7 @@ document.fonts.ready.then(function() {
         resetAllChecks();
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.1 });
 
   feedObserver.observe(container);
 })();
